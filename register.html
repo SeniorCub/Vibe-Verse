@@ -100,7 +100,7 @@
                height: 100%;
            }
            
-           form{
+           .formm{
                padding: 20px 40px;
                display: grid;
            }
@@ -201,69 +201,65 @@
 
                <div class="forms">
                     <div class="form1">
-                         <form>
-                              <label for="level">are you for regular?</label>
-                              <!-- select option for party level option -->
-                              <select name="level" id="level">
-                                   <option value="1">Yes</option>
-                                   <option value="2">No</option>
-                              </select>
-               
-                              <input type="number" class="price" disabled value="2000">
-                         </form>
-
-                         <div class="movement">
-                              <!-- <button class="back1">Back</button> -->
-                              <button class="next next1">Next</button>
+                         <div class="formm">
+                             <label for="level">Are you for regular?</label>
+                             <select name="level" id="level" class="p-2" required>
+                                 <option value="" selected disabled>Choose Option</option>
+                                 <option value="Yes">Yes</option>
+                                 <option value="No">No</option>
+                             </select>
                          </div>
-                    </div>
+                     
+                         <div class="movement">
+                             <button class="next next1" onclick="btn_next1()">Next</button>
+                         </div>
+                     </div>
      
                     <div class="form2">
-                         <form>
+                         <div class="formm">
                               <div class="label">
                                    <label for="email">email:</label>
-                                   <input type="email" id="email">
+                                   <input type="email" id="email" name="email">
           
-                                   <label for="address">Address:</label>
-                                   <input type="text" id="address">
-          
-                                   <label for="Age">Age:</label>
-                                   <input type="text" id="age">
+                                   <label for="uname">username:</label>
+                                   <input type="text" id="uname" name="uname">
                               </div>
-                         </form>
+                         </div>
 
                          <div class="movement">
-                              <button class="back back2">Back</button>
-                              <button class="next next2">Next</button>
+                              <button type="button" class="back back2">Back</button>
+                              <button type="button" class="next next2">Next</button>
                          </div>
                     </div>
                     
                     <div class="form3">
-                         <form>
+                         <div class="formm">
                               <div class="label">
-                                   <label for="password">Create Password:</label>
-                                   <input type="password" id="CrPwd">
-          
-                                   <label for="confirm">Confirm your Password:</label>
-                                   <input type="password" id="CoPwd">
+                                   <div class="inputs">
+                                        <label for="amount" class="form-label">Amount</label>
+                                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" value="0" disabled>
+                                   </div>
                               </div>
-                         </form>
+                         </div>
      
                          <div class="movement">
-                              <button class="back back3">Back</button>
-                              <button class="next next3">Next</button>
+                              <button type="button" class="back back3">Back</button>
+                              <button type="button" class="next next3 btn mt-3 btn-primary" onclick="generateQRCode()">Pay Now</button>
                          </div>
                     </div>
 
                     <div class="form4">
-                         <form class="for">
-                              <h3>I'm not a Robot</h3>
-                              <input type="checkbox" name="" id="ckbox">
-                         </form>
+                         <div class="formm">
+                              <div id="qrcode"></div>
+                              <div class="ticket">
+
+                              </div>
+                         </div>
      
                          <div class="movement">
-                              <button class="back back4">Back</button>
-                              <button class="next next4">Submit</button>
+                              <button type="button" class="back back4">Back</button>
+                              <button type="button" class="next download">Download</button>
+                              <button type="button" class="next next4">Finish</button>
                          </div>
                     </div>
                </div>
@@ -272,7 +268,28 @@
 
      <script src="OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
      <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script src="https://js.paystack.co/v1/inline.js"></script>
      <script src="script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+     <script>
+         function generateQRCode() {
+             const text = document.getElementById("email").value;
+             const qrcodeContainer = document.getElementById("qrcode");
+             qrcodeContainer.innerHTML = ""; // Clear previous QR code if any
+ 
+             if (text.trim()) {
+                 new QRCode(qrcodeContainer, {
+                     text: text,
+                     width: 128,
+                     height: 128,
+                     colorDark: "#000000",
+                     colorLight: "#ffffff",
+                 });
+             } else {
+                 alert("Please enter some text to generate the QR code.");
+             }
+         }
+     </script>
      <script>
           // Next on Form one
 const next1 = document.querySelector('.next1').addEventListener("click", btn_next1);
@@ -284,7 +301,9 @@ const next3 = document.querySelector('.next3').addEventListener("click", btn_nex
 const back3 = document.querySelector('.back3').addEventListener("click", btn_back3);
 // Back and Next on Form 4
 const back4 = document.querySelector('.back4').addEventListener("click", btn_back4);
-const next4 = document.querySelector('.next4').addEventListener("click", btn_next4);
+const next4 = document.querySelector('.next4');
+next4.addEventListener("click", btn_next4);
+const download = document.querySelector('.download');
 
 // Inputs on Form 1
 let level = document.querySelector('#level');
@@ -292,11 +311,9 @@ let lastName = document.querySelector('#last_name');
 let userName = document.querySelector('#user_name');
 // Inputs on Form 2
 let email = document.querySelector('#email');
-let address = document.querySelector('#address');
-let age = document.querySelector('#age');
+let emaill = document.querySelector('#email');
+let uname = document.querySelector('#uname');
 // Inputs on Form 3
-let crPwd = document.querySelector('#CrPwd');
-let coPwd = document.querySelector('#CoPwd');
 // Inputs on Form 4
 let ckbox = document.querySelector('#ckbox');
 
@@ -305,24 +322,63 @@ const fullNamePattern = /^[A-Za-z\s'\-]+$/;
 // Define a regular expression pattern for email validation.
 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
+function payWithPaystack() {
+     let handler = PaystackPop.setup({
+         key: 'pk_test_7c8afac2a29e69900f51137136528cd58d92ff5e',
+         email: emaill,
+         amount: amountt.value * 100,
+         currency: 'NGN',
+         ref: 'PSK-' + Math.floor((Math.random() * 1000000000) + 1),
+         metadata: {
+             custom_fields: [
+                 {
+                     display_name: "Manual",
+                     variable_name: "manual",
+                     value: 'Tuition Fees'
+                 },
+                 {
+                     display_name: "Amount",
+                     variable_name: "amount",
+                     value: amountt.value
+                 },
+                 {
+                     display_name: "Payment Type",
+                     variable_name: "payment_type",
+                     value: full.checked ? 'Full Payment' : 'Part Payment'
+                 }
+             ]
+         },
+         callback: function(response) {
+             handlePaymentResponse(response);
+         },
+         onClose: function() {
+             alert('Payment window closed.');
+         }
+     });
+     handler.openIframe();
+}
+
+
 // Step 1
 function btn_next1() {
-     const form1 = document.querySelector('.form1')
-     const form2 = document.querySelector('.form2')
-     const form3 = document.querySelector('.form3')
-     const form4 = document.querySelector('.form4')
-     const line2 =document.querySelector('.line2')
+     const level = document.getElementById('level'); // Get the level select element
+     const form1 = document.querySelector('.form1');
+     const form2 = document.querySelector('.form2');
+     const form3 = document.querySelector('.form3');
+     const form4 = document.querySelector('.form4');
+     const line2 = document.querySelector('.line2');
      
-     if (!level.selected) {
-          alert('Error');
+     if (level.value === "") { // Check if the user selected an option
+         alert('Please select an option for "Are you for regular?"');
      } else {
-          line2.style.display = 'block'
-          form1.style.left = '-600px'
-          form2.style.left = '130px'
-          form3.style.left = '600px'
-          form4.style.left = '1070px'
+         line2.style.display = 'block';
+         form1.style.left = '-600px';
+         form2.style.left = '130px';
+         form3.style.left = '600px';
+         form4.style.left = '1070px';
      }
-};
+ }
+ 
 // Step 2
 function btn_next2() {
      const form1 = document.querySelector('.form1')
@@ -330,14 +386,11 @@ function btn_next2() {
      const form3 = document.querySelector('.form3')
      const form4 = document.querySelector('.form4')
      const line3 =document.querySelector('.line3')
-     const ageValue = parseInt(age.value);
 
-     if (email.value == "" || address.value == "" || age.value == "") {
+     if (email.value == "" || uname.value == "") {
           alert('Error')
      } else if (!emailPattern.test(email.value) ) {
-          alert('Invalid email address');
-     } else if (isNaN(ageValue) || ageValue < 0 || ageValue > 150) {
-          alert('Invalid age');
+          alert('Invalid email uname');
      } else {
      line3.style.display = 'block'
      form1.style.left = '-1070px'
@@ -379,20 +432,13 @@ function btn_next3() {
      const form3 = document.querySelector('.form3')
      const form4 = document.querySelector('.form4')
      const line4 =document.querySelector('.line4')
-     if (crPwd.value == "" || coPwd.value == "") {
-          alert('Error')
-     }else if (crPwd.value.length !== 8 || coPwd.value.length !== 8) {
-          alert('Password must be exactly 8 characters long');
-     } else if (crPwd.value === coPwd.value) {
-          // Proceed to the next step
+     
           line4.style.display = 'block'
+          next4.style.display = 'none'
           form1.style.left = '-1540px'
           form2.style.left = '-1070px' 
           form3.style.left = '-600px'
           form4.style.left = '130px'
-     } else {
-          alert('Passwords do not match');
-     }
 };
 // Step 4
 function btn_back4() {
@@ -408,6 +454,38 @@ function btn_back4() {
      form3.style.left = '130px'
      form4.style.left = '600px'
 };
+download.addEventListener('click', ()=>{
+   // next4.style.display = 'block';
+   // download.style.display = 'none';
+
+     // Change 'path/to/your/pdf/file.pdf' to the actual path of your PDF file
+     var pdfUrl1 = 'images/2333.jpg';
+     var pdfUrl2 = 'images/321.jpg';
+     
+     // Create a link element
+     var link1 = document.createElement('a');
+     var link2 = document.createElement('a');
+     
+     // Set the href attribute to the PDF file URL
+     link1.href = pdfUrl1;
+     link2.href = pdfUrl2;
+     
+     // Set the download attribute to force download the PDF file instead of opening it in a new tab
+     link1.download = 'qrcode.jpg';
+     link2.download = 'tickt.jpg';
+     
+     // Append the link to the document body
+     document.body.appendChild(link1);
+     document.body.appendChild(link2);
+     
+     // Trigger a click event on the link
+     link1.click();
+     link2.click();
+     
+     // Remove the link from the document body
+     document.body.removeChild(link1);
+     document.body.removeChild(link2);
+})
 function btn_next4() {
      if (ckbox.checked) {
           // For external link
