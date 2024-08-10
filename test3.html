@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          .section{
+               background: url(images/media2.png);
+               width: 500px;
+               position: relative;
+               height: 500px; 
+               background-size: cover;
+     background-position: center;
+          }
+          .section::before{
+               content: "";
+               position: absolute;
+               background: url(images/media1.png);
+               mix-blend-mode: soft-light;
+               width: 100%;
+               height: 100%;
+               background-size: cover;
+     background-position: center;
+          }
+     </style>
+</head>
+<body>
+     
+     <div class="section"></div>
+
+</body>
+</html>

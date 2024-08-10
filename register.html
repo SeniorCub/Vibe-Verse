@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
+     <link rel="stylesheet" href="OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <style>           
+           /* Form 1 */
+           .form-page{
+               height: 87vh;
+               width: 100%;
+               background-color: #f8f8ff;
+               display: flex;
+           
+           }
+           
+           .container{
+               width: 40%;
+               background-color: grey;
+               border-radius: 15px;
+               justify-content: center;
+               margin: auto;
+               color: #fff;
+               height: 75%;
+               overflow-x: hidden;
+           }
+           
+           
+           
+           .steps{
+               display: grid;
+               grid-template-columns: repeat(4,1fr);
+               border-bottom: 1px solid #333;
+               position: relative;
+           }   
+           
+           .steps div{
+               padding: 7px 10px;
+               text-align: center;
+           }
+           
+           .step1{
+               border-right: 1px solid #333;
+           }
+           
+           .step3{
+               border-left: 1px solid #333;
+           }
+           
+           .step1, .step2, .step3, .step4{
+               z-index: 1;
+           }
+           
+           .line1{
+               position: absolute;
+               width: 25%;
+               top: 0;
+               bottom: 0;
+               background-color: black;
+               /* display: none; */
+           }
+           .line2{
+               position: absolute;
+               width: 50%;
+               top: 0;
+               bottom: 0;
+               background-color: black;
+               display: none;
+           }
+           .line3{
+               position: absolute;
+               width: 75%;
+               top: 0;
+               bottom: 0;
+               background-color: black;
+               display: none;
+           }
+           .line4{
+               position: absolute;
+               width: 100%;
+               top: 0;
+               bottom: 0;
+               background-color: black;
+               display: none;
+           }
+           
+           .forms{
+               width: 100%;
+               /* background-color: blue; */
+               display: flex;
+               /* overflow: hidden; */
+               position: relative;
+           }
+           
+           .form1, .form2, .form3, .form4{
+               position: absolute;
+               height: 100%;
+           }
+           
+           form{
+               padding: 20px 40px;
+               display: grid;
+           }
+           
+           .form1{
+                top: 50px;
+               left: 130px;
+               transition: 1.5s;
+           }
+           .form2{
+                top: 50px;
+               left: 600px;
+               transition: 1.5s;
+           }
+           .form3{
+                top: 120px;
+               left: 1070px;
+               transition: 1.5s;
+           }
+           .form4{
+                top: 120px;
+               left: 1540px;
+               transition: 1.5s;
+           }
+           .for {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+           }
+           
+           .label{
+               margin: auto;
+               display: grid;
+           }
+           
+           input, select{
+               border: none;
+               border-bottom: 1px solid #333;
+               border-radius: 10px;
+               margin: 15px;
+               outline: none;
+               padding: 0 10px;
+               background-color: transparent;
+           }
+           #ckbox{
+                width: 25px;
+                height: 25px;
+           }
+           
+           
+           
+           .movement {
+                width: 100%;
+           }
+           .next {
+                padding: 7px 15px;
+                float: right;
+                border: 1px #333 solid;
+                background-color: transparent;
+                color: #fff;
+                border-radius: 6px;
+                transition: .2s;
+           }
+           .next:hover {
+                background-color: #fff;
+                color: #333;
+           }
+           .back {
+                padding: 7px 15px;
+                float: left;
+                border: 1px #333 solid;
+                background-color: transparent;
+                color: #fff;
+                border-radius: 6px;
+                transition: .2s;
+           }
+           .back:hover {
+                background-color: #fff;
+                color: #333;
+           }   
+     </style>
+</head>
+<body>
+
+     <div class="form-page">
+          <div class="container">
+               <div class="steps">
+                    <div class="step1">Step 1</div>
+                    <div class="step2">Step 2</div>
+                    <div class="step3">Step 3</div>
+                    <div class="step4">Step 4</div>
+
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                    <div class="line4"></div>
+               </div>
+
+               <div class="forms">
+                    <div class="form1">
+                         <form>
+                              <label for="level">are you for regular?</label>
+                              <!-- select option for party level option -->
+                              <select name="level" id="level">
+                                   <option value="1">Yes</option>
+                                   <option value="2">No</option>
+                              </select>
+               
+                              <input type="number" class="price" disabled value="2000">
+                         </form>
+
+                         <div class="movement">
+                              <!-- <button class="back1">Back</button> -->
+                              <button class="next next1">Next</button>
+                         </div>
+                    </div>
+     
+                    <div class="form2">
+                         <form>
+                              <div class="label">
+                                   <label for="email">email:</label>
+                                   <input type="email" id="email">
+          
+                                   <label for="address">Address:</label>
+                                   <input type="text" id="address">
+          
+                                   <label for="Age">Age:</label>
+                                   <input type="text" id="age">
+                              </div>
+                         </form>
+
+                         <div class="movement">
+                              <button class="back back2">Back</button>
+                              <button class="next next2">Next</button>
+                         </div>
+                    </div>
+                    
+                    <div class="form3">
+                         <form>
+                              <div class="label">
+                                   <label for="password">Create Password:</label>
+                                   <input type="password" id="CrPwd">
+          
+                                   <label for="confirm">Confirm your Password:</label>
+                                   <input type="password" id="CoPwd">
+                              </div>
+                         </form>
+     
+                         <div class="movement">
+                              <button class="back back3">Back</button>
+                              <button class="next next3">Next</button>
+                         </div>
+                    </div>
+
+                    <div class="form4">
+                         <form class="for">
+                              <h3>I'm not a Robot</h3>
+                              <input type="checkbox" name="" id="ckbox">
+                         </form>
+     
+                         <div class="movement">
+                              <button class="back back4">Back</button>
+                              <button class="next next4">Submit</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <script src="OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script src="script.js"></script>
+     <script>
+          // Next on Form one
+const next1 = document.querySelector('.next1').addEventListener("click", btn_next1);
+// Next and Back on Form 2
+const next2 = document.querySelector('.next2').addEventListener("click", btn_next2);
+const back2 = document.querySelector('.back2').addEventListener("click", btn_back2);
+// Next and Back on Form 3
+const next3 = document.querySelector('.next3').addEventListener("click", btn_next3);
+const back3 = document.querySelector('.back3').addEventListener("click", btn_back3);
+// Back and Next on Form 4
+const back4 = document.querySelector('.back4').addEventListener("click", btn_back4);
+const next4 = document.querySelector('.next4').addEventListener("click", btn_next4);
+
+// Inputs on Form 1
+let level = document.querySelector('#level');
+let lastName = document.querySelector('#last_name');
+let userName = document.querySelector('#user_name');
+// Inputs on Form 2
+let email = document.querySelector('#email');
+let address = document.querySelector('#address');
+let age = document.querySelector('#age');
+// Inputs on Form 3
+let crPwd = document.querySelector('#CrPwd');
+let coPwd = document.querySelector('#CoPwd');
+// Inputs on Form 4
+let ckbox = document.querySelector('#ckbox');
+
+// For Input filter
+const fullNamePattern = /^[A-Za-z\s'\-]+$/;
+// Define a regular expression pattern for email validation.
+const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+// Step 1
+function btn_next1() {
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line2 =document.querySelector('.line2')
+     
+     if (!level.selected) {
+          alert('Error');
+     } else {
+          line2.style.display = 'block'
+          form1.style.left = '-600px'
+          form2.style.left = '130px'
+          form3.style.left = '600px'
+          form4.style.left = '1070px'
+     }
+};
+// Step 2
+function btn_next2() {
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line3 =document.querySelector('.line3')
+     const ageValue = parseInt(age.value);
+
+     if (email.value == "" || address.value == "" || age.value == "") {
+          alert('Error')
+     } else if (!emailPattern.test(email.value) ) {
+          alert('Invalid email address');
+     } else if (isNaN(ageValue) || ageValue < 0 || ageValue > 150) {
+          alert('Invalid age');
+     } else {
+     line3.style.display = 'block'
+     form1.style.left = '-1070px'
+     form2.style.left = '-600px'
+     form3.style.left = '130px'
+     form4.style.left = '600px'
+     }
+};
+function btn_back2() {
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line2 =document.querySelector('.line2')
+
+     line2.style.display = 'none'
+     form1.style.left = '130px'
+     form2.style.left = '600px'
+     form3.style.left = '1070px'
+     form4.style.left = '1540px'
+};
+// Step 3
+function btn_back3() {
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line3 =document.querySelector('.line3')
+
+     line3.style.display = 'none'
+     form1.style.left = '-600px'
+     form2.style.left = '130px' 
+     form3.style.left = '600px'
+     form4.style.left = '1070px'
+};
+function btn_next3() {
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line4 =document.querySelector('.line4')
+     if (crPwd.value == "" || coPwd.value == "") {
+          alert('Error')
+     }else if (crPwd.value.length !== 8 || coPwd.value.length !== 8) {
+          alert('Password must be exactly 8 characters long');
+     } else if (crPwd.value === coPwd.value) {
+          // Proceed to the next step
+          line4.style.display = 'block'
+          form1.style.left = '-1540px'
+          form2.style.left = '-1070px' 
+          form3.style.left = '-600px'
+          form4.style.left = '130px'
+     } else {
+          alert('Passwords do not match');
+     }
+};
+// Step 4
+function btn_back4() {
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line4 =document.querySelector('.line4')
+
+     line4.style.display = 'none'
+     form1.style.left = '-1070px'
+     form2.style.left = '-600px'
+     form3.style.left = '130px'
+     form4.style.left = '600px'
+};
+function btn_next4() {
+     if (ckbox.checked) {
+          // For external link
+          window.location.href = "https://www.github.com/seniorcub"
+     } else {
+          alert('Error')
+     }
+};
+
+
+
+     </script>
+</body>
+</html>

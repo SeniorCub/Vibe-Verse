@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
+     <link rel="stylesheet" href="OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <style>
+          #eventForm{
+               height: 10vh;
+          }
+          #calendar{
+               height: 90vh;
+          }
+     </style>
+</head>
+<body>
+
+     <form id="eventForm">
+          <input type="text" id="eventTitle" placeholder="Event Title">
+          <input type="date" id="eventStart">
+          <input type="date" id="eventEnd">
+          <button type="submit">Add Event</button>
+      </form>
+      <div id="calendar"></div>
+      
+
+     <script src="OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script src="script.js"></script>
+          <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+<script>
+     document.addEventListener("DOMContentLoaded", function() {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+              headerToolbar: {
+                  left: 'prev,next today',
+                  center: 'title',
+                  right: 'dayGridMonth,dayGridWeek,timeGridDay,listMonth' // Buttons for different views
+              },
+              events: [
+                  { 
+                      id: '1', 
+                      title: 'Exam Week', 
+                      start: '2024-08-21', 
+                      end: '2024-08-25',
+                      backgroundColor: 'red', // Custom background color
+                      borderColor: 'black',  // Custom border color
+                      textColor: 'white'     // Custom text color
+                  },
+                  { id: '2', title: 'School Festival', start: '2024-08-14' },
+                  { id: '3', title: 'School Festival', start: '2024-08-11' }
+              ]
+          });
+          
+          calendar.render();
+
+          var eventForm = document.getElementById('eventForm');
+          eventForm.addEventListener('submit', function(e) {
+              e.preventDefault();
+              var title = document.getElementById('eventTitle').value;
+              var start = document.getElementById('eventStart').value;
+              var end = document.getElementById('eventEnd').value;
+              calendar.addEvent({ title: title, start: start, end: end });
+              eventForm.reset();
+          });
+      });
+</script>
+</body>
+</html>
