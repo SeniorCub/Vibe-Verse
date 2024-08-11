@@ -29,10 +29,6 @@
             margin-top: 20px;
             font-size: 1.2em;
         }
-        .modal {
-            position: absolute;
-            display: none;
-        }
         .qrcode {
             display: flex;
             flex-direction: column;
@@ -67,34 +63,32 @@
 </head>
 <body>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="formGroup">
-                            <img src="../images/man-suit-sunglasses.avif" alt="....">
-                        </div>
-                        <div class="formGroup">
-                            <input type="text" name="uname" id="uname" disabled>
-                            <input type="email" name="email" id="email" disabled>
-                        </div>
-                        <button type="submit" name="checkIn">Check In</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+          <form action="">
+               <div class="formGroup">
+                   <img src="../images/man-suit-sunglasses.avif" alt="....">
+               </div>
+               <div class="formGroup">
+                   <input type="text" name="uname" id="uname" disabled>
+                   <input type="email" name="email" id="email" disabled>
+               </div>
+               <button type="submit" name="checkIn">Check In</button>
+           </form>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         </div>
+       </div>
+     </div>
+   </div>
 
     <div class="qrcode">
         <h1 class="header">QR Code Scanner</h1>
@@ -105,7 +99,7 @@
         <form action="">
             <label for="data" id="output">Scanning...</label>
             <input type="text" name="data" id="data" disabled>
-            <button type="button" data-toggle="modal" data-target="#modelId">Verify Now</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
         </form>
     </div>
 
@@ -118,32 +112,41 @@
         const context = canvas.getContext('2d');
         const output = document.getElementById('output');
         const data = document.getElementById('data');
+        const email = document.getElementById('email');
         let track = null; // To store the video track
 
         // Access the camera
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
-            video.srcObject = stream;
-            video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
-            video.play();
-            track = stream.getVideoTracks()[0]; // Get the video track
-            requestAnimationFrame(tick);
-        });
+        navigator.mediaDevices.getUserMedia({
+          video: {
+              facingMode: 'environment',
+              width: { ideal: 640 }, // Lower resolution
+              height: { ideal: 480 }
+          }
+      }).then((stream) => {
+          video.srcObject = stream;
+          video.play();
+          track = stream.getVideoTracks()[0];
+          optimizeVideoResolution();
+      });
+      
 
         function tick() {
-            if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                canvas.height = video.videoHeight;
-                canvas.width = video.videoWidth;
-                context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                const code = jsQR(imageData.data, imageData.width, imageData.height);
-
-                if (code) {
-                    output.textContent = `QR Code Data: ${code.data}`;
-                    data.value = code.data;
-                } else {
-                    output.textContent = "Scanning...";
-                }
-            }
+          setInterval(() => {
+               if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                   canvas.height = video.videoHeight;
+                   canvas.width = video.videoWidth;
+                   context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                   const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                   const code = jsQR(imageData.data, imageData.width, imageData.height);
+           
+                   if (code) {
+                       output.textContent = `QR Code Data: ${code.data}`;
+                       data.value = email.value = code.data;
+                   } else {
+                       output.textContent = "Scanning...";
+                   }
+               }
+           }, 100); // Scans every 100 milliseconds           
             requestAnimationFrame(tick);
         }
 
