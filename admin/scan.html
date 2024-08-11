@@ -1,152 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
-     <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
-     <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-     <style>
-          body {
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               justify-content: center;
-               height: 100vh;
-               margin: 0;
-               position: relative;
-               font-family: Arial, sans-serif;
-               background-color: #f7f7f7;
-           }
-           #video {
-               width: 320px;
-               height: 240px;
-               background-color: black;
-               cursor: pointer; /* Indicate that the video can be clicked/tapped */
-           }
-           #canvas {
-               display: none;
-           }
-           #output {
-               margin-top: 20px;
-               font-size: 1.2em;
-           }
-           .modal {
-               position: absolute;
-               display: none;
-           }
-     </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+            width: 100vw;
+            position: relative;
+            background-color: #f7f7f7;
+        }
+        #video {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            cursor: pointer; /* Indicate that the video can be clicked/tapped */
+        }
+        #canvas {
+            display: none;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .modal {
+            position: absolute;
+            display: none;
+        }
+        .qrcode {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .qrcode .scanner {
+            width: 100%;
+            height: 100%;
+        }
+        .qrcode .header, .qrcode form {
+            position: absolute;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background-color: #2F364533;
+            backdrop-filter: blur(10px);
+        }
+        .qrcode form {
+            bottom: 0;
+            top: auto;
+            height: 25vh;
+            color: blue;
+        }
+    </style>
 </head>
 <body>
-     
-     <!-- Modal -->
-     <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                    <div class="modal-header">
-                         <h5 class="modal-title">Modal title</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                   <span aria-hidden="true">&times;</span>
-                              </button>
-                    </div>
-                    <div class="modal-body">
-                         <form action="">
-                              <div class="formGroup">
-                                   <img src="../images/man-suit-sunglasses.avif" alt="....">
-                              </div>
-                              <div class="formGroup">
-                                   <input type="text" name="uname" id="uname" disabled>
-                                   <input type="email" name="email" id="email" disabled>
-                              </div>
-                              <button type="submit" name="checkIn">Check In</button>
-                         </form>  
-                    </div>
-                    <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-               </div>
-          </div>
-     </div>
 
-     <div class="modal">
-                 
-     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="formGroup">
+                            <img src="../images/man-suit-sunglasses.avif" alt="....">
+                        </div>
+                        <div class="formGroup">
+                            <input type="text" name="uname" id="uname" disabled>
+                            <input type="email" name="email" id="email" disabled>
+                        </div>
+                        <button type="submit" name="checkIn">Check In</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-     <h1>QR Code Scanner</h1>
-     <video id="video" autoplay></video>
-     <canvas id="canvas"></canvas>
-     <form action="">
-          <label for="data" id="output">Scanning...</label>
-         <input type="text" name="data" id="data" disabled>
-         <button type="button" onclick="displayModal()">Verify Now</button>
-     </form>
+    <div class="qrcode">
+        <h1 class="header">QR Code Scanner</h1>
+        <div class="scanner">
+            <video id="video" autoplay></video>
+            <canvas id="canvas"></canvas>
+        </div>
+        <form action="">
+            <label for="data" id="output">Scanning...</label>
+            <input type="text" name="data" id="data" disabled>
+            <button type="button" data-toggle="modal" data-target="#modelId">Verify Now</button>
+        </form>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <script>
-     const video = document.getElementById('video');
-     const canvas = document.getElementById('canvas');
-     const context = canvas.getContext('2d');
-     const output = document.getElementById('output');
-     const data = document.getElementById('data');
-     const email = document.getElementById('email');
-     const modal = document.querySelector('.modal');
-     let track = null; // To store the video track
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const output = document.getElementById('output');
+        const data = document.getElementById('data');
+        let track = null; // To store the video track
 
-     // Access the camera
-     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
-         video.srcObject = stream;
-         video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
-         video.play();
-         track = stream.getVideoTracks()[0]; // Get the video track
-         requestAnimationFrame(tick);
-     });
+        // Access the camera
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
+            video.srcObject = stream;
+            video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
+            video.play();
+            track = stream.getVideoTracks()[0]; // Get the video track
+            requestAnimationFrame(tick);
+        });
 
-     function tick() {
-         if (video.readyState === video.HAVE_ENOUGH_DATA) {
-             canvas.height = video.videoHeight;
-             canvas.width = video.videoWidth;
-             context.drawImage(video, 0, 0, canvas.width, canvas.height);
-             const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-             const code = jsQR(imageData.data, imageData.width, imageData.height);
+        function tick() {
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                canvas.height = video.videoHeight;
+                canvas.width = video.videoWidth;
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                const code = jsQR(imageData.data, imageData.width, imageData.height);
 
-             if (code) {
-                 output.textContent = `QR Code Data: ${code.data}`;
-                 data.value = code.data;
-             } else {
-                 output.textContent = "Scanning...";
-             }
-         }
-         requestAnimationFrame(tick);
-     }
+                if (code) {
+                    output.textContent = `QR Code Data: ${code.data}`;
+                    data.value = code.data;
+                } else {
+                    output.textContent = "Scanning...";
+                }
+            }
+            requestAnimationFrame(tick);
+        }
 
-     // Tap to focus
-     video.addEventListener('click', () => {
-         if (track && track.getCapabilities().focusMode) {
-             const capabilities = track.getCapabilities();
-             const settings = track.getSettings();
-             
-             if (capabilities.focusMode.includes('continuous')) {
-                 track.applyConstraints({
-                     advanced: [{ focusMode: 'continuous' }]
-                 }).catch(error => {
-                     console.error('Failed to set focus mode:', error);
-                 });
-             } else if (capabilities.focusMode.includes('single-shot')) {
-                 track.applyConstraints({
-                     advanced: [{ focusMode: 'single-shot' }]
-                 }).catch(error => {
-                     console.error('Failed to set focus mode:', error);
-                 });
-             }
-         }
-     });
+        // Tap to focus
+        video.addEventListener('click', () => {
+            if (track && track.getCapabilities().focusMode) {
+                const capabilities = track.getCapabilities();
+                const settings = track.getSettings();
+                
+                if (capabilities.focusMode.includes('continuous')) {
+                    track.applyConstraints({
+                        advanced: [{ focusMode: 'continuous' }]
+                    }).catch(error => {
+                        console.error('Failed to set focus mode:', error);
+                    });
+                } else if (capabilities.focusMode.includes('single-shot')) {
+                    track.applyConstraints({
+                        advanced: [{ focusMode: 'single-shot' }]
+                    }).catch(error => {
+                        console.error('Failed to set focus mode:', error);
+                    });
+                }
+            }
+        });
 
-     function displayModal() {
-         modal.style.display = 'block';
-         data.value = email.value;
-     }
+        // Improve scanning by adjusting resolution
+        function optimizeVideoResolution() {
+            if (track) {
+                track.applyConstraints({
+                    video: {
+                        width: { ideal: 640 },
+                        height: { ideal: 480 },
+                        aspectRatio: { ideal: 1.7777777778 }
+                    }
+                }).catch(error => {
+                    console.error('Failed to optimize video resolution:', error);
+                });
+            }
+        }
+        optimizeVideoResolution();
     </script>
+
 </body>
 </html>

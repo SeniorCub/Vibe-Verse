@@ -1,0 +1,1 @@
+from "" the verify now button isn't working well and the qrcode takes time to scan
