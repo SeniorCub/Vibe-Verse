@@ -195,11 +195,12 @@
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <script>
-        const video = document.getElementById('video');
-        const canvas = document.getElementById('canvas');
-        const context = canvas.getContext('2d');
-        const output = document.getElementById('output');
-        const data = document.getElementById('data');
+          const video = document.getElementById('video');
+          const canvas = document.getElementById('canvas');
+          const context = canvas.getContext('2d');
+          const output = document.getElementById('output');
+          const data = document.getElementById('data');
+          const email = document.getElementById('email');
         const manualEmail = document.getElementById('manualEmail');
         const scanForm = document.getElementById('scanForm');
         const manualInput = document.getElementById('manualInput');
@@ -238,20 +239,13 @@
             scanOption.classList.remove('active');
         }
 
+
         // Access the camera
-        navigator.mediaDevices.getUserMedia({
-            video: {
-                facingMode: 'environment',
-                width: { ideal: 640 }, // Lower resolution
-                height: { ideal: 480 }
-            }
-        }).then((stream) => {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
             video.srcObject = stream;
+            video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
             video.play();
-            track = stream.getVideoTracks()[0];
-            optimizeVideoResolution();
-        }).catch((error) => {
-            console.error('Error accessing the camera:', error);
+            requestAnimationFrame(tick);
         });
 
         function tick() {
@@ -265,12 +259,12 @@
                 if (code) {
                     output.textContent = `QR Code Data: ${code.data}`;
                     data.value = code.data;
-                } else {
+               } else {
                     output.textContent = "Scanning...";
-                }
-            }
-            setTimeout(tick, 100); // Scans every 100 milliseconds
-        }
+               }
+          }
+          requestAnimationFrame(tick);
+     }
 
         // Tap to focus
         video.addEventListener('click', () => {
