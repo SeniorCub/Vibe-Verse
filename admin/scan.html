@@ -8,301 +8,358 @@
     <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <style>
-        :root {
-            --radius: 20px;
-            --primary-color: #2F3645;
-            --white: #EEEDEB;
-            --gold: #E6B9A6;
-            --dark-color: #939185;
-            --black: #333;
-        }
-
-        body {
-            overflow: hidden;
-            height: 100vh;
-            margin: 0;
-            width: 100vw;
-            position: relative;
-            background-color: var(--white);
-        }
-        #video {
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            cursor: pointer; /* Indicate that the video can be clicked/tapped */
-        }
-        #canvas {
-            display: none;
-        }
-        #output {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: var(--primary-color);
-        }
-        .qrcode {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            border-radius: var(--radius);
-            background-color: var(--gold);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .qrcode .scanner {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .qrcode .header {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            text-align: center;
-            padding: 20px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            border-top-left-radius: var(--radius);
-            border-top-right-radius: var(--radius);
-        }
-        .qrcode form, #manualInput {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 20px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            border-bottom-left-radius: var(--radius);
-            border-bottom-right-radius: var(--radius);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            label{
+          body {
+               overflow: hidden;
+               height: 100dvh;
+               margin: 0;
+               width: 100vw;
+               position: relative;
+          }
+          #video {
+               width: 100%;
+               height: 100%;
+               background-color: black;
+               cursor: pointer; /* Indicate that the video can be clicked/tapped */
+          }
+          #canvas {
+               display: none;
+          }
+          #output {
+               margin-top: 20px;
                font-size: 1.2em;
-               color: #EEEDEB;
-            }
-        }
-        #manualInput{
-          height: 100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-        }
-        .qrcode .form-group {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .qrcode input[type="text"], .qrcode input[type="email"] {
-            width: 70%;
-            padding: 10px;
-            border: 1px solid var(--dark-color);
-            border-radius: var(--radius);
-            margin-bottom: 10px;
-            font-size: 1em;
-        }
-        .qrcode button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: var(--radius);
-            background-color: var(--dark-color);
-            color: var(--white);
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .qrcode button:hover {
-            background-color: var(--primary-color);
-        }
-        .qrcode .option-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 3;
-            background-color: var(--white);
-            border: 1px solid var(--dark-color);
-            border-radius: var(--radius);
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            gap: 10px;
-        }
-        .qrcode .option-container button {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-        .qrcode .option-container button.active {
-            background-color: var(--dark-color);
-        }
+               color: var(--primary-color);
+          }
+          .qrcode {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               width: 100%;
+               height: 100%;
+               position: relative;
+               border-radius: var(--radius);
+               background-color: var(--gold);
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+          .qrcode .scanner {
+               width: 100%;
+               height: 100%;
+               position: relative;
+          }
+          .qrcode .header {
+               position: absolute;
+               top: 0;
+               width: 100%;
+               text-align: center;
+               padding: 20px;
+               background-color: #2F364533;
+               z-index: 10;
+               backdrop-filter: blur(10px);
+               color: var(--gold);
+          }
+          .qrcode form, #manualInput {
+               position: absolute;
+               bottom: 0;
+               width: 100%;
+               padding: 20px;
+               color: var(--white);
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               gap: 10px;
+               background-color: var(--primary-color);
+               label{
+                    font-size: 1.2em;
+                    color: #EEEDEB;
+               }
+          }
+          #scanForm{
+               background-color: #2F364533;
+               z-index: 10;
+               backdrop-filter: blur(10px);
+          }
+          #manualInput{
+               height: 100vh;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+          }
+          .qrcode input[type="text"], .qrcode input[type="text"]:disabled, .qrcode input[type="email"], .formGroup input {
+               width: 70%;
+               padding: 10px;
+               border: 1px solid var(--dark-color);
+               outline: none;
+               border-radius: var(--radius);
+               background-color: #EEEDEB;
+               margin: 0 auto;
+               color: black;
+               margin-bottom: 10px;
+               font-size: 1em;
+          }
+          .qrcode button {
+               padding: 10px 20px;
+               border: none;
+               border-radius: var(--radius);
+               background-color: var(--dark-color);
+               color: var(--white);
+               font-size: 1em;
+               cursor: pointer;
+               transition: background-color 0.3s ease;
+          }
+          .qrcode button:hover {
+               background-color: var(--primary-color);
+          }
+          .qrcode .option-container {
+               position: absolute;
+               top: 10px;
+               right: 10px;
+               z-index: 30;
+               border: 1px solid var(--gold);
+               border-radius: var(--radius);
+               padding: 10px;
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+               display: flex;
+               gap: 10px;
+               background-color: #2F364533;
+               backdrop-filter: blur(10px);
+          }
+          .qrcode .option-container button {
+               background-color: transparent;
+               color: var(--white);
+               border: 1px solid var(--gold);
+          }
+          .qrcode .option-container button.active {
+               background-color: var(--dark-color);
+               border: none;
+          }
+          .modal{
+               background-color: #E6B9A633;
+               backdrop-filter: blur(10px);
+          }
+          .modal-content{
+               background-color: var(--white);
+          }
+          .modal-body form{
+               display: flex;
+               flex-direction: column;
+               text-align: center;
+               justify-content: center;
+               align-items: center;
+               gap: 1rem;
+          }
+          .formGroup img{
+               width: 90%;
+               height: 40vh;
+               border-radius: var(--radius);
+          }
+          .formGroup{
+               margin: 0 auto;
+          }
+          .formGroup input {
+               background-color: transparent;
+               color: var(--primary-color);
+               font-weight: 700;
+               text-align: center;
+          }
+          .close{
+               background-color: rgba(255, 0, 0, 0.4);
+               border-radius: var(--radius);
+               color: var(--white);
+          }
+          .close:hover{
+               background-color: #ff0000;
+               border-radius: var(--radius);
+               color: var(--white);
+          }
+          .checkIn{
+               padding: 0.5rem 1rem;
+               border: none;
+               border-radius: var(--radius);
+               background-color: var(--primary-color);
+               color: var(--white);
+               cursor: pointer;
+               transition: background-color 0.3s ease;
+          }
+          @media (min-width: 300px) and (max-width: 750px) {
+               .qrcode .option-container {
+                    top: 10vh;
+               }
+               #scanForm{
+                    padding: 0;
+               }
+               .qrcode input[type="text"], .qrcode input[type="text"]:disabled, .qrcode input[type="email"]{
+                    padding: 5px;
+                    width: 100%;
+                    margin: 0 auto;
+               }
+          }
     </style>
 </head>
 <body>
 
    <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-          <form action="">
-               <div class="formGroup">
-                   <img src="../images/man-suit-sunglasses.avif" alt="....">
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h1 class="modal-title fs-5" id="exampleModalLabel">Check In</h1>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <form action="">
+                              <div class="formGroup">
+                                   <img src="../images/man-suit-sunglasses.avif" alt="....">
+                              </div>
+                              <div class="formGroup">
+                                   <input type="text" name="uname" id="uname" disabled>
+                                   <input type="text" name="email" id="email" disabled>
+                              </div>
+                         </form>
+                    </div>
+                    <div class="modal-footer">
+                         <button type="submit" name="btn checkIn" class="checkIn">Check In</button>
+                         <button type="reset" class="btn close" data-bs-dismiss="modal" onclick="closee()">Close</button>
+                    </div>
                </div>
-               <div class="formGroup">
-                   <input type="text" name="uname" id="uname" disabled>
-                   <input type="text" name="email" id="email" disabled>
-               </div>
-               <button type="submit" name="checkIn">Check In</button>
-           </form>
-         </div>
-         <div class="modal-footer">
-           <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closee()">Close</button>
-         </div>
-       </div>
+          </div>
      </div>
-   </div>
 
-    <div class="qrcode">
-        <div class="option-container">
-            <button id="scanOption" class="active" onclick="showScan()">Scan QR Code</button>
-            <button id="manualOption" onclick="showManual()">Enter Email</button>
-        </div>
-        <h1 class="header">QR Code Scanner</h1>
-        <div id="scanner" class="scanner">
-            <video id="video" autoplay></video>
-            <canvas id="canvas"></canvas>
-        </div>
-        <div id="manualInput" class="form-group d-none">
-            <input type="text" name="email" id="manualEmail" placeholder="Enter your email">
-            <button type="button" class="btn btn-primary" onclick="manualVerify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Email</button>
-        </div>
-        <form id="scanForm" class="form-group">
-            <label for="data" id="output">Scanning...</label>
-            <input type="text" name="data" id="data" readonly>
-            <button type="button" class="btn btn-primary" onclick="verify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
-        </form>
-    </div>
+     <div class="qrcode">
+          <div class="option-container">
+               <button id="scanOption" class="active" onclick="showScan()">Scan QR Code</button>
+               <button id="manualOption" onclick="showManual()">Enter Email</button>
+          </div>
+          <h1 class="header">QR Code Scanner</h1>
+          <div id="scanner" class="scanner">
+               <video id="video" autoplay></video>
+               <canvas id="canvas"></canvas>
+          </div>
+          <div id="manualInput" class="form-group d-none">
+               <input type="text" name="email" id="manualEmail" placeholder="Enter your email">
+               <button type="button" class="btn btn-primary" onclick="manualVerify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Email</button>
+          </div>
+          <form id="scanForm" class="form-group">
+               <label for="data" id="output">Scanning...</label>
+               <input type="text" name="data" id="data" readonly>
+               <button type="button" class="btn btn-primary" id="verify" onclick="verify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
+          </form>
+     </div>
 
-    <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
-    <script>
-          const video = document.getElementById('video');
-          const canvas = document.getElementById('canvas');
-          const context = canvas.getContext('2d');
-          const output = document.getElementById('output');
-          const data = document.getElementById('data');
-          const email = document.getElementById('email');
-        const manualEmail = document.getElementById('manualEmail');
-        const scanForm = document.getElementById('scanForm');
-        const manualInput = document.getElementById('manualInput');
-        const scanOption = document.getElementById('scanOption');
-        const manualOption = document.getElementById('manualOption');
-        let track = null; // To store the video track
+     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+     <script>
+               const video = document.getElementById('video');
+               const canvas = document.getElementById('canvas');
+               const context = canvas.getContext('2d');
+               const output = document.getElementById('output');
+               const data = document.getElementById('data');
+               const email = document.getElementById('email');
+               const manualEmail = document.getElementById('manualEmail');
+               const scanForm = document.getElementById('scanForm');
+               const manualInput = document.getElementById('manualInput');
+               const scanOption = document.getElementById('scanOption');
+               const manualOption = document.getElementById('manualOption');
+               let track = null; // To store the video track
 
-        function closee() {
-            window.location.reload();
-        }
+               
 
-        function verify() {
-            email.value = data.value; // Correct assignment
-            console.log(`lets verify, email: ${email.value}`);
-            data.value = ''; // Clear the data input if needed
-        }
+          function closee() {
+               window.location.reload();
+          }
 
-        function manualVerify() {
-            email.value = manualEmail.value;
-            console.log(`Manual verification, email: ${email.value}`);
-            manualEmail.value = ''; // Clear the manual email input
-            // Optionally: submit the form or show a message
-        }
+          function verify() {
+               email.value = data.value; // Correct assignment
+               console.log(`lets verify, email: ${email.value}`);
+               data.value = ''; // Clear the data input if needed
+          }
 
-        function showScan() {
-            scanForm.classList.remove('d-none');
-            manualInput.classList.add('d-none');
-            scanOption.classList.add('active');
-            manualOption.classList.remove('active');
-        }
+          function manualVerify() {
+               email.value = manualEmail.value;
+               console.log(`Manual verification, email: ${email.value}`);
+               manualEmail.value = ''; // Clear the manual email input
+               // Optionally: submit the form or show a message
+          }
 
-        function showManual() {
-            scanForm.classList.add('d-none');
-            manualInput.classList.remove('d-none');
-            manualOption.classList.add('active');
-            scanOption.classList.remove('active');
-        }
+          function showScan() {
+               scanForm.classList.remove('d-none');
+               manualInput.classList.add('d-none');
+               scanOption.classList.add('active');
+               manualOption.classList.remove('active');
+          }
+
+          function showManual() {
+               scanForm.classList.add('d-none');
+               manualInput.classList.remove('d-none');
+               manualOption.classList.add('active');
+               scanOption.classList.remove('active');
+          }
 
 
-        // Access the camera
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
-            video.srcObject = stream;
-            video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
-            video.play();
-            requestAnimationFrame(tick);
-        });
+          // Access the camera
+          navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
+               video.srcObject = stream;
+               video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
+               video.play();
+               requestAnimationFrame(tick);
+          });
 
-        function tick() {
-            if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                canvas.height = video.videoHeight;
-                canvas.width = video.videoWidth;
-                context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                const code = jsQR(imageData.data, imageData.width, imageData.height);
+          function tick() {
+               if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                    canvas.height = video.videoHeight;
+                    canvas.width = video.videoWidth;
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                    const code = jsQR(imageData.data, imageData.width, imageData.height);
 
-                if (code) {
-                    output.textContent = `QR Code Data: ${code.data}`;
-                    data.value = code.data;
-               } else {
-                    output.textContent = "Scanning...";
+                    if (code) {
+                         output.textContent = `QR Code Data: ${code.data}`;
+                         data.value = code.data;
+                    } else {
+                         output.textContent = "Scanning...";
+                    }
+               }
+               requestAnimationFrame(tick);
+          }
+
+          // Tap to focus
+          video.addEventListener('click', () => {
+               if (track && track.getCapabilities().focusMode) {
+                    const capabilities = track.getCapabilities();
+                    const settings = track.getSettings();
+
+                    if (capabilities.focusMode.includes('continuous')) {
+                         track.applyConstraints({
+                         advanced: [{ focusMode: 'continuous' }]
+                         }).catch(error => {
+                         console.error('Failed to set focus mode:', error);
+                         });
+                    } else if (capabilities.focusMode.includes('single-shot')) {
+                         track.applyConstraints({
+                         advanced: [{ focusMode: 'single-shot' }]
+                         }).catch(error => {
+                         console.error('Failed to set focus mode:', error);
+                         });
+                    }
+               }
+          });
+
+          // Improve scanning by adjusting resolution
+          function optimizeVideoResolution() {
+               if (track) {
+                    track.applyConstraints({
+                         video: {
+                         width: { ideal: 640 },
+                         height: { ideal: 480 },
+                         aspectRatio: { ideal: 1.7777777778 }
+                         }
+                    }).catch(error => {
+                         console.error('Failed to optimize video resolution:', error);
+                    });
                }
           }
-          requestAnimationFrame(tick);
-     }
-
-        // Tap to focus
-        video.addEventListener('click', () => {
-            if (track && track.getCapabilities().focusMode) {
-                const capabilities = track.getCapabilities();
-                const settings = track.getSettings();
-
-                if (capabilities.focusMode.includes('continuous')) {
-                    track.applyConstraints({
-                        advanced: [{ focusMode: 'continuous' }]
-                    }).catch(error => {
-                        console.error('Failed to set focus mode:', error);
-                    });
-                } else if (capabilities.focusMode.includes('single-shot')) {
-                    track.applyConstraints({
-                        advanced: [{ focusMode: 'single-shot' }]
-                    }).catch(error => {
-                        console.error('Failed to set focus mode:', error);
-                    });
-                }
-            }
-        });
-
-        // Improve scanning by adjusting resolution
-        function optimizeVideoResolution() {
-            if (track) {
-                track.applyConstraints({
-                    video: {
-                        width: { ideal: 640 },
-                        height: { ideal: 480 },
-                        aspectRatio: { ideal: 1.7777777778 }
-                    }
-                }).catch(error => {
-                    console.error('Failed to optimize video resolution:', error);
-                });
-            }
-        }
-        tick(); // Start the scanning loop
-    </script>
+          tick(); // Start the scanning loop
+     </script>
 </body>
 </html>
