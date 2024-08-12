@@ -439,6 +439,7 @@ a {
           flex-grow: 0;
           height: 100%;
           display: none;
+          z-index: 1000;
         }
         .tumb{
           position: relative;
