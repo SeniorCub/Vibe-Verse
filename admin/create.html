@@ -31,8 +31,8 @@
                <div class="form1">
                     <div class="formm">
                          <div class="label">
-                              <label for="name">What is your party Theme:</label>
-                              <input type="name" id="name" name="name">
+                              <label for="eventTitle">What is your party Theme or Title:</label>
+                              <input type="text" id="eventTitle" name="eventTitle" placeholder="Event Title">
      
                               <label for="name">What is your party brand:</label>
                               <input type="text" id="name" name="name">
@@ -47,11 +47,10 @@
                <div class="form2">
                     <div class="formm">
                          <div class="label">
-                              <label for="email">email:</label>
-                              <input type="email" id="email" name="email">
-     
-                              <label for="uname">username:</label>
-                              <input type="text" id="uname" name="uname">
+                              <label for="eventStart">Event start's on?</label>
+                              <input type="date" id="eventStart">
+                              <label for="eventStart">Event end's on?</label>
+                              <input type="date" id="eventEnd">
                          </div>
                     </div>
 
@@ -65,9 +64,16 @@
                     <div class="formm">
                          <div class="label">
                               <div class="inputs">
-                                   <label for="amount" class="form-label">Amount</label>
-                                   <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" value="0" disabled>
+                                   <label for="who" class="form-label">Regular only?? How much??</label>
+                                   <input type="text" name="wLevel" id="wLevel" value="Regular">
+                                   <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount">
                               </div>
+                              <ul class="list">
+                                   <li class="list-group-item">
+                                        <input type="text" name="level" id="level" value="Regular" disabled>
+                                        <input type="number" name="price" id="price" value="3000" disabled>
+                                   </li>
+                              </ul>
                          </div>
                     </div>
 
@@ -79,14 +85,18 @@
 
                <div class="form4">
                     <div class="formm">
-                         <div id="qrcode"></div>
-                         <div class="ticket"></div>
+                         <label for="email">Enter email's for party check in</label>
+                         <input type="email" name="email1" id="email">
+                         <input type="email" name="email2" id="email">
+                         <input type="email" name="email3" id="email">
+                         <input type="email" name="email4" id="email">
+                         <input type="email" name="email5" id="email">
                     </div>
 
                     <div class="movement">
                          <button type="button" class="back back4">Back</button>
                          <button type="button" class="next download">Download</button>
-                         <button type="submit" class="next next4">Finish</button>
+                         <button type="submit" class="next next4">Add Event</button>
                     </div>
                </div>
           </form>
@@ -95,7 +105,105 @@
      <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
      <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
      <script>
+          // Next on Form one
+          const next1 = document.querySelector('.next1').addEventListener("click", btn_next1);
+          // Next and Back on Form 2
+          const next2 = document.querySelector('.next2').addEventListener("click", btn_next2);
+          const back2 = document.querySelector('.back2').addEventListener("click", btn_back2);
+          // Next and Back on Form 3
+          const next3 = document.querySelector('.next3').addEventListener("click", btn_next3);
+          const back3 = document.querySelector('.back3').addEventListener("click", btn_back3);
+          // Back and Next on Form 4
+          const back4 = document.querySelector('.back4').addEventListener("click", btn_back4);
+          const next4 = document.querySelector('.next4');
+          next4.addEventListener("click", btn_next4);
+          const download = document.querySelector('.download');
 
+// Inputs on Form 1
+let level = document.querySelector('#level');
+let lastName = document.querySelector('#last_name');
+let userName = document.querySelector('#user_name');
+// Inputs on Form 2
+let email = document.querySelector('#email');
+let emaill = document.querySelector('#email');
+let uname = document.querySelector('#uname');
+const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+// Step 1
+function btn_next1() {
+     const level = document.getElementById('level'); // Get the level select element
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const line2 =document.querySelector('.line2')
+
+     if (level.value === "") { // Check if the user selected an option
+     alert('Please select an option for "Are you for regular?"');
+     } else {
+     line2.style.display = 'block'
+          form1.style.left = '-120vw'
+          form2.style.left = '20vw'
+     }
+}
+
+// Step 2
+function btn_next2() {
+     const form2 = document.querySelector('.form2')
+     const form3 = document.querySelector('.form3')
+     const line3 =document.querySelector('.line3')
+
+     if (email.value == "" || uname.value == "") {
+          alert('Error')
+     } else if (!emailPattern.test(email.value) ) {
+          alert('Invalid email uname');
+     } else {
+          line3.style.display = 'block';
+          form2.style.left = '-120vw';
+          form3.style.left = '20vw';
+     }
+};
+
+function btn_back2() {
+     const form1 = document.querySelector('.form1')
+     const form2 = document.querySelector('.form2')
+     const line2 =document.querySelector('.line2')
+
+     line2.style.display = 'none'
+     form1.style.left = '20vw'
+     form2.style.left = '120vw'
+};
+
+// Step 3
+function btn_back3() {
+     const form2 = document.querySelector('.form2');
+     const form3 = document.querySelector('.form3');
+     const line3 =document.querySelector('.line3');
+
+     line3.style.display = 'none';
+     form2.style.left = '20vw' ;
+     form3.style.left = '120vw';
+};
+
+function btn_next3() {
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line4 =document.querySelector('.line4')
+     
+     line4.style.display = 'block' 
+     form3.style.left = '-120vw'
+     form4.style.left = '20vw'
+     next4.style.display = 'none';
+};
+
+// Step 4
+function btn_back4() {
+     const form3 = document.querySelector('.form3')
+     const form4 = document.querySelector('.form4')
+     const line4 =document.querySelector('.line4')
+
+     line4.style.display = 'none';
+     form3.style.left = '20vw'
+     form4.style.left = '120vw'
+};
      </script>
 </body>
 </html>
