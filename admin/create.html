@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../register.css">
     <style>
           input::placeholder{
-               color: #fff;
+               color: #fff!important;
           }
           .list-group-item{
                input{
@@ -20,6 +20,17 @@
           }
           input[type="email"]{
                height: 30px;
+          }
+          .add, .add:hover, .remove, .remove:hover{
+               background-color: var(--gold);
+               color: #000;
+               border: none;
+               padding: 5px 10px;
+               border-radius: 5px;
+          }
+          .add:hover, .remove:hover{
+               border: 1px solid var(--gold);
+               color: #000;
           }
     </style>
 </head>
@@ -78,17 +89,13 @@
                          <div class="label">
                               <div class="inputs">
                                    <label for="who" class="form-label">Regular only?? How much??</label>
-                                   <div class="d-flex">
-                                        <input type="text" name="wLevel" id="wLevel" value="Regular">
+                                   <div class="d-flex justify-content-between align-items-center">
+                                        <input type="text" name="wLevel" id="wLevel" placeholder="Enter Level">
                                         <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount">
+                                        <button type="button" class="btn add" onclick="addLevel()">Add</button>
                                    </div>
                               </div>
-                              <ul class="list">
-                                   <li class="d-flex list-group-item">
-                                        <input type="text" name="level" id="level" value="Regular" disabled>
-                                        <input type="number" name="price" id="price" value="3000" disabled>
-                                   </li>
-                              </ul>
+                              <ul class="list"></ul>
                          </div>
                     </div>
 
@@ -130,7 +137,6 @@
           // Back and Next on Form 4
           const back4 = document.querySelector('.back4').addEventListener("click", btn_back4);
           const next4 = document.querySelector('.next4');
-          next4.addEventListener("click", btn_next4);
 
 // Inputs on Form 1
 let level = document.querySelector('#level');
@@ -140,6 +146,38 @@ let userName = document.querySelector('#user_name');
 let email = document.querySelector('#email');
 let uname = document.querySelector('#uname');
 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+function addLevel() {
+     const list = document.querySelector('.list');
+     const level = document.querySelector('#wLevel');
+     const price = document.querySelector('#amount');
+ 
+     if (level.value.trim() === "") {
+         alert("Please enter a level");
+     } else if (price.value.trim() === "" || isNaN(price.value) || Number(price.value) <= 0) {
+         alert("Please enter a valid price");
+     } else {
+         const li = document.createElement('li');
+         li.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'list-group-item');
+         li.innerHTML = `
+             <input type="text" name="level" id="level" value="${level.value}" disabled>
+             <input type="number" name="price" id="price" value="${price.value}" disabled>
+             <button type="button" class="btn remove" onclick="removeLevel()">Remove</button>
+         `;
+         list.appendChild(li);
+         
+         // Optionally clear the input fields after adding
+         level.value = "";
+         price.value = "";
+     }
+}
+
+function removeLevel() {
+     const list = document.querySelector('.list');
+     const li = document.querySelector('.list-group-item');
+     list.removeChild(li);
+}
+
 
 // Step 1
 function btn_next1() {
