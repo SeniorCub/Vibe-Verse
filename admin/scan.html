@@ -181,6 +181,12 @@
                cursor: pointer;
                transition: background-color 0.3s ease;
           }
+          #flashlightToggle{
+               position: absolute;
+               right: 0;
+               top: 40%;
+               z-index: 5;
+          }
           @media (min-width: 300px) and (max-width: 750px) {
                .qrcode .option-container {
                     top: 10vh;
@@ -230,6 +236,7 @@
                <button id="scanOption" class="active" onclick="showScan()">Scan QR Code</button>
                <button id="manualOption" onclick="showManual()">Enter Email</button>
           </div>
+          <button id="flashlightToggle" onclick="toggleFlashlight()">Toggle Flashlight</button>
           <h1 class="header">QR Code Scanner</h1>
           <div id="scanner" class="scanner">
                <video id="video" autoplay></video>
@@ -297,13 +304,35 @@
           }
 
 
-          // Access the camera
+          const flashlightToggle = document.getElementById('flashlightToggle');
+          let isFlashlightOn = false; // Track the state of the flashlight
+
+          function toggleFlashlight() {
+          if (track && track.getCapabilities().torch) {
+               isFlashlightOn = !isFlashlightOn;
+               track.applyConstraints({
+                    advanced: [{ torch: isFlashlightOn }]
+               }).catch(error => {
+                    console.error('Failed to toggle flashlight:', error);
+               });
+
+               // Optionally change button text based on flashlight state
+               flashlightToggle.textContent = isFlashlightOn ? 'Turn Off Flashlight' : 'Turn On Flashlight';
+          } else {
+               console.error('Flashlight is not available on this device.');
+               flashlightToggle.textContent = 'Flashlight Not Available';
+          }
+          }
+
+          // Access the camera (modify the existing getUserMedia function to get the track)
           navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
-               video.srcObject = stream;
-               video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
-               video.play();
-               requestAnimationFrame(tick);
+          video.srcObject = stream;
+          track = stream.getVideoTracks()[0]; // Get the video track for toggling flashlight
+          video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
+          video.play();
+          requestAnimationFrame(tick);
           });
+
 
           function tick() {
                if (video.readyState === video.HAVE_ENOUGH_DATA) {
