@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
     <style>
           body {
                overflow: hidden;
@@ -187,6 +188,50 @@
                top: 40%;
                z-index: 5;
           }
+          /* From Uiverse.io by LeonKohli */ 
+.toggle {
+     background-color: #fff;
+     width: 56px;
+     height: 56px;
+     border-radius: 50%;
+     display: grid;
+     place-items: center;
+     cursor: pointer;
+     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
+     line-height: 1;
+   }
+   
+   .input {
+     display: none;
+   }
+   
+   .icon {
+     grid-column: 1 / 1;
+     grid-row: 1 / 1;
+     transition: transform 500ms;
+   }
+   
+   .icon--moon {
+     transition-delay: 200ms;
+   }
+   
+   .icon--sun {
+     transform: scale(0);
+   }
+   
+   #switch:checked + .icon--moon {
+     transform: rotate(360deg) scale(0);
+   }
+   
+   #switch:checked ~ .icon--sun {
+     transition-delay: 200ms;
+     transform: scale(1) rotate(360deg);
+   }
+   
+   .w-8 {
+     width: 2rem /* 32px */;
+   }
+   
           @media (min-width: 300px) and (max-width: 750px) {
                .qrcode .option-container {
                     top: 10vh;
@@ -204,190 +249,192 @@
 </head>
 <body>
 
-   <!-- Modal -->
-     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-               <div class="modal-content">
-                    <div class="modal-header">
-                         <h1 class="modal-title fs-5" id="exampleModalLabel">Check In</h1>
-                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                         <form action="">
-                              <div class="formGroup">
-                                   <img src="../images/man-suit-sunglasses.avif" alt="....">
-                              </div>
-                              <div class="formGroup">
-                                   <input type="text" name="uname" id="uname" disabled>
-                                   <input type="text" name="email" id="email" disabled>
-                              </div>
-                         </form>
-                    </div>
-                    <div class="modal-footer">
-                         <button type="submit" name="btn checkIn" class="checkIn">Check In</button>
-                         <button type="reset" class="btn close" data-bs-dismiss="modal" onclick="closee()">Close</button>
-                    </div>
+    <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Check In</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                    <form action="">
+                         <div class="formGroup">
+                              <img src="../images/man-suit-sunglasses.avif" alt="....">
+                         </div>
+                         <div class="formGroup">
+                              <input type="text" name="uname" id="uname" disabled>
+                              <input type="text" name="email" id="email" disabled>
+                         </div>
+                    </form>
+               </div>
+               <div class="modal-footer">
+                    <button type="submit" name="btn checkIn" class="checkIn">Check In</button>
+                    <button type="reset" class="btn close" data-bs-dismiss="modal" onclick="closee()">Close</button>
                </div>
           </div>
      </div>
+</div>
 
-     <div class="qrcode">
-          <div class="option-container">
-               <button id="scanOption" class="active" onclick="showScan()">Scan QR Code</button>
-               <button id="manualOption" onclick="showManual()">Enter Email</button>
-          </div>
-          <button id="flashlightToggle" onclick="toggleFlashlight()">Toggle Flashlight</button>
-          <h1 class="header">QR Code Scanner</h1>
-          <div id="scanner" class="scanner">
-               <video id="video" autoplay></video>
-               <canvas id="canvas"></canvas>
-          </div>
-          <div id="manualInput" class="form-group d-none">
-               <input type="text" name="email" id="manualEmail" placeholder="Enter your email">
-               <button type="button" class="btn btn-primary" onclick="manualVerify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Email</button>
-          </div>
-          <form id="scanForm" class="form-group">
-               <label for="data" id="output">Scanning...</label>
-               <input type="text" name="data" id="data" readonly>
-               <button type="button" class="btn btn-primary" id="verify" onclick="verify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
-          </form>
+<div class="qrcode">
+     <div class="option-container">
+          <button id="scanOption" class="active" onclick="showScan()">Scan QR Code</button>
+          <button id="manualOption" onclick="showManual()">Enter Email</button>
      </div>
+     <button id="flashlightToggle" onclick="toggleFlashlight()">
+         <i id="flashlightIcon" class="fa fa-moon-o"></i> <!-- Default to moon icon -->
+     </button>
+     <h1 class="header">QR Code Scanner</h1>
+     <div id="scanner" class="scanner">
+          <video id="video" autoplay></video>
+          <canvas id="canvas"></canvas>
+     </div>
+     <div id="manualInput" class="form-group d-none">
+          <input type="text" name="email" id="manualEmail" placeholder="Enter your email">
+          <button type="button" class="btn btn-primary" onclick="manualVerify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Email</button>
+     </div>
+     <form id="scanForm" class="form-group">
+          <label for="data" id="output">Scanning...</label>
+          <input type="text" name="data" id="data" readonly>
+          <button type="button" class="btn btn-primary" id="verify" onclick="verify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
+     </form>
+</div>
 
      <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
      <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
      <script>
-               const video = document.getElementById('video');
-               const canvas = document.getElementById('canvas');
-               const context = canvas.getContext('2d');
-               const output = document.getElementById('output');
-               const data = document.getElementById('data');
-               const email = document.getElementById('email');
-               const manualEmail = document.getElementById('manualEmail');
-               const scanForm = document.getElementById('scanForm');
-               const manualInput = document.getElementById('manualInput');
-               const scanOption = document.getElementById('scanOption');
-               const manualOption = document.getElementById('manualOption');
-               let track = null; // To store the video track
-
-               
-
+          const video = document.getElementById('video');
+          const canvas = document.getElementById('canvas');
+          const context = canvas.getContext('2d');
+          const output = document.getElementById('output');
+          const data = document.getElementById('data');
+          const email = document.getElementById('email');
+          const manualEmail = document.getElementById('manualEmail');
+          const scanForm = document.getElementById('scanForm');
+          const manualInput = document.getElementById('manualInput');
+          const scanOption = document.getElementById('scanOption');
+          const manualOption = document.getElementById('manualOption');
+          const flashlightIcon = document.getElementById('flashlightIcon');
+          console.info(flashlightIcon)
+          let track = null; // To store the video track
+  
           function closee() {
                window.location.reload();
           }
-
+  
           function verify() {
                email.value = data.value; // Correct assignment
                console.log(`lets verify, email: ${email.value}`);
                data.value = ''; // Clear the data input if needed
           }
-
+  
           function manualVerify() {
                email.value = manualEmail.value;
                console.log(`Manual verification, email: ${email.value}`);
                manualEmail.value = ''; // Clear the manual email input
-               // Optionally: submit the form or show a message
           }
-
+  
           function showScan() {
                scanForm.classList.remove('d-none');
                manualInput.classList.add('d-none');
                scanOption.classList.add('active');
                manualOption.classList.remove('active');
           }
-
+  
           function showManual() {
                scanForm.classList.add('d-none');
                manualInput.classList.remove('d-none');
                manualOption.classList.add('active');
                scanOption.classList.remove('active');
           }
-
-
-          const flashlightToggle = document.getElementById('flashlightToggle');
+  
           let isFlashlightOn = false; // Track the state of the flashlight
-
+  
           function toggleFlashlight() {
-          if (track && track.getCapabilities().torch) {
-               isFlashlightOn = !isFlashlightOn;
-               track.applyConstraints({
-                    advanced: [{ torch: isFlashlightOn }]
-               }).catch(error => {
-                    console.error('Failed to toggle flashlight:', error);
-               });
-
-               // Optionally change button text based on flashlight state
-               flashlightToggle.textContent = isFlashlightOn ? 'Turn Off Flashlight' : 'Turn On Flashlight';
-          } else {
-               console.error('Flashlight is not available on this device.');
-               flashlightToggle.textContent = 'Flashlight Not Available';
+              if (track && track.getCapabilities().torch) {
+                  isFlashlightOn = !isFlashlightOn;
+                  track.applyConstraints({
+                      advanced: [{ torch: isFlashlightOn }]
+                  }).then(() => {
+                      flashlightIcon.className = isFlashlightOn ? 'fa fa-sun-o' : 'fa fa-moon-o';
+                      console.info(flashlightIcon)
+                  }).catch(error => {
+                    console.info(flashlightIcon)
+                      console.error('Failed to toggle flashlight:', error);
+                      flashlightIcon.className = 'fa fa-moon-o';
+                  });
+              } else {
+               console.info(flashlightIcon)
+               flashlightIcon.className = 'fa fa-moon-o';
+                  console.error('Flashlight is not available on this device.');
+              }
           }
-          }
-
+  
           // Access the camera (modify the existing getUserMedia function to get the track)
           navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
-          video.srcObject = stream;
-          track = stream.getVideoTracks()[0]; // Get the video track for toggling flashlight
-          video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
-          video.play();
-          requestAnimationFrame(tick);
+              video.srcObject = stream;
+              track = stream.getVideoTracks()[0]; // Get the video track for toggling flashlight
+              video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
+              video.play();
+              requestAnimationFrame(tick);
           });
-
-
+  
           function tick() {
-               if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                    canvas.height = video.videoHeight;
-                    canvas.width = video.videoWidth;
-                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                    const code = jsQR(imageData.data, imageData.width, imageData.height);
-
-                    if (code) {
-                         output.textContent = `QR Code Data: ${code.data}`;
-                         data.value = code.data;
-                    } else {
-                         output.textContent = "Scanning...";
-                    }
-               }
-               requestAnimationFrame(tick);
+              if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                  canvas.height = video.videoHeight;
+                  canvas.width = video.videoWidth;
+                  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                  const code = jsQR(imageData.data, imageData.width, imageData.height);
+  
+                  if (code) {
+                      output.textContent = `QR Code Data: ${code.data}`;
+                      data.value = code.data;
+                  } else {
+                      output.textContent = "Scanning...";
+                  }
+              }
+              requestAnimationFrame(tick);
           }
-
+  
           // Tap to focus
           video.addEventListener('click', () => {
-               if (track && track.getCapabilities().focusMode) {
-                    const capabilities = track.getCapabilities();
-                    const settings = track.getSettings();
-
-                    if (capabilities.focusMode.includes('continuous')) {
-                         track.applyConstraints({
-                         advanced: [{ focusMode: 'continuous' }]
-                         }).catch(error => {
-                         console.error('Failed to set focus mode:', error);
-                         });
-                    } else if (capabilities.focusMode.includes('single-shot')) {
-                         track.applyConstraints({
-                         advanced: [{ focusMode: 'single-shot' }]
-                         }).catch(error => {
-                         console.error('Failed to set focus mode:', error);
-                         });
-                    }
-               }
+              if (track && track.getCapabilities().focusMode) {
+                  const capabilities = track.getCapabilities();
+                  const settings = track.getSettings();
+  
+                  if (capabilities.focusMode.includes('continuous')) {
+                      track.applyConstraints({
+                          advanced: [{ focusMode: 'continuous' }]
+                      }).catch(error => {
+                          console.error('Failed to set focus mode:', error);
+                      });
+                  } else if (capabilities.focusMode.includes('single-shot')) {
+                      track.applyConstraints({
+                          advanced: [{ focusMode: 'single-shot' }]
+                      }).catch(error => {
+                          console.error('Failed to set focus mode:', error);
+                      });
+                  }
+              }
           });
-
+  
           // Improve scanning by adjusting resolution
           function optimizeVideoResolution() {
-               if (track) {
-                    track.applyConstraints({
-                         video: {
-                         width: { ideal: 640 },
-                         height: { ideal: 480 },
-                         aspectRatio: { ideal: 1.7777777778 }
-                         }
-                    }).catch(error => {
-                         console.error('Failed to optimize video resolution:', error);
-                    });
-               }
+              if (track) {
+                  track.applyConstraints({
+                      video: {
+                          width: { ideal: 640 },
+                          height: { ideal: 480 },
+                          aspectRatio: { ideal: 1.7777777778 }
+                      }
+                  }).catch(error => {
+                      console.error('Failed to optimize video resolution:', error);
+                  });
+              }
           }
+          
           tick(); // Start the scanning loop
      </script>
 </body>
