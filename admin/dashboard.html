@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .dashboard-container {
+            margin: 20px;
+        }
+        .card-header {
+            background-color: #2F3645;
+            color: #EEEDEB;
+        }
+        .btn-primary {
+            background-color: #2F3645;
+            border-color: #2F3645;
+        }
+        .btn-primary:hover {
+            background-color: #333;
+            border-color: #333;
+        }
+        .btn-danger {
+            background-color: #E6B9A6;
+            border-color: #E6B9A6;
+        }
+        .btn-danger:hover {
+            background-color: #D19C85;
+            border-color: #D19C85;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid dashboard-container">
+        <h2 class="text-center mb-4">Event Planner Dashboard</h2>
+
+        <!-- Event Overview Section -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Your Events</h4>
+            </div>
+            <div class="card-body">
+                <div id="event-list">
+                    <!-- JavaScript will populate this section with event cards -->
+                </div>
+                <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#addEventModal">Add New Event</button>
+            </div>
+        </div>
+
+        <!-- Payment Details Section -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Payment Details</h4>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#paymentModal">Add/Update Payment Method</button>
+                <h5>Transaction History</h5>
+                <ul id="transaction-list" class="list-group">
+                    <!-- JavaScript will populate this section with transaction details -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Payment Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Add/Update Payment Method</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardExpiry">Expiration Date</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardCVV">CVV</label>
+                            <input type="text" class="form-control" id="cardCVV" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Payment Method</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Event Modal -->
+    <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEventModalLabel">Add New Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addEventForm">
+                        <div class="form-group">
+                            <label for="eventName">Event Name</label>
+                            <input type="text" class="form-control" id="eventName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" class="form-control" id="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventLocation">Event Location</label>
+                            <input type="text" class="form-control" id="eventLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDescription">Event Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Bootstrap and JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Sample Data
+        const events = [
+            { id: 1, name: "Party 1", date: "2024-09-01", location: "New York", description: "Annual Party", status: "Upcoming" },
+            { id: 2, name: "Party 2", date: "2024-09-15", location: "Los Angeles", description: "Birthday Bash", status: "Upcoming" }
+        ];
+
+        const transactions = [
+            { id: 1, date: "2024-08-01", amount: "$100", status: "Completed" },
+            { id: 2, date: "2024-08-10", amount: "$150", status: "Completed" }
+        ];
+
+        // Populate Events
+        function loadEvents() {
+            const eventList = document.getElementById('event-list');
+            eventList.innerHTML = '';
+            events.forEach(event => {
+                const eventCard = `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${event.name}</h5>
+                        <p class="card-text">Date: ${event.date}</p>
+                        <p class="card-text">Location: ${event.location}</p>
+                        <p class="card-text">Status: ${event.status}</p>
+                        <p class="card-text">${event.description}</p>
+                        <button class="btn btn-primary btn-sm" onclick="editEvent(${event.id})">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteEvent(${event.id})">Delete</button>
+                    </div>
+                </div>`;
+                eventList.innerHTML += eventCard;
+            });
+        }
+
+        // Populate Transactions
+        function loadTransactions() {
+            const transactionList = document.getElementById('transaction-list');
+            transactionList.innerHTML = '';
+            transactions.forEach(transaction => {
+                const transactionItem = `
+                <li class="list-group-item">
+                    <strong>Date:</strong> ${transaction.date} | 
+                    <strong>Amount:</strong> ${transaction.amount} | 
+                    <strong>Status:</strong> ${transaction.status}
+                </li>`;
+                transactionList.innerHTML += transactionItem;
+            });
+        }
+
+        // Edit Event Function
+        function editEvent(eventId) {
+            const event = events.find(e => e.id === eventId);
+            if (event) {
+                // Populate the form with the event details
+                document.getElementById('eventName').value = event.name;
+                document.getElementById('eventDate').value = event.date;
+                document.getElementById('eventLocation').value = event.location;
+                document.getElementById('eventDescription').value = event.description;
+                $('#addEventModal').modal('show');
+            }
+        }
+
+        // Delete Event Function
+        function deleteEvent(eventId) {
+            const eventIndex = events.findIndex(e => e.id === eventId);
+            if (eventIndex !== -1) {
+                events.splice(eventIndex, 1);
+                loadEvents();
+            }
+        }
+
+        // Initial Load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadEvents();
+            loadTransactions();
+        });
+
+        // Add New Event Form Submission
+        document.getElementById('addEventForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newEvent = {
+                id: events.length + 1,
+                name: document.getElementById('eventName').value,
+                date: document.getElementById('eventDate').value,
+                location: document.getElementById('eventLocation').value,
+                description: document.getElementById('eventDescription').value,
+                status: "Upcoming"
+            };
+            events.push(newEvent);
+            loadEvents();
+            $('#addEventModal').modal('hide');
+        });
+
+        // Payment Form Submission
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you'd typically send the payment details to the server
+            alert('Payment method saved!');
+            $('#paymentModal').modal('hide');
+        });
+    </script>
+</body>
+</html>
