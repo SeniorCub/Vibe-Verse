@@ -1,0 +1,56 @@
+#calendar {
+     height: 100vh;
+     background-color: var(--primary-color);
+     color: var(--white);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     padding: 20px;
+}
+.modal-content {
+     background-color: var(--primary-color);
+     color: var(--white);
+     border-radius: var(--radius);
+     border: none;
+}
+
+.modal-header {
+border-bottom: 1px solid var(--dark-color);
+}
+
+.modal-title {
+color: var(--gold);
+}
+
+.btn-primary {
+background-color: var(--gold);
+border: none;
+border-radius: var(--radius);
+color: var(--black);
+}
+
+.btn-secondary {
+background-color: var(--dark-color);
+border: none;
+border-radius: var(--radius);
+color: var(--white);
+}
+
+.btn-close {
+color: var(--white);
+opacity: 0.8;
+}
+
+.btn-close:hover {
+opacity: 1;
+}
+
+/* Calendar event colors */
+.fc-event {
+background-color: var(--gold);
+border-color: var(--black);
+color: var(--black);
+}
+
+/* Sync buttons icons */
+.btn i {
+margin-right: 5px;
+}
