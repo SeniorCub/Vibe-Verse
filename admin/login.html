@@ -17,7 +17,7 @@
                width: 20px;
                height: 20px;
                border-radius: 50%;
-               background-color: red;
+               background-color: #2891bf;
                position: absolute;
           }
     </style>
@@ -46,14 +46,53 @@
      <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
      <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
      <script>
-          document.addEventListener("mousemove", (event)=>{
-               const x = event.clientX;
-               const y = event.clientY;
-               const move = document.querySelector(".move");
-               move.style.top = `${y}px`;
-               move.style.left = `${x}px`;
-          })
-          // i want the move to be cahanging color when it hover on text
+          // Helper function to invert a color and add transparency
+function invertColor(rgb, alpha = 0.7) {
+     // Extract the RGB values from the string
+     const rgbValues = rgb.match(/\d+/g);
+     if (!rgbValues) return null;
+ 
+     // Calculate the inverse color
+     const r = 255 - parseInt(rgbValues[0]);
+     const g = 255 - parseInt(rgbValues[1]);
+     const b = 255 - parseInt(rgbValues[2]);
+ 
+     // Return the color with the specified alpha transparency
+     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+ }
+ 
+ document.addEventListener("mousemove", (event) => {
+     const x = event.clientX;
+     const y = event.clientY;
+     const move = document.querySelector(".move");
+     move.style.top = `${y}px`;
+     move.style.left = `${x}px`;
+ });
+ 
+ document.addEventListener("mouseover", (event) => {
+     const target = event.target;
+     const move = document.querySelector(".move");
+ 
+     // Check if the hovered element is a text element
+     if (target.tagName === "P" || target.tagName === "SPAN" || target.tagName === "H1" || target.tagName === "H2" || target.tagName === "H3" || target.tagName === "H4" || target.tagName === "H5" || target.tagName === "H6" || target.tagName === "A") {
+         const color = window.getComputedStyle(target).color;
+         const invertedColor = invertColor(color, 0.7); // Adjust the alpha value as needed
+         move.style.backgroundColor = invertedColor;
+     } else {
+         // Handle non-text elements like images or other tags
+         move.style.backgroundColor = ""; // Reset or apply default style
+     }
+ });
+ 
+ // Optional: Reset the color when the mouse leaves the element
+ document.addEventListener("mouseout", (event) => {
+     const move = document.querySelector(".move");
+ 
+     if (event.target.tagName === "P" || event.target.tagName === "SPAN" || event.target.tagName === "H1" || event.target.tagName === "H2" || event.target.tagName === "H3" || event.target.tagName === "H4" || event.target.tagName === "H5" || event.target.tagName === "H6" || event.target.tagName === "A") {
+         move.style.backgroundColor = ""; // Resets to default or initial state
+     }
+ });
+ 
      </script>
 </body>
 </html>
