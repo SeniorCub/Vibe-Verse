@@ -11,17 +11,19 @@
     <style>
           body{
                height: 100vh;
+               position: relative;
           }
           .move{
                width: 20px;
                height: 20px;
                border-radius: 50%;
                background-color: red;
+               position: absolute;
           }
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center">
-     <div class="move"></div>
+     <div class=" move"></div>
      <main>
           <h1>Login to Scan QrCode</h1>
           <form action="">
@@ -45,8 +47,13 @@
      <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
      <script>
           document.addEventListener("mousemove", (event)=>{
-               
+               const x = event.clientX;
+               const y = event.clientY;
+               const move = document.querySelector(".move");
+               move.style.top = `${y}px`;
+               move.style.left = `${x}px`;
           })
+          // i want the move to be cahanging color when it hover on text
      </script>
 </body>
 </html>
