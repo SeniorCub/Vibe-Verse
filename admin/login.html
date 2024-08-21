@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Login</title>
+    <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+    <style>
+          body{
+               height: 100vh;
+          }
+          .move{
+               width: 20px;
+               height: 20px;
+               border-radius: 50%;
+               background-color: red;
+          }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center">
+     <div class="move"></div>
+     <main>
+          <h1>Login to Scan QrCode</h1>
+          <form action="">
+               <div class="form-group">
+                    <label for="partyOrganizer" class="form-label">Party Organizers</label>
+                    <select  id="partyOrganizer" required>
+                         <option selected disabled>Choose your Group...</option>
+                         <option value="nowSounds">Now Sounds</option>
+                         <option value="theBoys">The Boys</option>
+                    </select>
+               </div>
+               <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" required>
+               </div>
+               <button type="submit">Login</button>
+          </form>
+     </main>
+
+     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script>
+          document.addEventListener("mousemove", (event)=>{
+               
+          })
+     </script>
+</body>
+</html>
