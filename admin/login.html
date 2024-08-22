@@ -13,38 +13,15 @@
             height: 100vh;
             position: relative;
             background-color: #f7f7f7;
-               background: linear-gradient(255deg, #E6B9A655, #00000055), url(../images/man-suit-sunglasses.avif) no-repeat cover;
+          background: linear-gradient(255deg, #E6B9A699, #000000cc), url(../images/man-suit-sunglasses.avif) no-repeat;
+          background-size: cover;
             
         }
-
-        .move {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: rgba(40, 145, 191, 0.7);
-            position: absolute;
-            pointer-events: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            transform: scale(1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .move.bounce {
-            animation: bounce 1.5s infinite alternate;
-        }
-
-        @keyframes bounce {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.2);
-            }
-        }
-
         h1 {
-            color: #2888bf;
+            color: var(--gold);
+            text-shadow: 3px 3px 3px var(--dark-color);
             text-align: center;
+            font-size: 3rem;
         }
 
         form {
@@ -61,19 +38,30 @@
             margin-bottom: 5px;
             font-weight: bold;
         }
-
-        select, input {
-            padding: 8px 12px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            display: block;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+        label{
+          font-size: 1.2rem;
+          color: var(--white);
         }
-
+        select, input {
+          border: none;
+          border: 1px solid var(--gold);
+          border-radius: 10px;
+          margin: 10px;
+          color: var(--white);
+          outline: none;
+          width: 70%;
+          padding: 10px;
+          background-color: transparent;
+     }
+     option {
+          background-color: var(--gold); /* Background color of the options */
+          color: var(--black); /* Text color */
+          font-size: 16px; /* Font size */
+          padding: 5px; /* Padding inside options */
+        }
+        
         button {
-            background-color: #2888bf;
+            background-color: var(--primary-color);
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -83,12 +71,20 @@
         }
 
         button:hover {
-            background-color: #1f6b94;
+            background-color: var(--dark-color);
         }
+@media (min-width: 300px) and (max-width: 750px) {
+     body{
+          background-position: center;
+     }
+     h1{
+          color: var(--white);
+          font-size: 3.5rem;
+     }
+}
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center">
-    <div class="move"></div>
     <main>
         <h1>Login to Scan QR Code</h1>
         <form action="">
@@ -111,51 +107,7 @@
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
     <script>
-        // Helper function to invert a color and add transparency
-        function invertColor(rgb, alpha = 0.7) {
-            // Extract the RGB values from the string
-            const rgbValues = rgb.match(/\d+/g);
-            if (!rgbValues) return null;
-
-            // Calculate the inverse color
-            const r = 255 - parseInt(rgbValues[0]);
-            const g = 255 - parseInt(rgbValues[1]);
-            const b = 255 - parseInt(rgbValues[2]);
-
-            // Return the color with the specified alpha transparency
-            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-        }
-
-        document.addEventListener("mousemove", (event) => {
-            const x = event.clientX;
-            const y = event.clientY;
-            const move = document.querySelector(".move");
-            move.style.top = `${y}px`;
-            move.style.left = `${x}px`;
-        });
-
-        document.addEventListener("mouseover", (event) => {
-            const target = event.target;
-            const move = document.querySelector(".move");
-
-            // Check if the hovered element has a text color (which means it's likely a text element)
-            const color = window.getComputedStyle(target).color;
-            if (color !== "rgba(0, 0, 0, 0)" && color !== "transparent") { 
-                const invertedColor = invertColor(color, 0.7); // Adjust the alpha value as needed
-                move.style.backgroundColor = invertedColor;
-                move.classList.add('bounce'); // Add bounce effect
-            } else {
-                move.style.backgroundColor = ""; // Reset or apply default style
-                move.classList.remove('bounce'); // Remove bounce effect
-            }
-        });
-
-        // Optional: Reset the color when the mouse leaves the element
-        document.addEventListener("mouseout", (event) => {
-            const move = document.querySelector(".move");
-            move.style.backgroundColor = ""; // Resets to default or initial state
-            move.classList.remove('bounce'); // Remove bounce effect
-        });
+       
     </script>
 </body>
 </html>

@@ -84,6 +84,7 @@
                display: flex;
                flex-direction: column;
                align-items: center;
+               z-index: 20;
                justify-content: center;
           }
           .qrcode input[type="text"], .qrcode input[type="text"]:disabled, .qrcode input[type="email"], .formGroup input {
@@ -230,6 +231,10 @@
    
    .w-8 {
      width: 2rem /* 32px */;
+   }
+   input:disabled{
+          border: none;
+          border-bottom: 1px solid var(--gold);
    }
    
           @media (min-width: 300px) and (max-width: 750px) {
