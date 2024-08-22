@@ -7,25 +7,26 @@
     <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
     <style>
-        /* Black and White Theme */
         body {
             height: 100vh;
             position: relative;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
-            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+               background: linear-gradient(255deg, #E6B9A655, #00000055), url(../images/man-suit-sunglasses.avif) no-repeat cover;
+            
         }
 
         .move {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.8); /* Initial white color */
+            background-color: rgba(40, 145, 191, 0.7);
             position: absolute;
             pointer-events: none;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4); /* Glowing effect */
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transform: scale(1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .move.bounce {
@@ -42,17 +43,13 @@
         }
 
         h1 {
-            color: #fff;
+            color: #2888bf;
             text-align: center;
-            margin-bottom: 20px;
         }
 
         form {
+            margin-top: 20px;
             text-align: center;
-            background-color: #222; /* Darker form background */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         .form-group {
@@ -63,7 +60,6 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #ccc; /* Light grey for labels */
         }
 
         select, input {
@@ -73,13 +69,11 @@
             margin: 0 auto;
             display: block;
             border-radius: 5px;
-            border: 1px solid #555; /* Dark grey border */
-            background-color: #333; /* Dark input background */
-            color: #fff; /* White text in inputs */
+            border: 1px solid #ccc;
         }
 
         button {
-            background-color: #555; /* Darker grey button */
+            background-color: #2888bf;
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -89,7 +83,7 @@
         }
 
         button:hover {
-            background-color: #888; /* Lighter grey on hover */
+            background-color: #1f6b94;
         }
     </style>
 </head>
@@ -115,16 +109,20 @@
     </main>
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
     <script>
         // Helper function to invert a color and add transparency
-        function invertColor(rgb, alpha = 0.8) {
+        function invertColor(rgb, alpha = 0.7) {
+            // Extract the RGB values from the string
             const rgbValues = rgb.match(/\d+/g);
             if (!rgbValues) return null;
 
+            // Calculate the inverse color
             const r = 255 - parseInt(rgbValues[0]);
             const g = 255 - parseInt(rgbValues[1]);
             const b = 255 - parseInt(rgbValues[2]);
 
+            // Return the color with the specified alpha transparency
             return `rgba(${r}, ${g}, ${b}, ${alpha})`;
         }
 
@@ -140,24 +138,23 @@
             const target = event.target;
             const move = document.querySelector(".move");
 
+            // Check if the hovered element has a text color (which means it's likely a text element)
             const color = window.getComputedStyle(target).color;
-            if (color !== "rgba(0, 0, 0, 0)" && color !== "transparent") {
-                const invertedColor = invertColor(color, 0.8);
+            if (color !== "rgba(0, 0, 0, 0)" && color !== "transparent") { 
+                const invertedColor = invertColor(color, 0.7); // Adjust the alpha value as needed
                 move.style.backgroundColor = invertedColor;
-                move.style.boxShadow = `0 0 20px ${invertedColor}, 0 0 40px ${invertedColor}`;
-                move.classList.add('bounce');
+                move.classList.add('bounce'); // Add bounce effect
             } else {
-                move.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
-                move.style.boxShadow = "0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4)";
-                move.classList.remove('bounce');
+                move.style.backgroundColor = ""; // Reset or apply default style
+                move.classList.remove('bounce'); // Remove bounce effect
             }
         });
 
+        // Optional: Reset the color when the mouse leaves the element
         document.addEventListener("mouseout", (event) => {
             const move = document.querySelector(".move");
-            move.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
-            move.style.boxShadow = "0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4)";
-            move.classList.remove('bounce');
+            move.style.backgroundColor = ""; // Resets to default or initial state
+            move.classList.remove('bounce'); // Remove bounce effect
         });
     </script>
 </body>
