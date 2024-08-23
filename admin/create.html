@@ -97,10 +97,10 @@
                 <div class="formm">
                     <div class="label">
                         <div class="inputs">
-                            <label for="who" class="form-label">Regular only?? How much??</label>
+                            <label for="who" class="form-label">Enter Ticket type and amount</label>
                             <div class="d-flex justify-content-between align-items-center">
-                                <input type="text" name="wLevel" id="wLevel" placeholder="Enter Level">
-                                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount">
+                                <input type="text" name="wLevel" id="wLevel" placeholder="Enter Ticket Type">
+                                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Ticket Amount">
                                 <button type="button" class="btn add" onclick="addLevel()">Add</button>
                             </div>
                         </div>
@@ -216,6 +216,38 @@
             form3.style.left = '20vw';
             form4.style.left = '120vw';
         });
+
+        function addLevel() {
+          const list = document.querySelector('.list');
+          const level = document.querySelector('#wLevel');
+          const price = document.querySelector('#amount');
+      
+          if (level.value.trim() === "") {
+              alert("Please enter a level");
+          } else if (price.value.trim() === "" || isNaN(price.value) || Number(price.value) <= 0) {
+              alert("Please enter a valid price");
+          } else {
+              const li = document.createElement('li');
+              li.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'list-group-item');
+              li.innerHTML = `
+                  <input type="text" name="level" id="level" value="${level.value}" disabled>
+                  <input type="number" name="price" id="price" value="${price.value}" disabled>
+                  <button type="button" class="btn remove" onclick="removeLevel()">Remove</button>
+                  `
+              ;
+              list.appendChild(li);
+              
+              // Optionally clear the input fields after adding
+              level.value = "";
+              price.value = "";
+          }
+     }
+     
+     function removeLevel() {
+          const list = document.querySelector('.list');
+          const li = document.querySelector('.list-group-item');
+          list.removeChild(li);
+     }
     </script>
 </body>
 </html>

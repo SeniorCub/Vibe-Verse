@@ -249,90 +249,6 @@
                     </article>
                </div>
           </section>
-          
-          <section class="gallery-section">
-               <div class="d-flex flex-column justify-content-center align-items-center gallery-header">
-                    <h1 class="gallery-title"><span>Capture the Moments:</span> Party Gallery</h1>
-                    <p class="gallery-description">
-                    Relive the magic with our curated gallery of past events and parties. Each photo tells a story of unforgettable nights, vibrant tunes, and endless fun. Browse through the highlights and get inspired for the next big bash!
-                    </p>
-               </div>
-             
-               <div class="gallery-grid">
-                    <div class="gallery-item">
-                         <div class="evnt-one">
-                              <div class="tumb">
-                                   <img class="thumbnail" data-flip-id="img" alt="" src="images/close-up-shot.avif">
-                                   <div class="hover">
-                                        <h2>King’s Day dance party</h2>
-                                        <div class="d-flex justify-content-between">
-                                             <div class="location">Amsterdam, Netherlands</div>
-                                             <div class="date">April 27, 2022</div>
-                                        </div>
-                                        <button type="button" class="galleryMain">View Gallery</button>
-                                   </div>
-                              </div>
-                              <div class="container">
-                                   <img class="full-size" data-flip-id="img" alt=""  src="images/close-up-shot.avif">
-                              </div>
-                         </div>
-                    </div>
-                    <div class="gallery-item">
-                         <div class="evnt-one">
-                              <div class="tumb">
-                                   <img class="thumbnail" data-flip-id="img" alt="" src="images/close-up-shot.avif">
-                                   <div class="hover">
-                                        <h2>King’s Day dance party</h2>
-                                        <div class="d-flex justify-content-between">
-                                             <div class="location">Amsterdam, Netherlands</div>
-                                             <div class="date">April 27, 2022</div>
-                                        </div>
-                                        <button type="button" class="galleryMain">View Gallery</button>
-                                   </div>
-                              </div>
-                              <div class="container">
-                                   <img class="full-size" data-flip-id="img" alt=""  src="images/close-up-shot.avif">
-                              </div>
-                         </div>
-                    </div>
-                    <div class="gallery-item">
-                         <div class="evnt-one">
-                              <div class="tumb">
-                                   <img class="thumbnail" data-flip-id="img" alt="" src="images/close-up-shot.avif">
-                                   <div class="hover">
-                                        <h2>King’s Day dance party</h2>
-                                        <div class="d-flex justify-content-between">
-                                             <div class="location">Amsterdam, Netherlands</div>
-                                             <div class="date">April 27, 2022</div>
-                                        </div>
-                                        <button type="button" class="galleryMain">View Gallery</button>
-                                   </div>
-                              </div>
-                              <div class="container">
-                                   <img class="full-size" data-flip-id="img" alt=""  src="images/close-up-shot.avif">
-                              </div>
-                         </div>
-                    </div>
-                    <div class="gallery-item">
-                         <div class="evnt-one">
-                              <div class="tumb">
-                                   <img class="thumbnail" data-flip-id="img" alt="" src="images/close-up-shot.avif">
-                                   <div class="hover">
-                                        <h2>King’s Day dance party</h2>
-                                        <div class="d-flex justify-content-between">
-                                             <div class="location">Amsterdam, Netherlands</div>
-                                             <div class="date">April 27, 2022</div>
-                                        </div>
-                                        <button type="button" class="galleryMain">View Gallery</button>
-                                   </div>
-                              </div>
-                              <div class="container">
-                                   <img class="full-size" data-flip-id="img" alt=""  src="images/close-up-shot.avif">
-                              </div>
-                         </div>
-                    </div>
-               </div>
-          </section>
 
           <section class="footer">
                <div class="foot">
@@ -482,31 +398,6 @@
                   e.preventDefault();
                   gsap.to(window, {duration: 1, scrollTo: this.getAttribute('href')});
               });
-          });
-
-          const fullSize = document.querySelector(".full-size"),
-               tumb = document.querySelector(".tumb"),
-               galleryMain = document.querySelector(".galleryMain"),
-               thumbnail = document.querySelector(".thumbnail");
-
-          Draggable.create(thumbnail);
-
-          galleryMain.addEventListener("click", () => {
-               window.location.href="gallery.html"
-          })
-          tumb.addEventListener("click", () => {
-               const state = Flip.getState(".thumbnail, .full-size");
-
-               fullSize.classList.toggle("active");
-               thumbnail.classList.toggle("active");
-
-               Flip.from(state, {
-                    duration: 0.6,
-                    fade: true,
-                    absolute: true,
-                    toggleClass: "flipping",
-                    ease: "power1.inOut"
-               });
           });
      </script>
      
