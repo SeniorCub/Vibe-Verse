@@ -32,6 +32,15 @@
           border: 1px solid var(--gold);
           color: #000;
      }
+     #flyer1{
+          height: 100px;
+          width: 100px;
+          img{
+               width: 100%;
+               height: 100%;
+               object-fit: contain;
+          }
+     }
      @media (min-width: 300px) and (max-width: 750px) {
           .forms {
                .form1 {
@@ -82,8 +91,8 @@
                         <input type="date" id="eventStart">
                         <label for="eventStart">Event end's on?</label>
                         <input type="date" id="eventEnd">
-                        <label for="flyer">Upload your Flyer</label>
-                        <input type="file" name="flyer" id="flyer" accept="image/*">
+                        <input type="file" id="file" name="flyer" class="d-none" onchange="previewImage()">
+                        <label for="flyer" id="flyer1" onclick="upload()" class="form-label"><i class="fa fa-upload" aria-hidden="true"></i>Upload flyer</label>
                     </div>
                 </div>
 
@@ -133,8 +142,27 @@
     </div>
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script> -->
     <script>
+     function upload() {
+          let input = document.querySelector("#file");
+          input.click();
+     }
+
+     function previewImage() {
+          const input = document.querySelector('#file');
+          const file = input.files[0];
+          const reader = new FileReader();
+
+          reader.addEventListener('load', function() {
+               const uploadPic = document.querySelector('#flyer1');
+               uploadPic.innerHTML = `<img id="upload-pic" src="${reader.result}" alt="">`
+          });
+
+          if (file) {
+               reader.readAsDataURL(file);
+          }
+     }
         // Function to adjust the left property dynamically based on screen size
         function adjustFormPosition(formElement) {
             if (window.innerWidth <= 767) {
