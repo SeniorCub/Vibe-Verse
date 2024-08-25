@@ -25,6 +25,7 @@
           padding: 20px;
           border-radius: 10px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          margin: 0 auto;
           backdrop-filter: blur(5px);
           height: 150vh;
      }
@@ -41,7 +42,7 @@
           display: block;
      }
      
-     .party-info .section p, .party-info h1 {
+     .party-info .section p {
           font-size: 1.2rem;
           line-height: 1.5;
           color: var(--white);
@@ -57,12 +58,8 @@
           border-radius: 10px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
      }
-     
-     .back-btn {
-          display: block;
-          width: 100%;
-          text-align: center;
-          margin-top: 30px;
+     .btns{
+          margin: 0 auto!important;
      }
 
      .back-btn a {
@@ -74,25 +71,43 @@
           border-radius: 5px;
           transition: background-color 0.3s ease;
      }
-     
-     .back-btn a:hover {
+    
+     .back-btn a:hover,  .buy-btn a {
+          color: var(--gold); 
+          text-decoration: none;
+          font-size: 1.2rem;
+          padding: 10px 20px;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
           background-color: var(--gold);
-          color: var(--dark-color);
+          color: var(--black);
      }
+     .buy-btn a:hover{
+          border: 1px solid var(--gold);
+          background: transparent;
+          color: var(--white);
+     }
+     
      .party-info h1 {
           font-size: 2.5rem;
           color: var(--gold);
-          margin-bottom: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
           display: flex;
-          background: rgba(255, 0, 0, 0.1);
+          text-align: center;
+          background: linear-gradient( 124deg, rgba(255, 255, 255, 0.1), rgba(255, 0, 0, 0.1));
           backdrop-filter: blur(5px);
           justify-content: center;
           align-items: center;
      }
 
-     @media (max-width: 767px) {
+     @media (max-width: 900px) {
+          body, .party-info {
+               height: max-content!important;
+          }
           .party-info h1 {
-               font-size: 2rem;
+               padding: 1rem;
+               font-size: 1.5rem;
           }
 
           .party-info .section label {
@@ -102,9 +117,8 @@
           .party-info .section p {
                font-size: 1rem;
           }
-
-          .party-info .flyer img {
-               max-width: 200px;
+          .btns{
+               flex-direction: column!important;
           }
      }
     </style>
@@ -113,9 +127,9 @@
 
      <div class="container-fluid">
           <div class="party-info row">
-               <h1 class="col-12 h-3">Party Title: Summer Beach Bash</h1>
+               <h1 class="col-12 h-3">Summer Beach Bash</h1>
 
-               <div class="col-6 h-50">
+               <div class="col-md-6 col-12 h-50">
                     <div class="section">
                          <label>Location:</label>
                          <p>Sunny Beach, California</p>
@@ -131,7 +145,7 @@
                     </div>
                </div>
 
-               <div class="col-6 h-50 flyer">
+               <div class="col-md-6 col-12 h-50 flyer">
                     <img src="images/party/party6.avif" alt="Party Flyer">
                </div>
 
@@ -140,8 +154,13 @@
                     <p>Join us for an unforgettable Summer Beach Bash! Expect a night filled with fun, music, and dance as we celebrate under the stars.</p>
                </div>
 
-               <div class="back-btn">
-                    <a href="javascript:history.back()">Go Back</a>
+               <div class="col-12 d-flex jusify-content-center gap-5 align-items-center flex-md-row btns">
+                    <div class="back-btn">
+                         <a href="javascript:history.back()">Go Back</a>
+                    </div>
+                    <div class="buy-btn">
+                         <a href="javascript:void(0)">Buy Tickets</a>
+                    </div>
                </div>
           </div>
      </div>

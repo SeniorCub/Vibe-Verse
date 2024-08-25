@@ -35,7 +35,7 @@ a{
      text-decoration: none;
 }
 section{
-     height: 150vh;
+     max-height: 150vh;
 }
 .navbar-sm{
      display: none;
@@ -495,6 +495,7 @@ a {
           color: #29b6f6;
      }
 }
+
 @media (min-width: 300px) and (max-width: 750px) {
      .navbar-expand-lg{
           display: none;
@@ -503,7 +504,9 @@ a {
           display: block;
      }
      .navbar-collapse{
-          z-index: 100;
+          top: 10vh;
+          backdrop-filter: none;
+          z-index: 1000;
      }
      .navbar{
           position: initial!important;
@@ -517,9 +520,7 @@ a {
                }
           }
      }
-     section{
-          max-height: max-content;
-     }
+    
      
      .hero{
           .main{
@@ -581,5 +582,17 @@ a {
      .form1, .form2, .form3, .form4 {
           width: 100%!important;
           padding: 0!important;
+     }
+     #panels #panels-container .panel {
+          position: initial;
+          width: 100vw;
+          height: 100vh;
+      }
+      #panels #panels-container {
+          flex-direction: column;
+          height: max-content;
+      }
+      section, #pannel{
+          max-height: max-content!important;
      }
 }
