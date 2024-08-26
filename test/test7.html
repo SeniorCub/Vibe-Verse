@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     
+     <form action="">
+          <input type="text" name="text" id="text">
+          <button type="button" id="speak">Speak Now</button>
+     </form>
+
+     <script>
+          var text;
+          document.getElementById('speak').addEventListener('click', ()=>{
+               text = document.getElementById('text').value;
+               const speech = new SpeechSynthesisUtterance(text);
+     
+               window.speechSynthesis.speak(speech)
+          })
+
+         // window.speechSynthesis.onvoiceschanged = speakText
+     </script>
+
+</body>
+</html>
