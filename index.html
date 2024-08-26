@@ -329,99 +329,62 @@
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
      <script>
-          let main1 = document.querySelector('.main1');
-          let main2 = document.querySelector('.main2');
+         // Declare variables
+         const main1 = document.querySelector('.main1');
+         const main2 = document.querySelector('.main2');
+         const select1 = document.getElementById('select1');
+         const select2 = document.getElementById('select2');
+         let gsapInitialized = false;
 
-          let select1 = document.querySelector('#select1');
-          let select2 = document.querySelector('#select2');
-          document.addEventListener('DOMContentLoaded',()=>{
-               main1.classList.remove('d-none');
-          })
-          select1.addEventListener('click',()=>{
-               main1.classList.remove('d-none');
-               main2.classList.add('d-none');
-               select1.attributes.add('checked')
-          })
-          select2.addEventListener('click',()=>{
-               main2.classList.remove('d-none');
-               main1.classList.add('d-none');
-               select2.attributes.add('checked')
-          })
+         // DOMContentLoaded event listener
+         document.addEventListener('DOMContentLoaded', () => {
+              // Show the first main section
+              main1.classList.remove('d-none');
 
-          let gsapInitialized = false; // Track whether GSAP has been initialized
+              // GSAP initialization after the DOM is loaded
+              initGSAP();
+         });
 
-          function initGSAP() {
+         // GSAP initialization function
+         function initGSAP() {
               if (gsapInitialized) return; // Prevent reinitialization
-          
+
               gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
-          
+
+              // Example animation using ScrollTrigger
               let panelsSection = document.querySelector("#panels"),
-                  panelsContainer = document.querySelector("#panels-container"),
-                  tween;
-          
-              const panels = gsap.utils.toArray("#panels-container .panel");
-          
-              tween = gsap.to(panels, {
-                  xPercent: -100 * (panels.length - 1),
-                  ease: "none",
-                  scrollTrigger: {
-                      trigger: "#panels",
-                      pin: true,
-                      scrub: 1,
-                      snap: {
-                          snapTo: 1 / (panels.length - 1),
-                          duration: { min: 0.2, max: 0.3 },
-                          ease: "power1.inOut"
-                      },
-                      end: () => "+=" + panelsContainer.offsetWidth
-                  }
+                   panelsContainer = document.querySelector("#panels-container"),
+                   panelItems = gsap.utils.toArray(".panel");
+
+              gsap.to(panelItems, {
+                   xPercent: -100 * (panelItems.length - 1),
+                   ease: "none",
+                   scrollTrigger: {
+                        trigger: panelsSection,
+                        pin: true,
+                        scrub: 1,
+                        snap: 1 / (panelItems.length - 1),
+                        end: () => "+=" + panelsContainer.offsetWidth
+                   }
               });
-          
-              // Ensure the normal scrolling behavior after the panels
-              ScrollTrigger.create({
-                  trigger: "#map",
-                  start: "top top",
-                  end: "bottom bottom",
-                  pin: false,
-                  pinSpacing: true,
-                  scrub: false
-              });
-          
-              gsapInitialized = true; // Set flag to true after initialization
-          }
-          
-          function disableGSAP() {
-              if (!gsapInitialized) return; // Do nothing if GSAP is not initialized
-          
-              ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Kill all scroll triggers
-              gsapInitialized = false; // Reset flag
-          }
-          
-          function checkScreenWidth() {
-               document.addEventListener("DOMContentLoaded", () => {
-                    console.log(window.innerWidth);
-                    if (window.innerWidth >= 991) { // Set your desired screen width breakpoint
-                         initGSAP(); // Initialize GSAP animations
-                    } else {
-                         disableGSAP(); // Disable GSAP animations
-                    }
-               })
-          }
-               
-          // Initial check
-          checkScreenWidth();
-          
-          // Recheck on window resize
-          window.addEventListener('resize', checkScreenWidth);
-               
-            
-          // Handle panel navigation
-          document.querySelectorAll('.nav-panel a').forEach(anchor => {
-              anchor.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  gsap.to(window, {duration: 1, scrollTo: this.getAttribute('href')});
-              });
-          });
+
+              gsapInitialized = true; // Mark GSAP as initialized
+         }
+
+         // Event listeners for radio button selection
+         select1.addEventListener('click', () => {
+              main1.classList.remove('d-none');
+              main2.classList.add('d-none');
+              select1.setAttribute('checked', true);
+              select2.removeAttribute('checked');
+         });
+
+         select2.addEventListener('click', () => {
+              main2.classList.remove('d-none');
+              main1.classList.add('d-none');
+              select2.setAttribute('checked', true);
+              select1.removeAttribute('checked');
+         });hk
      </script>
      
 </body>
