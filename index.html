@@ -398,13 +398,16 @@
           }
           
           function checkScreenWidth() {
-              if (window.innerWidth >= 900) { // Set your desired screen width breakpoint
-                  initGSAP(); // Initialize GSAP animations
-              } else {
-                  disableGSAP(); // Disable GSAP animations
-              }
+               document.addEventListener("DOMContentLoaded", () => {
+                    console.log(window.innerWidth);
+                    if (window.innerWidth >= 991) { // Set your desired screen width breakpoint
+                         initGSAP(); // Initialize GSAP animations
+                    } else {
+                         disableGSAP(); // Disable GSAP animations
+                    }
+               })
           }
-          
+               
           // Initial check
           checkScreenWidth();
           
