@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap');
 *{
      padding: 0;
      margin: 0;
      box-sizing: border-box;
-     font-family: "Edu AU VIC WA NT Hand", cursive;
+     font-family: "Recursive", sans-serif;
      font-optical-sizing: auto;
      font-style: normal;
 }
 :root{
      --radius: 20px;
-     --primary-color: #2F3645;
+     --primary-color: #31302E;
      --white: #EEEDEB;
-     --gold: #E6B9A6;
+     --gold: #8A8D56;
      --dark-color: #939185;
      --black: #333;
 }
@@ -44,7 +44,7 @@ section{
      height: 10vh;
      position: fixed;
      width: 100vw;
-     background-color: #2F364533;
+     background-color: #31302E33;
      z-index: 10;
      backdrop-filter: blur(10px);
      .navbar-brand{
@@ -132,7 +132,7 @@ section{
      .main{
           padding: 20vh 2vw;
           height: 100vh!important;
-          background-color: #2F364555;
+          background-color: #31302E55;
           backdrop-filter: blur(5px);
           .text{
                text-transform: uppercase;
@@ -237,10 +237,10 @@ section{
      align-items: center;
      justify-content: center;
      background-repeat: no-repeat;
-     background: linear-gradient(255deg, #E6B9A666, #00000066), url(images/party/upcoming.avif);
+     background: linear-gradient(255deg, #8A8D5666, #00000066), url(images/party/upcoming.avif);
      background-size: cover;
      background-position: center;
-     color: #E6B9A6;
+     color: #8A8D56;
      h1{
           font-size: 2rem;
           font-weight: 800;
@@ -292,33 +292,33 @@ section{
           font-size: 2.5rem;
           font-weight: 800;
           line-height: 1.5;
-          color: #2F3645;
+          color: #31302E;
           font-style: oblique;
-          text-shadow: 2px 2px 5px #E6B9A6;
+          text-shadow: 2px 2px 5px #8A8D56;
      }
 }
 .panel:nth-child(1){
-     background: linear-gradient(255deg, #E6B9A666, #00000066), url(images/party/partyBg.jpg);
+     background: linear-gradient(255deg, #8A8D5666, #00000066), url(images/party/partyBg.jpg);
      background-size: cover;
      background-position: center;
 }
 .panel:nth-child(2){
-     background: linear-gradient(255deg, #E6B9A666, #00000066), url(images/party/partyBg2.jpg);
+     background: linear-gradient(255deg, #8A8D5666, #00000066), url(images/party/partyBg2.jpg);
      background-size: cover;
      background-position: center;
 }
 .panel:nth-child(3){
-     background: linear-gradient(255deg, #E6B9A666, #00000066), url(images/party/partyBg3.jpg);
+     background: linear-gradient(255deg, #8A8D5666, #00000066), url(images/party/partyBg3.jpg);
      background-size: cover;
      background-position: center;
 }
 .panel:nth-child(4){
-     background: linear-gradient(255deg, #E6B9A666, #00000066), url(images/party/partyBg4.jpg);
+     background: linear-gradient(255deg, #8A8D5666, #00000066), url(images/party/partyBg4.jpg);
      background-size: cover;
      background-position: center;
 }
 .panel:nth-child(5){
-     background: linear-gradient(255deg, #E6B9A666, #00000066), url(images/party/partyBg5.jpg);
+     background: linear-gradient(255deg, #8A8D5666, #00000066), url(images/party/partyBg5.jpg);
      background-size: cover;
      background-position: center;
 }
@@ -350,14 +350,14 @@ section{
      font-size: 1rem;
      font-weight: 600;
      line-height: 1.5;
-     color: #2F3645;
+     color: #31302E;
      text-align: center;
 }
 .step-description{
      font-size: 1.5rem;
      font-weight: 600;
      line-height: 1.5;
-     color: #2F3645;
+     color: #31302E;
      .location, .date{
           max-width: 250px;
           text-wrap: wrap;
@@ -375,7 +375,7 @@ a {
      max-height: 100vh; /* Ensure full viewport height */
  }
  .bg-dark{
-      background: linear-gradient(135deg, #2F3645, #C9ADA7, #9A8C98, #E6B9A6, #4A4E69)!important;
+      background: linear-gradient(135deg, #31302E, #C9ADA7, #9A8C98, #8A8D56, #4A4E69)!important;
  }   
 .footer{
      height: max-content;
@@ -464,7 +464,7 @@ a {
           border-radius: var(--radius);
           margin: 0.5em;
           border: 1px solid rgba(255, 255, 255, 0.3);
-          background-color: #e6b9a633;
+          background-color: #8A8D5633;
           backdrop-filter: blur(10px);
           i{
                font-size: 1.5rem;
