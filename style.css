@@ -40,7 +40,7 @@ section{
 .navbar-sm{
      display: none;
 }
-.navbar{
+.navbar-expand-lg{
      height: 10vh;
      position: fixed;
      width: 100vw;
@@ -512,9 +512,18 @@ a {
           position: initial!important;
           top: 0;
           .navbar-brand{
+               margin-right: auto;
                font-size: 1.5rem;
                padding-left: 4rem;
                gap: 1rem;
+               display: flex;
+               justify-content: start;
+               align-items: start;
+               text-align: left;
+               font-size: 2rem;
+               font-weight: 900;
+               text-transform: uppercase;
+               color: var(--gold);
                img{
                     display: none!important;
                }

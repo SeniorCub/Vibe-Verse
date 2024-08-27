@@ -330,62 +330,60 @@
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
      <script>
-         // Declare variables
-         const main1 = document.querySelector('.main1');
-         const main2 = document.querySelector('.main2');
-         const select1 = document.getElementById('select1');
-         const select2 = document.getElementById('select2');
-         let gsapInitialized = false;
+        // Declare variables
+const main1 = document.querySelector('.main1');
+const main2 = document.querySelector('.main2');
+const select1 = document.getElementById('select1');
+const select2 = document.getElementById('select2');
+let gsapInitialized = false;
 
-         // DOMContentLoaded event listener
-         document.addEventListener('DOMContentLoaded', () => {
-              // Show the first main section
-              main1.classList.remove('d-none');
+// DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if elements are selected properly
+    console.log('main1:', main1);
+    console.log('main2:', main2);
+    console.log('select1:', select1);
+    console.log('select2:', select2);
 
-              // GSAP initialization after the DOM is loaded
-              initGSAP();
-         });
+    // Show the first main section if it exists
+    if (main1) main1.classList.remove('d-none');
 
-         // GSAP initialization function
-         function initGSAP() {
-              if (gsapInitialized) return; // Prevent reinitialization
+    // GSAP initialization after the DOM is loaded
+    initGSAP();
+});
 
-              gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
+// GSAP initialization function
+function initGSAP() {
+    if (gsapInitialized) return; // Prevent reinitialization
+    gsapInitialized = true;
 
-              // Example animation using ScrollTrigger
-              let panelsSection = document.querySelector("#panels"),
-                   panelsContainer = document.querySelector("#panels-container"),
-                   panelItems = gsap.utils.toArray(".panel");
+    console.log('Initializing GSAP...');
 
-              gsap.to(panelItems, {
-                   xPercent: -100 * (panelItems.length - 1),
-                   ease: "none",
-                   scrollTrigger: {
-                        trigger: panelsSection,
-                        pin: true,
-                        scrub: 1,
-                        snap: 1 / (panelItems.length - 1),
-                        end: () => "+=" + panelsContainer.offsetWidth
-                   }
-              });
+    gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
 
-              gsapInitialized = true; // Mark GSAP as initialized
-         }
+    // Example animation using ScrollTrigger
+    let panelsSection = document.querySelector("#panels");
+    let panelsContainer = document.querySelector("#panels-container");
+    let panelSections = gsap.utils.toArray(".panel");
 
-         // Event listeners for radio button selection
-         select1.addEventListener('click', () => {
-              main1.classList.remove('d-none');
-              main2.classList.add('d-none');
-              select1.setAttribute('checked', true);
-              select2.removeAttribute('checked');
-         });
+    // Check if the elements exist before animating
+    if (panelsSection && panelsContainer && panelSections.length > 0) {
+        gsap.to(panelsContainer, {
+            xPercent: -100 * (panelSections.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: panelsSection,
+                pin: true,
+                scrub: 1,
+                snap: 1 / (panelSections.length - 1),
+                end: () => "+=" + panelsContainer.offsetWidth
+            }
+        });
+    } else {
+        console.error('Panel sections not found!');
+    }
+}
 
-         select2.addEventListener('click', () => {
-              main2.classList.remove('d-none');
-              main1.classList.add('d-none');
-              select2.setAttribute('checked', true);
-              select1.removeAttribute('checked');
-         });
      </script>
      
 </body>
