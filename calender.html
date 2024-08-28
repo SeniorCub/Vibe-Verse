@@ -1,179 +1,243 @@
-     <!DOCTYPE html>
-     <html lang="en">
-     <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
-     <link rel="stylesheet" href="OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
-     <link rel="stylesheet" href="OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
-     <link rel="stylesheet" href="style.css">
-     <style>
-          .fc-day-today{
-               background-color: #e6b9a6c4!important;
-               color: var(--primary-color);
-               font-weight: 900;
-          }
-          #calendar {
-               height: 100vh;
-               background-color: var(--primary-color);
-               color: var(--white);
-               padding: 20px;
-          }
-          .modal-content {
-               background-color: var(--primary-color);
-               color: var(--white);
-               border-radius: var(--radius);
-               border: none;
-          }
-   
-           .modal-header {
-               border-bottom: 1px solid var(--dark-color);
-           }
-   
-           .modal-title {
-               color: var(--gold);
-           }
-   
-           .btn-primary {
-               background-color: var(--gold);
-               border: none;
-               border-radius: var(--radius);
-               color: var(--black);
-           }
-   
-           .btn-secondary {
-               background-color: var(--dark-color);
-               border: none;
-               border-radius: var(--radius);
-               color: var(--white);
-           }
-   
-           .btn-close {
-               color: var(--white);
-               opacity: 0.7;
-           }
-   
-           .btn-close:hover {
-               opacity: 1;
-           }
-   
-           /* Sync buttons icons */
-           .btn i {
-               margin-right: 5px;
-           }
-@media (min-width: 300px) and (max-width: 750px) {
-     .fc-toolbar-chunk{
-          font-size: 0.5rem;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
+<link rel="stylesheet" href="OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+     .fc-day-today{
+          background-color: #8A8D56c4!important;
+          color: var(--primary-color);
+          font-weight: 900;
      }
-     .fc-col-header-cell-cushion{
-          font-size: 0.7rem;
+     #calendar {
+          height: 100vh;
+          background-color: var(--primary-color);
+          color: var(--white);
+          padding: 20px;
+          padding-top: 10vh;
      }
-     .fc-daygrid-day-number{
-          font-size: 0.7rem;
+     .modal-content {
+          background-color: var(--primary-color);
+          color: var(--white);
+          border-radius: var(--radius);
+          border: none;
      }
-     .fc-event {
-          font-size: 0.8rem;
-     }
-}
-     </style>
-     </head>
-     <body>
-          
-     <div id="calendar"></div>
 
-     <!-- Event Details Modal -->
-     <div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-               <div class="modal-content">
-                    <div class="modal-header">
-                         <h5 class="modal-title" id="eventDetailsModalLabel">Event Details</h5>
-                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          .modal-header {
+          border-bottom: 1px solid var(--dark-color);
+          }
+
+          .modal-title {
+          color: var(--gold);
+          }
+
+          .btn-primary, .fc-button, .fc-button-primary {
+          background-color: var(--gold)!important;
+          border: none!important;
+          border-radius: var(--radius) - 10%!important;
+          color: var(--white)!important;
+          }
+
+          .btn-secondary, .fc-button-active {
+          background-color: var(--gold)!important;
+          border: none!important;
+          border-radius: var(--radius) - 10%!important;
+          opacity: .65;
+          color: var(--white)!important;
+          }
+
+          .btn-close {
+          color: var(--white);
+          opacity: 0.7;
+          }
+
+          .btn-close:hover {
+          opacity: 1;
+          }
+
+          /* Sync buttons icons */
+          .btn i {
+          margin-right: 5px;
+          }
+          .fc-list-day-cushion, .fc-list-day-cushion:hover{
+               background-color: var(--primary-color)!important;
+          }
+@media (min-width: 300px) and (max-width: 750px) {
+.fc-toolbar-chunk{
+     font-size: 0.5rem;
+}
+.fc-col-header-cell-cushion{
+     font-size: 0.7rem;
+}
+.fc-daygrid-day-number{
+     font-size: 0.7rem;
+}
+.fc-event {
+     font-size: 0.8rem;
+}
+}
+</style>
+</head>
+<body>
+     
+
+     <main id="content" class="bg-dark">
+          <nav class="navbar navbar-expand-lg">
+               <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                   <a class="nav-link" aria-current="page" href="/">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="events.html">Events</a>
+                              </li>
+                         </ul>
                     </div>
-                    <div class="modal-body">
-                         <h5 id="eventTitle"></h5>
-                         <p><strong>Start:</strong> <span id="eventStart"></span></p>
-                         <p><strong>End:</strong> <span id="eventEnd"></span></p>
-                         <div>
-                         <button id="googleCalendarButton" class="btn btn-primary"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Sync to Google Calendar</button>
-                         <button id="icalButton" class="btn btn-secondary"> <i class="fa fa-calendar" aria-hidden="true"></i> Sync to iCal</button>
-                         </div>
+                    <a class="navbar-brand" href="/">Tune<img src="images/logo.png" alt="Logo" class="d-inline-block align-text-top">Tribe
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                   <a class="nav-link active" href="calender.html">Calendar</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="https://seniorcub.netlify.app" rel="noopener" target="_blank">Dev SeniorCub</a> 
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+          </nav>
+
+          <nav class="navbar navbar-sm">
+               <div class="container-fluid">
+                    <a class="navbar-brand" href="/"><div>Tune</div><img src="images/logo.png" alt="Logo" class="d-inline-block align-text-top"><div>Tribe</div></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                   <a class="nav-link active" aria-current="page" href="/">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="events.html">Events</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="calender.html">Calendar</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="https://seniorcub.netlify.app" rel="noopener" target="_blank">Dev SeniorCub</a> 
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+          </nav>
+
+          <div id="calendar"></div>
+
+     </main>
+
+<!-- Event Details Modal -->
+<div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h5 class="modal-title" id="eventDetailsModalLabel">Event Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                    <h5 id="eventTitle"></h5>
+                    <p><strong>Start:</strong> <span id="eventStart"></span></p>
+                    <p><strong>End:</strong> <span id="eventEnd"></span></p>
+                    <div>
+                    <button id="googleCalendarButton" class="btn btn-primary"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Sync to Google Calendar</button>
+                    <button id="icalButton" class="btn btn-secondary"> <i class="fa fa-calendar" aria-hidden="true"></i> Sync to iCal</button>
                     </div>
                </div>
           </div>
      </div>
+</div>
 
-     <script src="OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
-     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
-     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
-     <script src="script.js"></script>
-     <script>
-          document.addEventListener("DOMContentLoaded", function () {
-               var calendarEl = document.getElementById('calendar');
-               var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth',
-                    headerToolbar: {
-                         left: 'prev,next today',
-                         center: 'title',
-                         right: 'dayGridMonth,dayGridWeek,timeGridDay,listMonth'
+<script src="OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+<script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+<script>
+     document.addEventListener("DOMContentLoaded", function () {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+               initialView: 'dayGridMonth',
+               headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,dayGridWeek,timeGridDay,listMonth'
+               },
+               events: [
+                    {
+                    id: '1',
+                    title: 'Exam Week',
+                    start: '2024-08-21',
+                    end: '2024-08-25',
+                    backgroundColor: 'red',
+                    borderColor: 'black',
+                    textColor: 'white'
                     },
-                    events: [
-                         {
-                         id: '1',
-                         title: 'Exam Week',
-                         start: '2024-08-21',
-                         end: '2024-08-25',
-                         backgroundColor: 'red',
-                         borderColor: 'black',
-                         textColor: 'white'
-                         },
-                         { id: '2', title: 'School Festival', start: '2024-08-14' },
-                         { id: '3', title: 'School Festival', start: '2024-08-11' }
-                    ],
-                    eventClick: function (info) {
-                         // Display event details in the modal
-                         document.getElementById('eventTitle').textContent = info.event.title;
-                         document.getElementById('eventStart').textContent = info.event.start.toISOString().slice(0, 10);
-                         document.getElementById('eventEnd').textContent = info.event.end ? info.event.end.toISOString().slice(0, 10) : 'N/A';
+                    { id: '2', title: 'School Festival', start: '2024-08-14' },
+                    { id: '3', title: 'School Festival', start: '2024-08-11' }
+               ],
+               eventClick: function (info) {
+                    // Display event details in the modal
+                    document.getElementById('eventTitle').textContent = info.event.title;
+                    document.getElementById('eventStart').textContent = info.event.start.toISOString().slice(0, 10);
+                    document.getElementById('eventEnd').textContent = info.event.end ? info.event.end.toISOString().slice(0, 10) : 'N/A';
 
-                         // Sync to Google Calendar button
-                         document.getElementById('googleCalendarButton').onclick = function () {
-                         var googleCalendarUrl = 'https://calendar.google.com/calendar/r/eventedit?text=' +
-                              encodeURIComponent(info.event.title) +
-                              '&dates=' +
-                              info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '') + '/' +
-                              (info.event.end ? info.event.end.toISOString().replace(/-|:|\.\d\d\d/g, '') : info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '')) +
-                              '&details=' + encodeURIComponent('Event details here...');
-                         window.open(googleCalendarUrl, '_blank');
-                         };
+                    // Sync to Google Calendar button
+                    document.getElementById('googleCalendarButton').onclick = function () {
+                    var googleCalendarUrl = 'https://calendar.google.com/calendar/r/eventedit?text=' +
+                         encodeURIComponent(info.event.title) +
+                         '&dates=' +
+                         info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '') + '/' +
+                         (info.event.end ? info.event.end.toISOString().replace(/-|:|\.\d\d\d/g, '') : info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '')) +
+                         '&details=' + encodeURIComponent('Event details here...');
+                    window.open(googleCalendarUrl, '_blank');
+                    };
 
-                         // Sync to iCal button
-                         document.getElementById('icalButton').onclick = function () {
-                         var icalData = 'BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\n' +
-                              'SUMMARY:' + info.event.title + '\n' +
-                              'DTSTART:' + info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '') + '\n' +
-                              'DTEND:' + (info.event.end ? info.event.end.toISOString().replace(/-|:|\.\d\d\d/g, '') : info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '')) + '\n' +
-                              'END:VEVENT\nEND:VCALENDAR';
+                    // Sync to iCal button
+                    document.getElementById('icalButton').onclick = function () {
+                    var icalData = 'BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\n' +
+                         'SUMMARY:' + info.event.title + '\n' +
+                         'DTSTART:' + info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '') + '\n' +
+                         'DTEND:' + (info.event.end ? info.event.end.toISOString().replace(/-|:|\.\d\d\d/g, '') : info.event.start.toISOString().replace(/-|:|\.\d\d\d/g, '')) + '\n' +
+                         'END:VEVENT\nEND:VCALENDAR';
 
-                         var blob = new Blob([icalData], { type: 'text/calendar;charset=utf-8' });
-                         var url = URL.createObjectURL(blob);
-                         var a = document.createElement('a');
-                         a.href = url;
-                         a.download = info.event.title + '.ics';
-                         document.body.appendChild(a);
-                         a.click();
-                         document.body.removeChild(a);
-                         };
+                    var blob = new Blob([icalData], { type: 'text/calendar;charset=utf-8' });
+                    var url = URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = info.event.title + '.ics';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    };
 
-                         // Show the modal
-                         var eventDetailsModal = new bootstrap.Modal(document.getElementById('eventDetailsModal'));
-                         eventDetailsModal.show();
-                    }
-               });
-
-               calendar.render();
+                    // Show the modal
+                    var eventDetailsModal = new bootstrap.Modal(document.getElementById('eventDetailsModal'));
+                    eventDetailsModal.show();
+               }
           });
-     </script>
-     </body>
-     </html>
+
+          calendar.render();
+     });
+</script>
+</body>
+</html>
