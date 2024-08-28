@@ -329,61 +329,72 @@
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+     <script src="js/gsap.min.js"></script>
+     <script src="js/ScrollTrigger.min.js"></script>
+     <script src="js/Flip.min.js"></script>
+     <script src="js/Draggable.min.js"></script>
      <script>
-        // Declare variables
-const main1 = document.querySelector('.main1');
-const main2 = document.querySelector('.main2');
-const select1 = document.getElementById('select1');
-const select2 = document.getElementById('select2');
-let gsapInitialized = false;
+          let main1 = document.querySelector('.main1');
+          let main2 = document.querySelector('.main2');
 
-// DOMContentLoaded event listener
-document.addEventListener('DOMContentLoaded', () => {
-    // Check if elements are selected properly
-    console.log('main1:', main1);
-    console.log('main2:', main2);
-    console.log('select1:', select1);
-    console.log('select2:', select2);
+          let select1 = document.querySelector('#select1');
+          let select2 = document.querySelector('#select2');
+          document.addEventListener('DOMContentLoaded',()=>{
+               main1.classList.remove('d-none');
+          })
+          select1.addEventListener('click',()=>{
+               main1.classList.remove('d-none');
+               main2.classList.add('d-none');
+               select1.attributes.add('checked')
+          })
+          select2.addEventListener('click',()=>{
+               main2.classList.remove('d-none');
+               main1.classList.add('d-none');
+               select2.attributes.add('checked')
+          })
 
-    // Show the first main section if it exists
-    if (main1) main1.classList.remove('d-none');
+          gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
 
-    // GSAP initialization after the DOM is loaded
-    initGSAP();
-});
-
-// GSAP initialization function
-function initGSAP() {
-    if (gsapInitialized) return; // Prevent reinitialization
-    gsapInitialized = true;
-
-    console.log('Initializing GSAP...');
-
-    gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
-
-    // Example animation using ScrollTrigger
-    let panelsSection = document.querySelector("#panels");
-    let panelsContainer = document.querySelector("#panels-container");
-    let panelSections = gsap.utils.toArray(".panel");
-
-    // Check if the elements exist before animating
-    if (panelsSection && panelsContainer && panelSections.length > 0) {
-        gsap.to(panelsContainer, {
-            xPercent: -100 * (panelSections.length - 1),
-            ease: "none",
-            scrollTrigger: {
-                trigger: panelsSection,
-                pin: true,
-                scrub: 1,
-                snap: 1 / (panelSections.length - 1),
-                end: () => "+=" + panelsContainer.offsetWidth
-            }
-        });
-    } else {
-        console.error('Panel sections not found!');
-    }
-}
-
+          // Main navigation
+          let panelsSection = document.querySelector("#panels"),
+              panelsContainer = document.querySelector("#panels-container"),
+              tween;
+          
+          // Panels
+          const panels = gsap.utils.toArray("#panels-container .panel");
+          tween = gsap.to(panels, {
+              xPercent: -100 * (panels.length - 1),
+              ease: "none",
+              scrollTrigger: {
+                  trigger: "#panels",
+                  pin: true,
+                  scrub: 1,
+                  snap: {
+                      snapTo: 1 / (panels.length - 1),
+                      duration: { min: 0.2, max: 0.3 },
+                      ease: "power1.inOut"
+                  },
+                  end: () => "+=" + panelsContainer.offsetWidth
+              }
+          });
+  
+          // Ensure the normal scrolling behavior after the panels
+          ScrollTrigger.create({
+              trigger: "#map",
+              start: "top top",
+              end: "bottom bottom",
+              pin: false,
+              pinSpacing: true,
+              scrub: false
+          });
+  
+          // Handle panel navigation
+          document.querySelectorAll('.nav-panel a').forEach(anchor => {
+              anchor.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  gsap.to(window, {duration: 1, scrollTo: this.getAttribute('href')});
+              });
+          });
      </script>
      
 </body>
