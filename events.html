@@ -35,7 +35,7 @@
                                         <a class="nav-link" href="calender.html">Calendar</a>
                                    </li>
                                    <li class="nav-item">
-                                        <a class="nav-link" href="seniorcub.netlify.app">About Me</a>
+                                        <a class="nav-link" href="https://seniorcub.netlify.app" rel="noopener" target="_blank">Dev SeniorCub</a> 
                                    </li>
                               </ul>
                          </div>
@@ -57,10 +57,10 @@
                                         <a class="nav-link" href="events.html">Events</a>
                                    </li>
                                    <li class="nav-item">
-                                        <a class="nav-link" href="gallery.html">Gallery</a>
+                                        <a class="nav-link" href="calender.html">Calendar</a>
                                    </li>
                                    <li class="nav-item">
-                                        <a class="nav-link" href="calender.html">Calendar</a>
+                                        <a class="nav-link" href="https://seniorcub.netlify.app" rel="noopener" target="_blank">Dev SeniorCub</a> 
                                    </li>
                               </ul>
                          </div>
@@ -234,7 +234,7 @@
                     <div class="d-flex justify-content-center align-items-center gap-3 sideBot">
                          <div class="pol">Privacy Policy</div>
                          <div class="d-flex justify-content-center align-items-center gap-2 copy">
-                              <a href="https://seniorcub.netlify.app" target="_blank">Dev SeniorCub</a> 
+                              <a href="https://seniorcub.netlify.app" rel="noopener" target="_blank">Dev SeniorCub</a> 
                               <span>©</span> 
                               <span>
                                    <script>
@@ -258,30 +258,7 @@
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
-     <script src="js/gsap.min.js"></script>
-     <script src="js/ScrollTrigger.min.js"></script>
-     <script src="js/Flip.min.js"></script>
-     <script src="js/Draggable.min.js"></script>
      <script>
-          let main1 = document.querySelector('.main1');
-          let main2 = document.querySelector('.main2');
-
-          let select1 = document.querySelector('#select1');
-          let select2 = document.querySelector('#select2');
-          document.addEventListener('DOMContentLoaded',()=>{
-               main1.classList.remove('d-none');
-          })
-          select1.addEventListener('click',()=>{
-               main1.classList.remove('d-none');
-               main2.classList.add('d-none');
-               select1.attributes.add('checked')
-          })
-          select2.addEventListener('click',()=>{
-               main2.classList.remove('d-none');
-               main1.classList.add('d-none');
-               select2.attributes.add('checked')
-          })
-
           gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
 
           // Main navigation
@@ -315,14 +292,6 @@
               pin: false,
               pinSpacing: true,
               scrub: false
-          });
-  
-          // Handle panel navigation
-          document.querySelectorAll('.nav-panel a').forEach(anchor => {
-              anchor.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  gsap.to(window, {duration: 1, scrollTo: this.getAttribute('href')});
-              });
           });
      </script>
      
