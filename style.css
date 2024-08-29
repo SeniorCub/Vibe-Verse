@@ -375,7 +375,7 @@ a {
      max-height: 100vh; /* Ensure full viewport height */
  }
  .bg-dark{
-      background: linear-gradient(135deg, #31302E, #C9ADA7, #9A8C98, #8A8D56, #4A4E69)!important;
+      background: linear-gradient(135deg, #31302E, #8a8d564b, #8c9a8e, #8A8D56, #4A4E69)!important;
  }   
 .footer{
      height: max-content;
@@ -509,25 +509,13 @@ a {
           z-index: 1000;
      }
      .navbar{
-          position: initial!important;
-          top: 0;
-          .navbar-brand{
-               margin-right: auto;
-               font-size: 1.5rem;
-               padding-left: 4rem;
-               gap: 1rem;
-               display: flex;
-               justify-content: start;
-               align-items: start;
-               text-align: left;
-               font-size: 2rem;
-               font-weight: 900;
-               text-transform: uppercase;
-               color: var(--gold);
-               img{
-                    display: none!important;
-               }
-          }
+          background: #8a8d563a;
+          backdrop-filter: blur(10px);
+     }
+     .navbar img{
+          width: 100px;
+          height: 7vh;
+          object-fit: contain;
      }
     
      
