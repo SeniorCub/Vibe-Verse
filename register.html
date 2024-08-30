@@ -38,18 +38,18 @@
                     </div>
                     
                     <div class="movement">
-                         <button class="next next1">Next</button>
+                         <button type="button" class="next next1">Next</button>
                     </div>
                </div>
 
                <div class="form2">
                     <div class="formm">
-                         <div class="label">
-                              <label for="email">email:</label>
-                              <input type="email" id="email" name="email">
-     
+                         <div class="label">     
                               <label for="uname">username:</label>
                               <input type="text" id="uname" name="uname">
+
+                              <input type="file" id="file" name="profile" class="d-none" onchange="previewImage()">
+                              <label for="profile" id="profile1" onclick="upload()" class="form-label"><i class="fa fa-upload" aria-hidden="true"></i>Upload profile</label>
                          </div>
                     </div>
 
@@ -63,15 +63,20 @@
                     <div class="formm">
                          <div class="label">
                               <div class="inputs">
+                                   <label for="email">email:</label>
+                                   <input type="email" id="email" name="email">
+                              </div>
+                              <div class="inputs">
                                    <label for="amount" class="form-label">Amount</label>
-                                   <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" value="0" disabled>
+                                   <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" value="3000" disabled>
                               </div>
                          </div>
                     </div>
 
                     <div class="movement">
                          <button type="button" class="back back3">Back</button>
-                         <button type="button" class="next next3 btn mt-3 btn-primary" onclick="generateQRCode()">Pay Now</button>
+                         <button type="button" class="next payNow btn mt-3 btn-primary" onclick="payWithPaystack()">Pay Now</button>
+                         <button type="button" class="next next3" onclick="generateQRCode()">Next</button>
                     </div>
                </div>
 
