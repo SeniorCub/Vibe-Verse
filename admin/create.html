@@ -42,6 +42,16 @@
                object-fit: contain;
           }
      }
+     textarea{
+          resize: none;
+     }
+     #add{
+          background-color: var(--gold)!important;
+          color: #000!important;
+          border: none!important;
+          padding: 5px 10px!important;
+          border-radius: 5px!important;
+     }
      @media (min-width: 300px) and (max-width: 750px) {
           .forms {
                .form1 {
@@ -136,7 +146,7 @@
 
                 <div class="movement">
                     <button type="button" class="back back4">Back</button>
-                    <button type="submit" class="next next4">Add Event</button>
+                    <button type="submit" class="next next4 add" id="add">Add Event</button>
                 </div>
             </div>
         </form>
