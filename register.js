@@ -2,69 +2,134 @@
 const certificate = document.getElementById('certificate');
 
 function generateCertificate() {
-     const username = document.getElementById('uname').value;
-     const email = document.getElementById('email').value;
-     const amount = document.getElementById('amount').value;
-     const level = document.getElementById('level').value;
-     const partyName = `Now Sounds`;
-     const userImage = document.getElementById('upload-pic');
-     const flyerImage = new Image();
-     flyerImage.src = './images/party/party1.jpg'; // Replace with the actual flyer image URL
-   
-     const canvas = document.createElement('canvas');
-     canvas.width = 800;
-     canvas.height = 600;
-     const ctx = canvas.getContext('2d');
-   
-     // Set the background color
-     ctx.fillStyle = '#fff';
-     ctx.fillRect(0, 0, canvas.width, canvas.height);
-   
-     // Add a border
-     ctx.strokeStyle = '#000';
-     ctx.lineWidth = 5;
-     ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
-   
-     // Add the user image
-     ctx.drawImage(userImage, 50, 50, 100, 100);
-   
-     // Add the flyer image
-     ctx.drawImage(flyerImage, 50, 200, 200, 200);
-   
-     // Add the party name
-     ctx.font = '30px Arial';
-     ctx.fillStyle = '#000';
-     ctx.textAlign = 'center';
-     ctx.textBaseline = 'middle';
-     ctx.fillText(partyName, canvas.width / 2, 150);
-   
-     // Add the level
-     ctx.font = '30px Arial';
-     ctx.fillStyle = '#000';
-     ctx.textAlign = 'center';
-     ctx.textBaseline = 'middle';
-     ctx.fillText(level, canvas.width / 2, 250);
-   
-     // Add a header
-     ctx.font = '50px Arial';
-     ctx.fillStyle = '#000';
-     ctx.textAlign = 'center';
-     ctx.textBaseline = 'middle';
-     ctx.fillText('CERTIFICATE OF COMPLETION', canvas.width / 2, 100);
-   
-     // Add user data
-     ctx.font = '30px Arial';
-     ctx.fillStyle = '#000';
-     ctx.textAlign = 'center';
-     ctx.textBaseline = 'middle';
-     ctx.fillText(`Name: ${username}`, canvas.width / 2, 350);
-     ctx.fillText(`Email: ${email}`, canvas.width / 2, 400);
-     ctx.fillText(`Amount: ${amount}`, canvas.width / 2, 450);
-   
-     // Save the certificate as an image
-     const certificateUrl = canvas.toDataURL();
-     return certificateUrl;
-   }
+     return new Promise((resolve, reject) => {
+         const flyerImage = new Image();
+         flyerImage.onload = function() {
+             const canvas = document.createElement('canvas');
+             canvas.width = 800;
+             canvas.height = 600;
+             const ctx = canvas.getContext('2d');
+             const username = document.getElementById('uname').value;
+             const email = document.getElementById('email').value;
+             const amount = document.getElementById('amount').value;
+             const level = document.getElementById('level').value;
+             const partyName = `Now Sounds`;
+             const userImage = document.getElementById('upload-pic');
+ 
+             // Set the background color with a gradient
+             const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+             gradient.addColorStop(0, '#f0f4f8');
+             gradient.addColorStop(1, '#c3e5f5');
+             ctx.fillStyle = gradient;
+             ctx.fillRect(0, 0, canvas.width, canvas.height);
+ 
+             // Add a fancy border
+             ctx.strokeStyle = '#0a74da';
+             ctx.lineWidth = 10;
+             ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+ 
+             // Add a shadow to the user image
+             ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+             ctx.shadowBlur = 10;
+             ctx.shadowOffsetX = 5;
+             ctx.shadowOffsetY = 5;
+ 
+             // Draw the user image
+             ctx.drawImage(userImage, 50, 50, 150, 150);
+ 
+             // Reset shadow for other elements
+             ctx.shadowColor = 'transparent';
+             ctx.shadowBlur = 0;
+             ctx.shadowOffsetX = 0;
+             ctx.shadowOffsetY = 0;
+ 
+             // Draw the flyer image with rounded corners
+             ctx.save();
+             ctx.beginPath();
+             ctx.moveTo(50, 250);
+             ctx.arcTo(250, 250, 250, 450, 20);
+             ctx.arcTo(250, 450, 50, 450, 20);
+             ctx.arcTo(50, 450, 50, 250, 20);
+             ctx.arcTo(50, 250, 250, 250, 20);
+             ctx.closePath();
+             ctx.clip();
+             ctx.drawImage(flyerImage, 50, 250, 200, 200);
+             ctx.restore();
+ 
+             // Add the party name in a stylish font
+             ctx.font = 'bold 40px Recursive';
+             ctx.fillStyle = '#0a74da';
+             ctx.textAlign = 'center';
+             ctx.textBaseline = 'middle';
+             ctx.fillText(partyName, canvas.width / 2, 100);
+ 
+             // Add a stylish header
+             ctx.font = 'bold 50px Recursive';
+             ctx.fillStyle = '#333';
+             ctx.fillText('CERTIFICATE OF COMPLETION', canvas.width / 2, 200);
+ 
+             // Add user data in a sleek font
+             ctx.font = 'italic 30px Recursive';
+             ctx.fillStyle = '#555';
+             ctx.fillText(`Name: ${username}`, canvas.width / 2, 350);
+             ctx.fillText(`Email: ${email}`, canvas.width / 2, 400);
+             ctx.fillText(`Amount: ${amount}`, canvas.width / 2, 450);
+             ctx.fillText(`Level: ${level}`, canvas.width / 2, 500);
+ 
+             // Add a decorative element (optional)
+             ctx.strokeStyle = '#0a74da';
+             ctx.lineWidth = 2;
+             ctx.setLineDash([10, 15]);
+             ctx.beginPath();
+             ctx.moveTo(100, 550);
+             ctx.lineTo(700, 550);
+             ctx.stroke();
+ 
+             const certificateUrl = canvas.toDataURL();
+             resolve(certificateUrl);
+         };
+         flyerImage.src = 'images/party/party1.jpg'; // Replace with the actual flyer image URL
+     });
+ }
+ 
+
+ document.querySelector('.download').addEventListener('click', async () => {
+     try {
+          const certificateUrl = await generateCertificate();
+ 
+         const canvas = document.createElement('canvas');
+         canvas.width = 800;
+         canvas.height = 600;
+         const ctx = canvas.getContext('2d');
+ 
+         const certificateImage = new Image();
+         certificateImage.src = certificateUrl;
+ 
+         // Wait until the certificate image is loaded
+         certificateImage.onload = () => {
+             ctx.drawImage(certificateImage, 0, 0, canvas.width, canvas.height);
+ 
+             // Draw the QR code on the canvas
+             const qrCodeCanvas = document.querySelector('#qrcode canvas');
+             ctx.drawImage(qrCodeCanvas, canvas.width - 200, canvas.height - 200, 200, 200);
+ 
+             // Download the combined image
+             const combinedImageURL = canvas.toDataURL();
+             const combinedImageLink = document.createElement('a');
+             combinedImageLink.href = combinedImageURL;
+             combinedImageLink.download = 'certificate-and-qrcode.jpg';
+             combinedImageLink.click();
+ 
+             document.querySelector('.next4').style.display = 'block';
+             document.querySelector('.download').style.display = 'none';
+         };
+     } catch (error) {
+         alert('Error: ' + error.message);
+         console.error('Download failed:', error);
+     }
+ });
+ 
+ 
 
 // Next and Back on Forms
 function btn_next1() {
@@ -222,41 +287,6 @@ function btn_next4() {
         alert('Error');
     }
 }
-
-document.querySelector('.download').addEventListener('click', () => {
-     try {
-       const certificateUrl = generateCertificate(); // Call the generateCertificate function and store the URL
-   
-       const canvas = document.createElement('canvas');
-       canvas.width = 800;
-       canvas.height = 600;
-       const ctx = canvas.getContext('2d');
-   
-       // Draw the certificate on the canvas
-       const certificateImage = new Image();
-       certificateImage.onload = function() {
-         ctx.drawImage(certificateImage, 0, 0, canvas.width, canvas.height);
-   
-         // Draw the QR code on the canvas
-         const qrCodeCanvas = document.querySelector('#qrcode canvas');
-         ctx.drawImage(qrCodeCanvas, canvas.width - 200, canvas.height - 200, 200, 200);
-   
-         // Download the combined image
-         const combinedImageURL = canvas.toDataURL();
-         const combinedImageLink = document.createElement('a');
-         combinedImageLink.href = combinedImageURL;
-         combinedImageLink.download = 'certificate-and-qrcode.jpg';
-         combinedImageLink.click();
-   
-         document.querySelector('.next4').style.display = 'block';
-         document.querySelector('.download').style.display = 'none';
-       };
-       certificateImage.src = certificateUrl;
-     } catch (error) {
-       alert('Error: ' + error.message);
-       console.error('Download failed:', error);
-     }
-   });
 
 // Event Listeners for form navigation
 document.querySelector('.next1').addEventListener("click", btn_next1);

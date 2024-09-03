@@ -188,6 +188,9 @@
                right: 0;
                top: 40%;
                z-index: 5;
+               i{
+                    font-size: 2rem;
+               }
           }
           /* From Uiverse.io by LeonKohli */ 
 .toggle {
@@ -287,7 +290,9 @@
           <button id="manualOption" onclick="showManual()">Enter Email</button>
      </div>
      <button id="flashlightToggle" onclick="toggleFlashlight()">
-         <i id="flashlightIcon" class="fa fa-moon-o"></i> <!-- Default to moon icon -->
+         <!-- <i  class="fa fa-moon-o"></i> Default to moon icon -->
+          <i id="flashlightIcon" class="fa fa-moon"></i>
+          
      </button>
      <h1 class="header">QR Code Scanner</h1>
      <div id="scanner" class="scanner">
@@ -306,7 +311,7 @@
 </div>
 
      <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script src="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
      <script>
           const video = document.getElementById('video');
