@@ -4,7 +4,93 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Suspend Account</title>
+     <link rel="stylesheet" href="../style.css">
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <style>
+          
+          body{
+               background-color: var(--primary-color);
+               color: var(--white);
+               perspective: 1000px;
+               height: 100vh;
+               width: 100vw;
+          }
+          
+          .container{
+               max-width: 800px;
+               padding: 20px;
+               background-color: var(--white);
+               border-radius: var(--radius);
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+               transform: rotateY(20deg);
+          }
+          
+          .card{
+               background-color: var(--white);
+               border-radius: var(--radius);
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+               transform: rotateY(-20deg);
+               border-top-left-radius: 50px;
+               border-top-right-radius: 50px;
+          }
+          .container:hover{
+               transform: rotateY(0deg);
+          }
+          .card-header{
+               background-color: var(--gold);
+               color: var(--black);
+               padding: 10px;
+               border-top-left-radius: var(--radius);
+               border-top-right-radius: var(--radius);
+               transform: rotateY(20deg);
+               box-shadow: 3px 3px 5px var(--primary-color),
+               -3px 0 5px var(--primary-color)
+               ;
+          }
+          
+          .card-body{
+               padding: 20px;
+               transform: rotateY(-20deg);
+          }
+          p{
+               color: var(--black);
+
+          }
+            /* Add styles to contact modal */
+     #contactModal .modal-content  {
+          border-top-left-radius: 70px;
+          border-top-right-radius: 70px;
+     }
+     #contactModal .modal-dialog {
+          max-width: 500px;
+     }
+     #contactModal .modal-header {
+          background-color: var(--gold);
+          color: var(--black);
+          padding: 10px;
+          border-top-left-radius: var(--radius);
+          border-top-right-radius: var(--radius);
+          transform: rotateY(20deg);
+          box-shadow: 3px 3px 5px var(--primary-color),
+          -3px 0 5px var(--primary-color);
+     }
+     #contactModal .modal-body {
+          padding: 20px;
+          transform: rotateY(-20deg);
+     }
+     #contactModal .form-control {
+          border-radius: var(--radius);
+          padding: 10px;
+     }
+     #contactModal .btn-primary {
+          background-color: var(--gold);
+          border-color: var(--gold);
+     }
+     #contactModal .btn-primary:hover {
+          background-color: var(--dark-color);
+          border-color: var(--dark-color);
+     }
+     </style>
 </head>
 <body>
      <div class="container mt-5">
@@ -24,38 +110,39 @@
           </div>
      </div>
 
-     <!-- Contact Modal -->
-     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                    <div class="modal-header">
-                         <h5 class="modal-title">Contact Us</h5>
-                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                         </button>
-                    </div>
-                    <div class="modal-body">
-                         <form>
-                              <div class="form-group">
-                                   <label for="name">Name</label>
-                                   <input type="text" class="form-control" id="name" placeholder="Your Name">
-                              </div>
-                              <div class="form-group">
-                                   <label for="email">Email</label>
-                                   <input type="email" class="form-control" id="email" placeholder="Your Email">
-                              </div>
-                              <div class="form-group">
-                                   <label for="message">Message</label>
-                                   <textarea class="form-control" id="message" placeholder="Your Message"></textarea>
-                              </div>
-                              <button type="submit" class="btn btn-primary">Send</button>
-                         </form>
-                    </div>
+    <!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog">
+     <div class="modal-dialog" role="document">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h5 class="modal-title">Contact Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                    </button>
+               </div>
+               <div class="modal-body">
+                    <form>
+                         <div class="form-group">
+                              <label for="name">Name</label>
+                              <input type="text" class="form-control" id="name" placeholder="Your Name">
+                         </div>
+                         <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" class="form-control" id="email" placeholder="Your Email">
+                         </div>
+                         <div class="form-group">
+                              <label for="message">Message</label>
+                              <textarea class="form-control" id="message" placeholder="Your Message"></textarea>
+                         </div>
+                         <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
                </div>
           </div>
      </div>
+</div>
 
-     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
- </body>
- </html> 
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
