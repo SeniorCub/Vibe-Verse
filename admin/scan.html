@@ -306,7 +306,7 @@
      <form id="scanForm" class="form-group">
           <label for="data" id="output">Scanning...</label>
           <input type="text" name="data" id="data" readonly>
-          <button type="button" class="btn btn-primary" id="verify" onclick="verify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
+          <button type="button" class="btn btn-primary" id="verify" onclick="getVerify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
      </form>
 </div>
 
@@ -333,7 +333,7 @@
                window.location.reload();
           }
   
-          function verify() {
+          function getVerify() {
                email.value = data.value; // Correct assignment
                console.log(`lets verify, email: ${email.value}`);
                data.value = ''; // Clear the data input if needed

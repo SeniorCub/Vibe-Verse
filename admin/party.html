@@ -121,8 +121,8 @@
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                          <h1 class="h2">New Year's Eve</h1>
                          <div>
-                              <button class="btn btn-warning">Edit Party</button>
-                              <button class="btn btn-danger">Delete Party</button>
+                              <button class="btn btn-warning" >Edit Party</button>
+                              <button class="btn btn-danger" type="button" onclick="deleteParty()">Delete Party</button>
                          </div>
                     </div>
 
@@ -201,5 +201,18 @@
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
      <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script>
+          function deleteParty() {
+               var partyName = document.getElementById("partyName").value;
+               // alert and decide either yes or no to proceed
+               if (confirm(`Are you sure you want to delete ${partyName} ?`)) {
+                    // delete party logic here
+                    window.location.href='/admin/dashboard2.html'
+               } else {
+                    // do nothing
+               }
+               
+          }
+     </script>
 </body>
 </html>
