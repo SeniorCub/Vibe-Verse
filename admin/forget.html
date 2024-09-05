@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Forget Password</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Forget Password</h2>
+        <div class="position-relative m-4">
+          <div id="progress-bar-id" class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1px;">
+               <div class="progress-bar" style="width: 50%"></div>
+           </div>
+            <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">1</button>
+            <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;">2</button>
+            <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;">3</button>
+        </div>
+        <form id="forgetForm" action="/forget-password" method="POST">
+            <!-- Step 1: Request 6-digit code -->
+            <div class="form-group step">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="button" class="submit-btn">Request Code</button>
+
+            <!-- Step 2: Enter 6-digit code -->
+            <div class="form-group step" style="display: none;">
+                <label for="code">6-digit Code:</label>
+                <input type="number" id="code" name="code" required>
+            </div>
+            <button type="button" class="submit-btn" style="display: none;" onclick="verifyCodeForm()">Verify Code</button>
+
+            <!-- Step 3: Change password -->
+            <div class="form-group step" style="display: none;">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group step" style="display: none;">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="submit-btn" style="display: none;">Change Password</button>
+        </form>
+    </div>
+
+    <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+    <script>
+// Function to generate and send a 6-digit code
+function requestCode() {
+     const code = generateCode();
+     sendCode(code);
+     document.querySelectorAll('.step')[1].style.display = 'block';
+     document.querySelectorAll('.submit-btn')[1].style.display = 'block';
+     return code; // Return the generated code
+ }
+ 
+ // Create a verification function for the first code
+ let code;
+ 
+ // Function to generate a 6-digit code
+ function generateCode() {
+     return Math.floor(100000 + Math.random() * 900000);
+ }
+ 
+ // Function to send the code (simulated)
+ function sendCode(code) {
+     console.log(`Code sent: ${code}`);
+ }
+ 
+ // Function to verify the code
+ function verifyCodeForm() {
+     const userCode = document.getElementById('code').value;
+     console.log(userCode)
+     if (userCode == code) {
+         console.log("Code verified successfully!");
+         // Proceed with password reset
+         document.getElementsByClassName('progress-bar')[0].style.width = '100%';
+         document.querySelectorAll('.step')[2].style.display = 'block';
+         document.querySelectorAll('.submit-btn')[2].style.display = 'block';
+     } else {
+         console.log("Invalid code. Please try again.");
+     }
+ }
+ 
+ // Add event listeners
+ document.addEventListener('DOMContentLoaded', function() {
+     document.querySelectorAll('.submit-btn')[0].addEventListener('click', function() {
+         code = requestCode();
+     });
+     document.querySelectorAll('.submit-btn')[1].addEventListener('click', verifyCodeForm);
+ });
+    </script>
+</body>
+</html>

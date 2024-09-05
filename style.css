@@ -10,7 +10,7 @@
 :root{
      --radius: 20px;
      --primary-color: #31302E;
-     --white: #EEEDEB;
+     --white: #d7d7cd;
      --gold: #8A8D56;
      --dark-color: #939185;
      --black: #333;
@@ -36,6 +36,15 @@ a{
 }
 section{
      max-height: 150vh;
+}
+textarea{
+     resize: none;
+}
+input[type="number"]::-webkit-inner-spin-button{
+     display: none;
+}
+input[type="number"]::-webkit-outer-spin-button{
+     display: none;
 }
 .navbar-sm{
      display: none;

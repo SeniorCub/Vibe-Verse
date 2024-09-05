@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <script src="https://checkout.flutterwave.com/v3.js"></script>
+<form>
+  <div>
+    Your order is ₦2,500
+  </div>
+  <button type="button" id="start-payment-button" onclick="makePayment()">Pay Now</button>
+</form>
+<script>
+  function makePayment() {
+    FlutterwaveCheckout({
+      public_key: "FLWPUBK_TEST-47e8407773baf43e437e6c610872c678-X",
+      tx_ref: "txref-DI0NzMx13",
+      amount: 2500,
+      currency: "NGN",
+      payment_options: "card, banktransfer, ussd",
+      meta: {
+        source: "docs-inline",
+        consumer_mac: "92a3-912ba-1192a",
+      },
+      customer: {
+        email: "test@mail.com",
+        phone_number: "08100000000",
+        name: "Ayomide JOni",
+      },
+      customizations: {
+        title: "Flutterwave Developers",
+        description: "Test Payment",
+        logo: "../images/logo.png",
+      },
+      callback: function (data){
+        console.log("payment callback:", data);
+      },
+      onclose: function() {
+        console.log("Payment cancelled!");
+      }
+    });
+  }
+</script>
+</body>
+</html>

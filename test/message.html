@@ -9,12 +9,8 @@
      <link rel="stylesheet" href="../style.css">
      <title>Message</title>
      <style>
-          .container-fluid{
-               width: 100vw;
-               height: 100vh;
-               background-color: transparent;
-          }
           .allMsg{
+               background-color: transparent!important;
                bottom: 10vh;
                right: 2vw;
           }
@@ -22,45 +18,42 @@
 </head>
 <body>
      
-     <div class="container-fluid position-relative">
-          <div class="position-absolute h-50 w-25 allMsg">
-               <div class="postion-relative w-100 h-100">
-                    <div class="position-absolute bottom-0 end-0">
-                         <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
-                              <i class="fa-regular fa-comment-dots"></i> <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">unread messages</span></span>
-                         </button>
-                    </div>
-
-                    <div class="modal fade position-absolute bottom-0 end-0 w-100 h-100" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                         <div class="modal-dialog">
-                              <div class="modal-content">
-                                   <div class="modal-header">
-                                        <h1 class="modal-title fs-6" id="exampleModalLabel">New message</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                   </div>
-                                   <form>
-                                        <div class="modal-body">
-                                             <div class="">
-                                                  <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                                  <select class="form-select" aria-label="Default select example">
-                                                       <option selected>Rate the Site</option>
-                                                       <option>Report or Organizer</option>
-                                                       <option>Question about the Site</option>
-                                                       <option>Others</option>
-
-                                                 </select>
-                                             </div>
-                                             <div class="">
-                                                  <label for="message-text"class="col-form-label fs-6">Message:</label>
-                                                  <textarea class="form-control" id="message-text"></textarea>
-                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                             <button type="button" class="btn fs-6 btn-primary" style="float: right;"><i class="fa-solid fa-paper-plane" style="transform:rotate(40deg);"></i></button>
-                                        </div>
-                                   </form>
-                              </div>
+     <div class="container-fluid">
+          <div class="position-fixed allMsg">
+               <div class="">
+                    <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+                         <i class="fa-regular fa-comment-dots"></i> <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">unread messages</span></span>
+                    </button>
+               </div>
+          </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                    <div class="modal-content">
+                         <div class="modal-header">
+                              <h1 class="modal-title fs-6" id="exampleModalLabel">New message</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                          </div>
+                         <form>
+                              <div class="modal-body">
+                                   <div class="">
+                                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                             <option selected>Rate the Site</option>
+                                             <option>Report or Organizer</option>
+                                             <option>Question about the Site</option>
+                                             <option>Others</option>
+
+                                       </select>
+                                   </div>
+                                   <div class="">
+                                        <label for="message-text"class="col-form-label fs-6">Message:</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                   </div>
+                              </div>
+                              <div class="modal-footer">
+                                   <button type="button" class="btn fs-6 btn-primary" style="float: right;"><i class="fa-solid fa-paper-plane" style="transform:rotate(40deg);"></i></button>
+                              </div>
+                         </form>
                     </div>
                </div>
           </div>
