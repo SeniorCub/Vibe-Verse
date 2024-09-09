@@ -75,35 +75,35 @@
      
      <div class="row">
           <!-- Sidebar -->
-          <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
-               <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                         <li class="nav-item">
-                              <a class="nav-link text-white" href="./">
-                                   <i class="fa fa-home"></i>
-                                   Dashboard
-                              </a>
-                         </li>
-                         <li class="nav-item">
-                              <a class="nav-link text-white" href="./party.html">
-                                   <i class="fa-solid fa-file"></i>
-                                   My Events
-                              </a>
-                         </li>
-                         <li class="nav-item">
-                              <a class="nav-link active text-white" href="#">
-                                   <i class="fa-solid fa-credit-card"></i>
-                                   Payment Details
-                              </a>
-                         </li>
-                         <li class="nav-item">
-                              <a class="nav-link text-white" href="./profile.html">
-                                   <i class="fa fa-user"></i>
-                                   Profile
-                              </a>
-                         </li>
-                    </ul>
-               </div>
+          <nav class="col-md-3 col-lg-2 d-none bg-dark sidebar position-sticky d-md-flex flex-column justify-content-between p-3">
+               <a class="mx-auto" href="/admin/dashboard.html" style="height: 10vh;"><img src="../images/logo.png" alt="logo" class="object-fit-cover"></a>
+               <ul class="d-flex nav flex-column border rounded gap-2">
+                    <li class="nav-item">
+                         <a class="nav-link text-white" href="./">
+                              <i class="fa fa-home"></i>
+                              Dashboard
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link text-white" href="./party.html">
+                              <i class="fa-solid fa-file"></i>
+                              My Events
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link active text-white" href="#">
+                              <i class="fa-solid fa-credit-card"></i>
+                              Payment Details
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link text-white" href="./profile.html">
+                              <i class="fa fa-user"></i>
+                              Profile
+                         </a>
+                    </li>
+               </ul>
+               <a class="mx-auto align-self-end text-center" href="/admin/login.html" title="logout"><i class="fa-solid fa-right-from-bracket" style="font-size: 1.5rem;"></i></a>
           </nav>
 
           <!-- Main Content -->
