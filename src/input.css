@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap');
 *{
      padding: 0;
@@ -18,3 +21,19 @@
      --dark-color: #939185;
      --black: #333;
 }
+.onnn{
+     @apply bg-gold text-white
+}
+.btn {
+     @apply px-2 py-2 rounded-lg
+}
+.input{
+     @apply border text-sm rounded-lg block w-96 p-2.5 border-gold placeholder-gray-400 text-black focus:ring-blue-500 focus:border-blue-500
+}
+.label{
+     @apply block mb-1 text-base font-medium text-gray-900
+}
+textarea{
+     resize: none;
+}
+/* npx tailwindcss -i ./src/input.css -o ./src/output.css --watch */
