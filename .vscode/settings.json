@@ -1,3 +1,4 @@
 {
-     "livePreview.defaultPreviewPath": "/admin/forget.html"
+     "livePreview.defaultPreviewPath": "/admin/forget.html",
+     "liveServer.settings.port": 5501
 }
