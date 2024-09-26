@@ -39,6 +39,7 @@
 <body>
      <div class="container">
           <h2 class="text-center">Payment Request for Party</h2>
+
           <form>
                <div class="form-group">
                     <label for="party-name">Party Name:</label>
@@ -58,8 +59,11 @@
                     <label for="description">Description:<span class="">(optional)</span></label>
                     <textarea class="form-control" id="description" required></textarea>
                </div>
-               <button type="button" class="btn btn-primary my-2 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">Proceed</button>
-
+               <div class="d-flex justify-content-center align-items-center">
+                    <a class="fs-6 text-primary" href="./createPin.html">Create Pin</a>
+                    <button type="button" class="btn btn-primary my-2 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">Proceed</button>
+               </div>
+               
                <!-- Modal -->
                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -77,6 +81,7 @@
                                    </div>
                               </div>
                               <div class="modal-footer">
+                                   <a class="fs-6 text-primary" href="./createPin.html">Create Pin</a>
                                    <button type="button" class="btn btn-warning clear">Clear</button>
                                    <button type="submit" class="btn btn-primary">Request Payment</button>
                               </div>

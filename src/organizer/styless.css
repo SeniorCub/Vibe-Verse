@@ -70,3 +70,9 @@ body {
      color: var(--gold);
      text-decoration: none;
  }
+@media (min-width: 200px) and (max-width: 991px) {
+     .auth-container {
+          width: 90vw!important;
+          height: 100vh!important;
+     }
+ }

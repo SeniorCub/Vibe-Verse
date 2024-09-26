@@ -4,8 +4,9 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Suspend Account</title>
-     <link rel="stylesheet" href="../style.css">
-     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="/src/OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
+     <link rel="stylesheet" href="/src/OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/src/style.css">
      <style>
           
           body{
@@ -90,6 +91,7 @@
      </style>
 </head>
 <body>
+     
      <div class="container mt-5">
           <div class="row justify-content-center">
                <div class="col-md-6">
@@ -100,46 +102,46 @@
                          <div class="card-body">
                               <p>Your account has been suspended. Please contact us for review.</p>
                               <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
-                              <p>Message: <a href="#" data-toggle="modal" data-target="#contactModal">Send Message</a></p>
+                              <p>Message: <a data-toggle="modal" data-target="#contactModal">Send Message</a></p>
                          </div>
                     </div>
                </div>
           </div>
      </div>
 
-    <!-- Contact Modal -->
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog">
-     <div class="modal-dialog" role="document">
-          <div class="modal-content">
-               <div class="modal-header">
-                    <h5 class="modal-title">Contact Us</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                         <span aria-hidden="true">&times;</span>
-                    </button>
-               </div>
-               <div class="modal-body">
-                    <form>
-                         <div class="form-group">
-                              <label for="name">Name</label>
-                              <input type="text" class="form-control" id="name" placeholder="Your Name">
-                         </div>
-                         <div class="form-group">
-                              <label for="email">Email</label>
-                              <input type="email" class="form-control" id="email" placeholder="Your Email">
-                         </div>
-                         <div class="form-group">
-                              <label for="message">Message</label>
-                              <textarea class="form-control" id="message" placeholder="Your Message"></textarea>
-                         </div>
-                         <button type="submit" class="btn btn-primary">Send</button>
-                    </form>
+     <!-- Contact Modal -->
+     <div class="modal fade" id="contactModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h5 class="modal-title">Contact Us</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+                    <div class="modal-body">
+                         <form>
+                              <div class="form-group">
+                                   <label for="name">Name</label>
+                                   <input type="text" class="form-control" id="name" placeholder="Your Name">
+                              </div>
+                              <div class="form-group">
+                                   <label for="email">Email</label>
+                                   <input type="email" class="form-control" id="email" placeholder="Your Email">
+                              </div>
+                              <div class="form-group">
+                                   <label for="message">Message</label>
+                                   <textarea class="form-control" id="message" placeholder="Your Message"></textarea>
+                              </div>
+                              <button type="submit" class="btn btn-primary">Send</button>
+                         </form>
+                    </div>
                </div>
           </div>
      </div>
-</div>
 
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <script src="/src/OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
 </body>
 </html>

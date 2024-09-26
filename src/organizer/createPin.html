@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
-     <title>Payment Request</title>
+     <title>Create Pin</title>
      <style>
           body {
                background-color: #f5f5f5;
@@ -43,6 +44,7 @@
 </head>
 <body>
      <div class="container">
+          <button type="button" class="back-btn position-absolute" style="background-color: var(--gold); color: #ffffff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; position: absolute; top: 50px; left: 50px; border-radius: var(--radius);" onclick="window.location.href='/src/organizer/'"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
           <h2 class="text-center">Create Pin</h2>
           <form>
                <div class="form-group">
@@ -67,7 +69,7 @@
                     <label for="password">Enter Password:</label>
                     <input type="password" class="form-control" id="password" required>
                </div>
-               <button type="submit" class="btn btn-primary my-2">Proceed</button>
+               <button type="submit" class="btn my-2" style="background-color: var(--gold); color: #ffffff; border: none;">Proceed</button>
           </form>
      </div>
      <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>

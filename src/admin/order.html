@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <link href="../output.css" rel="stylesheet">
-    <title>Event Planner Dashboard</title>
+    <title>Admin Dashboard</title>
 </head>
 <body>
      
@@ -39,22 +39,22 @@
                                         <p class="text-sm  text-white" role="none">
                                             Name Example
                                         </p>
-                                        <p class="text-xs font-medium text-white" role="none">
+                                        <p class="text-xs font-medium text-gray-400 truncat" role="none">
                                              example@mail.com
                                         </p>
                                    </div>
                                    <ul class="py-1" role="none">
                                         <li>
-                                             <a href="./" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Dashboard</a>
+                                             <a href="#" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Dashboard</a>
                                         </li>
                                         <li>
-                                             <a href="./profile.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Settings</a>
+                                             <a href="#" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Settings</a>
                                         </li>
                                         <li>
-                                             <a href="./payment.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Earnings</a>
+                                             <a href="#" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Earnings</a>
                                         </li>
                                         <li>
-                                             <a href="./login.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Sign out</a>
+                                             <a href="#" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Sign out</a>
                                         </li>
                                    </ul>
                               </div>
@@ -69,7 +69,7 @@
                <ul class="space-y-2 font-medium">
                     <!-- Dashboard -->
                     <li>
-                         <a href="./" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
+                         <a href="#" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group onnn">
                               <svg class="w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                                    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
                                    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
@@ -110,7 +110,7 @@
                     </li>
                     <!-- Profile -->
                     <li>
-                         <a href="./profile.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group onnn">
+                         <a href="./profile.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
                               <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                                    <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                               </svg>
@@ -139,58 +139,35 @@
                </div>
           </div>
      </aside>
-     
+   
      <div class="p-4 sm:ml-64 mt-14 bg-white space-y-5">
-          <!-- Withdrawals requests -->
-          <form id="registerForm" action="/register" method="POST">
-               <div class="grid md:grid-cols-2 gap-3 space-y-5 space-x-3 pt-5 justify-center">
-                      <!-- Organization/Group Details -->
-                    <div>
-                         <label for="organizationName">Organization/Group Name:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="text" id="organizationName" name="organizationName" placeholder="e.g., Party Planners Co." required>
-                    </div>
-
-                    <!-- Contact Details -->
-                    <div>
-                         <label for="contactNumber">Contact Number:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="tel" id="contactNumber" name="contactNumber" placeholder="e.g., +1234567890" required>
-                    </div>
-
-                    <div>
-                         <label for="email">Email:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="email" id="email" name="email" placeholder="e.g., organizer@parties.com" required>
-                    </div>
-
-                    <div>
-                         <label for="address">Address:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="text" id="address" name="address" placeholder="e.g., 123 Party Street, Event City" required>
-                    </div>
-
-                    <!-- Additional Information -->
-                    <div>
-                         <label for="website">Website (Optional):</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="url" id="website" name="website" placeholder="e.g., www.yourwebsite.com">
-                    </div>
-
-                    <!-- Account Details -->
-                    <div>
-                         <label for="password">Password:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="password" id="password" name="password" placeholder="Enter password" required>
-                    </div>
-
-                    <div>
-                         <label for="description">Tell Us About Your Organization:</label>
-                         <textarea class="py-3 w-full bg-transparent rounded-lg" id="description" name="description" rows="4" placeholder="Describe your services, history, or mission..."></textarea>
-                    </div>
-
-                    
-                    <button type="submit" class="bg-gold h-10 mt-auto w-max px-5 ml-auto rounded-lg">Update</button>
+          <h1 class="text-5xl font-bold text-gold ">Withdraw Request</h1>
+          <div>
+               <div scope="row" class=" font-extrabold text-gray-900 whitespace-nowrap">
+                   Organizer's Name
                </div>
-          </form>
-          <div class="grid grid-cols-2 gap-4 p-2">
-               <div class="p-3 bg-primary shadow-xl rounded-lg text-right text-gold"><a href="./createPin.html">Create Pin</a></div>
-               <div class="p-3 bg-primary shadow-xl rounded-lg text-right text-gold"><a href="./forget.html">Forget Password</a></div>
-          </div>
+               <div scope="row" class=" font-semibold text-gray-900 whitespace-nowrap">
+                    Party Name
+               </div>
+               <div>
+                   <span>Available Balance</span>
+                   <span> $2999</span>
+               </div>
+               <div>
+                   <span>Amount</span>
+                   <span> $2999</span>
+               </div>
+               <div>
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestiae natus eaque voluptatem necessitatibus esse?
+               </div>
+               <div>
+                    <input type="text" class="py-3 w-full bg-transparent rounded-lg">
+               </div>
+               <div class=" text-right flex">
+                    <a href="#" class="text-decoration-none text-green-500 p-2 rounded"> <i class="fa fa-check" aria-hidden="true"></i> </a>
+                    <a href="#"  class="text-decoration-none text-red-500 p-2 rounded"> <i class="fa fa-x" aria-hidden="true"></i> </a>
+               </div>
+          </div>     
      </div> 
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>

@@ -39,7 +39,7 @@
                                         <p class="text-sm  text-white" role="none">
                                             Name Example
                                         </p>
-                                        <p class="text-xs font-medium text-white" role="none">
+                                        <p class="text-xs font-medium text-gray-400 truncat" role="none">
                                              example@mail.com
                                         </p>
                                    </div>
@@ -110,7 +110,7 @@
                     </li>
                     <!-- Profile -->
                     <li>
-                         <a href="./profile.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group onnn">
+                         <a href="./profile.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
                               <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                                    <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                               </svg>
@@ -139,60 +139,95 @@
                </div>
           </div>
      </aside>
-     
-     <div class="p-4 sm:ml-64 mt-14 bg-white space-y-5">
-          <!-- Withdrawals requests -->
-          <form id="registerForm" action="/register" method="POST">
-               <div class="grid md:grid-cols-2 gap-3 space-y-5 space-x-3 pt-5 justify-center">
-                      <!-- Organization/Group Details -->
-                    <div>
-                         <label for="organizationName">Organization/Group Name:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="text" id="organizationName" name="organizationName" placeholder="e.g., Party Planners Co." required>
-                    </div>
-
-                    <!-- Contact Details -->
-                    <div>
-                         <label for="contactNumber">Contact Number:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="tel" id="contactNumber" name="contactNumber" placeholder="e.g., +1234567890" required>
-                    </div>
-
-                    <div>
-                         <label for="email">Email:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="email" id="email" name="email" placeholder="e.g., organizer@parties.com" required>
-                    </div>
-
-                    <div>
-                         <label for="address">Address:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="text" id="address" name="address" placeholder="e.g., 123 Party Street, Event City" required>
-                    </div>
-
-                    <!-- Additional Information -->
-                    <div>
-                         <label for="website">Website (Optional):</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="url" id="website" name="website" placeholder="e.g., www.yourwebsite.com">
-                    </div>
-
-                    <!-- Account Details -->
-                    <div>
-                         <label for="password">Password:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="password" id="password" name="password" placeholder="Enter password" required>
-                    </div>
-
-                    <div>
-                         <label for="description">Tell Us About Your Organization:</label>
-                         <textarea class="py-3 w-full bg-transparent rounded-lg" id="description" name="description" rows="4" placeholder="Describe your services, history, or mission..."></textarea>
-                    </div>
-
-                    
-                    <button type="submit" class="bg-gold h-10 mt-auto w-max px-5 ml-auto rounded-lg">Update</button>
+   
+     <div class="p-4 sm:ml-64 mt-14 space-y-2 bg-white">
+          <div class="flex justify-between flex-wrap flex-md-nowrap items-center pt-3 pb-2 mb-3 border-bottom">
+               <h1 class="text-5xl font-bold text-gold">New Year's Eve</h1>
+               <div>
+                    <button class="btn bg-yellow-200 hover:bg-yellow-400" type="button">Edit Party</button>
+                    <button class="btn bg-red-400 hover:bg-red-600" type="button" onclick="deleteParty()">Delete Party</button>
                </div>
-          </form>
-          <div class="grid grid-cols-2 gap-4 p-2">
-               <div class="p-3 bg-primary shadow-xl rounded-lg text-right text-gold"><a href="./createPin.html">Create Pin</a></div>
-               <div class="p-3 bg-primary shadow-xl rounded-lg text-right text-gold"><a href="./forget.html">Forget Password</a></div>
           </div>
-     </div> 
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+          <!-- Party Information Section -->
+          <div class="mb-4">
+               <div class="grid grid-cols-2">
+                    <div class="space-y-5">
+                         <p>
+                              <label for="partyName" class="label">Party Name:</label>
+                              <input type="text" id="partyName" name="partyName" class="input" value="Summer Bash" required />
+                         </p>
+                         <p>
+                              <label for="date" class="label">Date:</label> 
+                              <input type="date" name="date" id="date" value="2005-05-11" class="input" required/>
+                         </p>
+                         <p>
+                              <label for="venue" class="label">Venue:</label>
+                              <input type="text" name="venue" id="venue" value="Beachside Resort" class="input" required/>
+                         </p>
+                         <p>
+                              <label for="description" class="label">Description:</label>
+                              <textarea name="description" id="description" placeholder="A fun-filled summer party by the beach with music, food, and drinks." class="input"></textarea>
+                         </p>
+                    </div>
+                    <div><img src="../images/party/party2.avif" alt=""> </div>
+               </div>
+          </div>
+
+          <!-- Transaction History Section -->
+          <div class="card mb-4">
+               <div class="card-header">
+                    <h4 class="text-3xl font-bold my-3">Purchase History</h4>
+               </div>
+               <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+                         <thead class="text-xs uppercase bg-primary text-gold">
+                              <tr>
+                                   <th scope="col" class="px-6 py-3">Party name</th>
+                                   <th scope="col" class="px-6 py-3">Available Balance</th>
+                                   <th scope="col" class="px-6 py-3">Amount</th>
+                                   <th scope="col" class="px-6 py-3">Description</th>
+                                   <th scope="col" class="px-6 py-3"><span class="sr-only">Action</span></th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr class="border-b bg-white border-gray-700">
+                                   <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
+                                        Apple MacBook
+                                   </th>
+                                   <td class="px-6 py-4">
+                                        $2999
+                                   </td>
+                                   <td class="px-6 py-4">
+                                        $2999
+                                   </td>
+                                   <td class="px-6 py-4">
+                                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestiae natus eaque voluptatem necessitatibus esse?
+                                   </td>
+                                   <td class="px-6 py-4 text-right">
+                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                                   </td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+     </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+     <script>
+          function deleteParty() {
+               var partyName = document.getElementById("partyName").value;
+               // alert and decide either yes or no to proceed
+               if (confirm(`Are you sure you want to delete ${partyName} ?`)) {
+                    // delete party logic here
+                    window.location.href='/organizer/'
+               } else {
+                    // do nothing
+               }
+               
+          }
+     </script>
 </body>
 </html>
