@@ -12,13 +12,6 @@
           if (empty( $name) && empty($pwd)) {
                $condition = "All fields are required";
           } else {
-               // if ($pwd != $Conpwd) {
-               //      $condition = "Password and Confirm Password do not match";
-               // } else {
-               //      $hashedPassword = password_hash($pwd, PASSWORD_DEFAULT);
-               //      $insert = mysqli_query($conn, "INSERT INTO `organizers`(`name`, `phone`, `email`, `address`, `website`, `about`, `password`) VALUES ('$name','$phone','$email','$address','$website','$about','$hashedPassword')");
-               //      $condition = "Registration Successful";
-               // }
                $select = "SELECT `password` FROM `organizers` WHERE `email` = '$email'";
                $result = mysqli_query($conn, $select);
 
@@ -32,12 +25,12 @@
                          $select = mysqli_query($conn, "SELECT * FROM `organizers` WHERE `email` = '$email'");
                          $user = mysqli_fetch_assoc($select);
                          $_SESSION['email'] = $user['email'];
-                         header("location: index.html");
+                         header("location: index.php");
                     } else {
                         $condition = "Invalid password.";
                     }
                } else {
-                  $condition = "Invalid username.";
+                  $condition = "Invalid email.";
                }
           }
 
