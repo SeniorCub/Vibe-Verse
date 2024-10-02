@@ -14,33 +14,33 @@
     if (isset($_POST["update"])) {
           $name = $_POST["organizationName"];
           $phone = $_POST["contactNumber"];
-          $email = $_POST["email"];
+          $email = $sessionemail;
           $address = $_POST["address"];
           $website = $_POST["website"];
           $about = $_POST["description"];
           $pwd = $_POST["password"];
 
-          if (empty( $name) && empty($phone) && empty($email) && empty($address) && empty($website) && empty($about) && empty($pwd) && empty($Conpwd)) {
-               $condition = "All fields are required";
-          } else {
-               $select = "SELECT `password` FROM `organizers` WHERE `email` = '$email'";
-               $result = mysqli_query($conn, $select);
+          // if (empty( $name) && empty($phone) && empty($email) && empty($address) && empty($website) && empty($about) && empty($pwd) && empty($Conpwd)) {
+          //      $condition = "All fields are required";
+          // } else {
+          //      $select = "SELECT `password` FROM `organizers` WHERE `email` = '$email'";
+          //      $result = mysqli_query($conn, $select);
 
-               if (mysqli_num_rows($result) == 1) {
-                   $row = mysqli_fetch_assoc($result);
-                   $hashedPassword = $row['password'];
+          //      if (mysqli_num_rows($result) == 1) {
+          //          $row = mysqli_fetch_assoc($result);
+          //          $hashedPassword = $row['password'];
                
-                    // Verify the password
-                    if (password_verify($pwd, $hashedPassword)) {
+          //           // Verify the password
+          //           if (password_verify($pwd, $hashedPassword)) {
                          $update = mysqli_query($conn, "UPDATE `organizers` SET `name`='$name',`phone`='$phone',`email`='$email',`address`='$address',`website`='$website',`about`='$about' WHERE `email` = '$email' ");
                          if ($update){
                               $condition = "Update Successful";
                          }
-                    } else {
-                         $condition = "Invalid password.";
-                    }
-               }
-          }
+          //           } else {
+          //                $condition = "Invalid password.";
+          //           }
+          //      }
+          // }
 
     }
 ?>
@@ -218,7 +218,7 @@
 
                     <div>
                          <label for="email">Email:</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="email" id="email" name="email" placeholder="e.g., organizer@parties.com" required value="<?php echo $details['email']; ?>">
+                         <input class="py-3 w-full bg-transparent rounded-lg" type="email" id="email" name="email" placeholder="e.g., organizer@parties.com" required value="<?php echo $details['email']; ?>" disabled>
                     </div>
 
                     <div>
