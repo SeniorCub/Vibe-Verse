@@ -2,7 +2,12 @@
      include "connect.php";
      include "logout.php";
      session_start();
-     $sessionemail = $_SESSION['email'];
+     if  (isset( $_SESSION['email'])){
+          $sessionemail = $_SESSION['email'];
+     } else {
+          header("location:login.php");
+          exit();
+     }
      $select = mysqli_query($conn, "SELECT * FROM `organizers` WHERE `email` = '$sessionemail'");
      $details = mysqli_fetch_assoc($select);
 

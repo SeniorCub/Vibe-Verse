@@ -5,8 +5,14 @@
      $condition ="";
 
      session_start();
+     if  (isset( $_SESSION['email'])){
+          $sessionemail = $_SESSION['email'];
+     } else {
+          header("location:login.php");
+          exit();
+     }
+
      
-     $sessionemail = $_SESSION['email'];
      $select = mysqli_query($conn, "SELECT * FROM `organizers` WHERE `email` = '$sessionemail'");
      $details = mysqli_fetch_assoc($select);
 
