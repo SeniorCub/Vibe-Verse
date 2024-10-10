@@ -68,5 +68,18 @@
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+    <script>
+           let condition = document.getElementById("condition");
+          if (condition != ""){
+               setTimeout(() => {
+                    condition.style.display = "none";
+               }, 5000);
+          } else if (condition == "Registration Successful"){
+               setTimeout(() => {
+                    condition.style.display = "none";
+               }, 5000);
+               location.href = "./login.php"
+          }
+    </script>
 </body>
 </html>
