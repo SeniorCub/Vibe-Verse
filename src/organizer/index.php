@@ -275,5 +275,18 @@
      </div> 
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+           let condition = document.getElementById("condition");
+          if (condition != ""){
+               setTimeout(() => {
+                    condition.style.display = "none";
+               }, 5000);
+          } else if (condition == "Registration Successful"){
+               setTimeout(() => {
+                    condition.style.display = "none";
+               }, 5000);
+               location.href = "./login.php"
+          }
+    </script>
 </body>
 </html>
