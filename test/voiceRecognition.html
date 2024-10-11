@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Recognition with Playback and Edit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            resize: none;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+        button.listening {
+            background-color: #dc3545;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        #playButton {
+            background-color: #007bff;
+        }
+        #pauseButton {
+            background-color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <textarea id="text">Click "Start Listening" to use speech recognition...</textarea><br>
+        <button id="toggleButton">Start Listening</button>
+        <button id="playButton">Play</button>
+        <button id="pauseButton" disabled>Pause</button>
+    </div>
+
+    <script>
+        const textElement = document.getElementById("text");
+        const toggleButton = document.getElementById("toggleButton");
+        const playButton = document.getElementById("playButton");
+        const pauseButton = document.getElementById("pauseButton");
+
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "en-GB";
+        recognition.continuous = true;
+        let isListening = false;
+        let utterance; // Global utterance for playback control
+
+        // Toggle listening status
+        toggleButton.onclick = () => {
+            if (isListening) {
+                recognition.stop();
+                toggleButton.textContent = "Start Listening";
+                toggleButton.classList.remove("listening");
+            } else {
+                recognition.start();
+                toggleButton.textContent = "Stop Listening";
+                toggleButton.classList.add("listening");
+            }
+            isListening = !isListening;
+        };
+
+        // Handle recognition result and append text
+        recognition.onresult = (event) => {
+            let transcript = "";
+            for (const result of event.results) {
+                transcript += result[0].transcript + " ";
+            }
+            // Append new transcript to existing content
+            textElement.value += transcript;
+        };
+
+        // Error handling
+        recognition.onerror = (event) => {
+            textElement.value = "Error occurred: " + event.error;
+            toggleButton.textContent = "Start Listening";
+            toggleButton.classList.remove("listening");
+            isListening = false;
+        };
+
+        // When speech recognition stops
+        recognition.onend = () => {
+            if (isListening) {
+                recognition.start(); // Automatically restart if it's stopped while listening
+            }
+        };
+
+        // Play back the text
+        playButton.onclick = () => {
+            if (!utterance || speechSynthesis.paused || speechSynthesis.speaking === false) {
+                // If no utterance or playback is paused, create a new utterance and start playback
+                utterance = new SpeechSynthesisUtterance(textElement.value);
+                window.speechSynthesis.speak(utterance);
+                pauseButton.disabled = false;
+                playButton.textContent = "Playing...";
+            } else if (speechSynthesis.paused) {
+                // If paused, resume playback
+                window.speechSynthesis.resume();
+                playButton.textContent = "Playing...";
+            }
+        };
+
+        // Pause the playback
+        pauseButton.onclick = () => {
+            if (speechSynthesis.speaking) {
+                window.speechSynthesis.pause();
+                playButton.textContent = "Resume";
+                pauseButton.disabled = true;
+            }
+        };
+
+        // Reset the buttons when playback ends
+        utterance?.addEventListener("end", () => {
+            playButton.textContent = "Play";
+            pauseButton.disabled = true;
+        });
+
+    </script>
+
+</body>
+</html>
