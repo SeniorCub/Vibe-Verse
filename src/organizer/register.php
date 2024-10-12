@@ -21,6 +21,7 @@
                     $hashedPassword = password_hash($pwd, PASSWORD_DEFAULT);
                     $insert = mysqli_query($conn, "INSERT INTO `organizers`(`name`, `phone`, `email`, `address`, `website`, `about`, `password`) VALUES ('$name','$phone','$email','$address','$website','$about','$hashedPassword')");
                     $condition = "Registration Successful";
+                    header("location: login.php");
                }
           }
 

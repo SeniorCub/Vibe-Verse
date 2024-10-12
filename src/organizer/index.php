@@ -1,7 +1,6 @@
 <?php
      include "connect.php";
      include "logout.php";
-     session_start();
      if  (isset( $_SESSION['email'])){
           $sessionemail = $_SESSION['email'];
      } else {
@@ -21,7 +20,7 @@
     <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <link href="../output.css" rel="stylesheet">
-    <title>Event Planner Dashboard</title>
+    <title><?php echo $details['name']; ?>'s Dashboard</title>
 </head>
 <body>
      
@@ -155,7 +154,7 @@
      </aside>
    
      <div class="p-4 sm:ml-64 mt-14 space-y-2 bg-white">
-          <h1 class="text-5xl font-bold text-gold "><?php echo $details['name']; ?>'s Dashboard</h1>
+          <h1 class="text-5xl font-bold text-gold "><?php echo $details['name']; ?></h1>
           <div class="grid md:grid-cols-4 grid-cols-1 gap-4 mb-4">
                <div class="text-white p-3 bg-primary shadow-xl rounded-lg">
                     <div class="flex gap-3 justify-center items-center">

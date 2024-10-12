@@ -22,10 +22,16 @@
                     // Verify the password
                     if (password_verify($pwd, $hashedPassword)) {
                         $condition = "Login successful!";
-                         $select = mysqli_query($conn, "SELECT * FROM `organizers` WHERE `email` = '$email'");
-                         $user = mysqli_fetch_assoc($select);
-                         $_SESSION['email'] = $user['email'];
-                         header("location: index.php");
+                        $select = mysqli_query($conn, "SELECT * FROM `organizers` WHERE `email` = '$email'");
+                        $user = mysqli_fetch_assoc($select);
+                        $_SESSION['email'] = $user['email'];
+                         if ($user['email'] == 'admin@mail.com'){
+                              $condition = "ADMIN";
+                             header("location: ../admin/");
+                         } else {
+                              $condition = "USER";
+                              header("location:index.php");
+                         }
                     } else {
                         $condition = "Invalid password.";
                     }
@@ -47,8 +53,22 @@
      <link rel="stylesheet" href="../style.css">
      <title>Login</title>
      <link rel="stylesheet" href="styles.css">
+     <style>
+            #condition{
+               position: fixed;
+               right: 0;
+               top: 10vh;
+               background-color: var(--white);
+               padding: 10px 15px;
+               border-radius: 15px 0  0 15px;
+               box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+               color: red;
+               text-align: center;
+          }
+     </style>
 </head>
 <body>
+     <p id="condition"><?php echo($condition); ?></p>
      <div class="auth-container">
           <h2>Login</h2>
           <form id="loginForm" method="POST">

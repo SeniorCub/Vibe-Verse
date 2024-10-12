@@ -4,7 +4,6 @@ include "logout.php";
 
 $condition = "";
 
-session_start();
 if (isset($_SESSION['email'])) {
     $sessionemail = $_SESSION['email'];
 } else {
@@ -254,5 +253,18 @@ if (isset($_POST["update"])) {
      </div> 
 
     <script src="https:cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+           let condition = document.getElementById("condition");
+          if (condition != ""){
+               setTimeout(() => {
+                    condition.style.display = "none";
+               }, 5000);
+          } else if (condition == "Pin Update Successful"){
+               setTimeout(() => {
+                    condition.style.display = "none"
+                    location.href = "./profile.php"
+               }, 5000);
+          }
+    </script>
 </body>
 </html>
