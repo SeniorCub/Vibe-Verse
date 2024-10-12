@@ -25,7 +25,7 @@
 </head>
 <body>
      
-     <nav class="fixed top-0 z-50 w-full border-b bg-primary border-white">
+     <nav class="fixed top-0 z-50 w-full border-b bg-primary border-whit.e">
           <div class="px-3 py-3 lg:px-5 lg:pl-3">
                <div class="flex items-center justify-between">
                     <div class="flex items-center justify-start rtl:justify-end">
@@ -58,10 +58,10 @@
                                              <a href="./" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Dashboard</a>
                                         </li>
                                         <li>
-                                             <a href="./profile.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Settings</a>
+                                             <a href="./profilephp" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Settings</a>
                                         </li>
                                         <li>
-                                             <a href="./payment.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Earnings</a>
+                                             <a href="./paymentphp" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Earnings</a>
                                         </li>
                                         <li>
                                              <form method="post">
@@ -91,7 +91,7 @@
                     </li>
                     <!-- Events -->
                     <li>
-                         <a href="./party.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
+                         <a href="./party.php" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
                               <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                    <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
                               </svg>
@@ -100,7 +100,7 @@
                     </li>
                     <!-- Create Events -->
                     <li>
-                         <a href="./create.html" class="flex items-center p-2 rounded-lg text-white bg-gray-700 group">
+                         <a href="./create.php" class="flex items-center p-2 rounded-lg text-white bg-gray-700 group">
                          <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z"/>
                               <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z"/>
@@ -111,7 +111,7 @@
                     </li>
                     <!-- Transaction History -->
                     <li>
-                         <a href="./payment.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
+                         <a href="./payment.php" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
                               <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
                                  </svg>
@@ -122,7 +122,7 @@
                     </li>
                     <!-- Profile -->
                     <li>
-                         <a href="./profile.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
+                         <a href="./profile.php" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
                               <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                                    <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                               </svg>
@@ -131,7 +131,7 @@
                     </li>
                     <!-- Scan to Login -->
                     <li>
-                         <a href="./scanLogin.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
+                         <a href="./scanLogin.php" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
                          <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
                               <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
