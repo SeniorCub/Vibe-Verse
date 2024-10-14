@@ -1,6 +1,6 @@
 <?php
      include "connect.php";
-
+     
      session_start();
 
      $sessionemail = $_SESSION['email'];
@@ -13,7 +13,7 @@
      }
 
      // Admin
-     if ($user['email'] == 'admin@mail.com'){
+     if ($details['email'] == 'admin@mail.com'){
           $condition = "ADMIN";
          header("location: ../admin/");
      } else {

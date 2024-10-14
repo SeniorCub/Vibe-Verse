@@ -15,7 +15,7 @@
     
      <div class="auth-container">
         <h2>Forget Password</h2>
-        <form id="forgetForm" action="/forget-password" method="POST">
+        <form id="forgetForm" method="POST">
             <!-- Step 1: Request 6-digit code -->
           <div class="form-group step active">
                <label for="email">Email:</label>
@@ -49,74 +49,132 @@
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
     <script>
-          // Define the code variable globally
-          let code;
+     // Define the code variable globally
+     let code;
+     
+     // Function to generate a 6-digit code
+     function generateCode() {
+         return Math.floor(100000 + Math.random() * 900000);
+     }
+     
+     // Function to generate and send a 6-digit code
+     function requestCode() {
+         code = generateCode();
+         sendCode(code);
+         return code; // Return the generated code
+     }
 
-          // Function to generate a 6-digit code
-          function generateCode() {
-               return Math.floor(100000 + Math.random() * 900000);
-          }
+     // Function to send the code (simulated)
+     function sendCode(code) {
+         console.log(`Code sent: ${code}`);
+     }
+     
+     function email(code) {
+          // send code as email
 
-          // Function to send the code (simulated)
-          function sendCode(code) {
-               console.log(`Code sent: ${code}`);
-          }
+     }
+ 
+     // Function to verify the code
+     function verifyCodeForm() {
+         const userCode = document.getElementById('code').value;
+         console.log(userCode);
+         if (userCode == code) {
+             console.log("Code verified successfully!");
+         } else {
+               canProceed = false;
+             console.log("Invalid code. Please try again.");
+         }
+     }
+ 
+     // Function to verify passwords
+     function verifyPasswords() {
+         const newPassword = document.getElementById('password').value;
+         const confirmPassword = document.getElementById('confirm-password').value;
+         let email = document.getElementById('email').value;
+         if (newPassword === confirmPassword) {
+             console.log("Passwords match. Proceed with password reset.");
 
-          // Function to generate and send a 6-digit code
-          function requestCode() {
-               code = generateCode();
-               sendCode(code);
-               return code; // Return the generated code
-          }
+               // Prepare the data to send
+               const data = {
+                    email: email,
+                    password: newPassword
+               };
 
-          // Function to verify the code
-          function verifyCodeForm() {
-               const userCode = document.getElementById('code').value;
-               console.log(userCode);
-               if (userCode == code) {
-                    console.log("Code verified successfully!");
-               } else {
-                    console.log("Invalid code. Please try again.");
-                    
-               }
-          }
-
-          // Function to verify passwords
-          function verifyPasswords() {
-               const newPassword = document.getElementById('password').value;
-               const confirmPassword = document.getElementById('confirm-password').value;
-               if (newPassword === confirmPassword) {
-                    console.log("Passwords match. Proceed with password reset.");
-                    
-                    window.location.href="login.html"
-               } else {
-                    console.log("Passwords do not match. Please try again.");
-               }
-          }
-
-          document.addEventListener('DOMContentLoaded', function() {
-               const steps = document.querySelectorAll('.step');
-               const submitButtons = document.querySelectorAll('.submit-btn');
-          
-               submitButtons.forEach((button, index) => {
-               button.addEventListener('click', function() {
-                    if (index < steps.length - 1) {
-                         if (index === 0) {
-                              requestCode();
-                         } else if (index === 1) {
-                              verifyCodeForm();
-                         } else if (index === 3) {
-                              verifyPasswords();
-                         }
-                         steps[index].classList.remove('active');
-                         steps[index + 1].classList.add('active');
-                         submitButtons[index].style.display = 'none';
-                         submitButtons[index + 1].style.display = 'block';
+               // Make the API request using fetch
+               fetch('http://localhost/Vibe-Verse/src/organizer/forget.php', { // Replace with your actual API URL
+                    method: 'POST',
+                    headers: {
+                         'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+               })
+               .then(response => response.json())
+               .then(result => {
+                    if (result.message) {
+                         console.log("Password updated successfully!");
+                       // window.location.href = result.url; // Redirect to the login page
+                    } else {
+                         console.log("Error: " + result.error);
                     }
-               });
-               });
-          });
-
-    </script>
+               })
+               .catch(error => console.error('Error:', error));
+         } else {
+             console.log("Passwords do not match. Please try again.");
+         }
+     }
+ 
+     // Function to check if an input field is empty
+     function isEmptyInput(inputId) {
+         const input = document.getElementById(inputId);
+         if (!input.value.trim()) {
+             console.log(`The ${inputId} field is required.`);
+             return true; // Input is empty
+         }
+         return false; // Input is not empty
+     }
+ 
+     document.addEventListener('DOMContentLoaded', function() {
+         const steps = document.querySelectorAll('.step');
+         const submitButtons = document.querySelectorAll('.submit-btn');
+ 
+         submitButtons.forEach((button, index) => {
+             button.addEventListener('click', function() {
+                 let canProceed = true;
+ 
+                 if (index === 0) {
+                     if (isEmptyInput('email')) {
+                         canProceed = false;
+                     }
+                 } else if (index === 1) {
+                     if (isEmptyInput('code')) {
+                         canProceed = false;
+                     }
+                 } else if (index === 2) {
+                     if (isEmptyInput('password')) {
+                         canProceed = false;
+                     }
+                 } else if (index === 3) {
+                     if (isEmptyInput('confirm-password')) {
+                         canProceed = false;
+                     }
+                 }
+ 
+                 if (canProceed) {
+                     if (index === 0) {
+                         requestCode();
+                     } else if (index === 1) {
+                         verifyCodeForm();
+                     } else if (index === 3) {
+                         verifyPasswords();
+                     }
+                     steps[index].classList.remove('active');
+                     steps[index + 1].classList.add('active');
+                     submitButtons[index].style.display = 'none';
+                     submitButtons[index + 1].style.display = 'block';
+                 }
+             });
+         });
+     });
+ </script> 
 </body>
 </html>
