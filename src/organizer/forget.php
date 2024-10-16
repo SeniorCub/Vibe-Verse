@@ -1,5 +1,6 @@
 <?php
      include "connect.php"; // Include the database connection
+     include "header.php";
 
      header("Content-Type: application/json");
 
@@ -8,7 +9,7 @@
 
      // Check if 'password' field is set in the request
      if (!isset($data['password'])) {
-     echo json_encode(['error' => 'Password is required']);
+          echo json_encode(['error' => 'Password is required']);
      exit;
      }
 
