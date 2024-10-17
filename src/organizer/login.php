@@ -25,9 +25,11 @@
                         $select = mysqli_query($conn, "SELECT * FROM `organizers` WHERE `email` = '$email'");
                         $user = mysqli_fetch_assoc($select);
                         $_SESSION['email'] = $user['email'];
-                         if ($user['email'] == 'admin@mail.com'){
-                              $condition = "ADMIN";
+                        $usemail = $user['email'];
+                        if ($user['email'] == 'admin@mail.com'){
+                             $condition = "ADMIN";
                              header("location: ../admin/");
+                             echo "<script>localStorage.setItem('user', '$usemail');</script>";
                          } else {
                               $condition = "USER";
                               header("location:index.php");

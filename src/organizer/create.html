@@ -10,61 +10,80 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../register.css">
     <style>
-     input::placeholder{
-          color: #fff!important;
-     }
-     .list-group-item{
-          input{
-               height: 20px;
-               font-size: 15px;
-          }
-     }
-     input[type="email"]{
-          height: 30px;
-     }
-     .add, .add:hover, .remove, .remove:hover{
-          background-color: var(--gold);
-          color: #000;
-          border: none;
-          padding: 5px 10px;
-          border-radius: 5px;
-     }
-     .add:hover, .remove:hover{
-          border: 1px solid var(--gold);
-          color: #000;
-     }
-     #flyer1{
-          height: 100px;
-          width: 100px;
-          font-size: 1.5rem;
-          img{
-               width: 100%;
-               height: 100%;
-               object-fit: contain;
-          }
-     }
-     textarea{
-          resize: none;
-     }
-     #add{
-          background-color: var(--gold)!important;
-          color: #000!important;
-          border: none!important;
-          padding: 5px 10px!important;
-          border-radius: 5px!important;
-     }
-     @media (min-width: 300px) and (max-width: 750px) {
-          .forms {
-               .form1 {
-               left: 0vw;
-             }  
-          }
-     }
+        input::placeholder {
+            color: #fff !important;
+        }
+
+        .list-group-item input {
+            height: 20px;
+            font-size: 15px;
+        }
+
+        input[type="email"] {
+            height: 30px;
+        }
+
+        .add, .add:hover, .remove, .remove:hover {
+            background-color: var(--gold);
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .add:hover, .remove:hover {
+            border: 1px solid var(--gold);
+            color: #000;
+        }
+
+        #flyer1 {
+            height: 100px;
+            width: 100px;
+            font-size: 1.5rem;
+        }
+
+        #flyer1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        #add {
+            background-color: var(--gold) !important;
+            color: #000 !important;
+            border: none !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+        }
+
+        @media (min-width: 300px) and (max-width: 750px) {
+            .forms .form1 {
+                left: 0vw;
+            }
+        }
+
+        #condition {
+            position: fixed;
+            right: 0;
+            top: 10vh;
+            background-color: var(--white);
+            padding: 10px 15px;
+            border-radius: 15px 0 0 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            color: red;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-     <button type="button" class="back-btn position-absolute" style="background-color: var(--gold); color: #ffffff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; position: absolute; top: 50px; left: 50px; border-radius: var(--radius);" onclick="window.location.href='/src/organizer/'"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <button type="button" class="back-btn position-absolute" style="background-color: var(--gold); color: #ffffff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; position: absolute; top: 50px; left: 50px; border-radius: var(--radius);" onclick="window.location.href='/src/organizer/'"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <p id="condition"></p>
+
         <div class="steps">
             <div class="step1">Step 1</div>
             <div class="step2">Step 2</div>
@@ -82,13 +101,13 @@
                 <div class="formm">
                     <div class="label">
                         <label for="eventTitle">What is your party Theme or Title:</label>
-                        <input type="text" id="eventTitle" name="eventTitle" placeholder="Event Title">
+                        <input type="text" id="eventTitle" name="eventTitle" placeholder="Event Title" required>
 
                         <label for="eventLocation">Event Location</label>
-                        <input type="text" id="eventLocation" required>
+                        <input type="text" id="eventLocation" name="eventLocation" required>
                         
                         <label for="eventDescription">Event Description</label>
-                        <textarea id="eventDescription" rows="3"></textarea>
+                        <textarea id="eventDescription" name="eventDescription" rows="3" required></textarea>
                     </div>
                 </div>
                 
@@ -100,10 +119,10 @@
             <div class="form2">
                 <div class="formm">
                     <div class="label">
-                        <label for="eventStart">Event start's on?</label>
-                        <input type="date" id="eventStart">
-                        <label for="eventStart">Event end's on?</label>
-                        <input type="date" id="eventEnd">
+                        <label for="eventStart">Event starts on?</label>
+                        <input type="date" id="eventStart" name="eventStart" required>
+                        <label for="eventEnd">Event ends on?</label>
+                        <input type="date" id="eventEnd" name="eventEnd" required>
                         <input type="file" id="file" name="flyer" class="d-none" onchange="previewImage()">
                         <label for="flyer" id="flyer1" onclick="upload()" class="form-label"><i class="fa fa-upload" aria-hidden="true"></i>Upload flyer</label>
                     </div>
@@ -121,8 +140,8 @@
                         <div class="inputs">
                             <label for="who" class="form-label">Enter Ticket type and amount</label>
                             <div class="d-flex justify-content-between align-items-center">
-                                <input type="text" name="wLevel" id="wLevel" placeholder="Enter Ticket Type">
-                                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Ticket Amount">
+                                <input type="text" name="wLevel" id="wLevel" placeholder="Enter Ticket Type" required>
+                                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Ticket Amount" required>
                                 <button type="button" class="btn add" onclick="addLevel()">Add</button>
                             </div>
                         </div>
@@ -138,12 +157,12 @@
 
             <div class="form4">
                 <div class="formm">
-                    <label for="email">Enter email's for party check in</label>
-                    <input type="email" name="email1" id="email">
-                    <input type="email" name="email2" id="email">
-                    <input type="email" name="email3" id="email">
-                    <input type="email" name="email4" id="email">
-                    <input type="email" name="email5" id="email">
+                    <label for="email1">Enter email's for party check-in</label>
+                    <input type="email" name="email1" id="email1" required>
+                    <input type="email" name="email2" id="email2">
+                    <input type="email" name="email3" id="email3">
+                    <input type="email" name="email4" id="email4">
+                    <input type="email" name="email5" id="email5">
                 </div>
 
                 <div class="movement">
@@ -155,11 +174,20 @@
     </div>
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script> -->
     <script>
+     let condition = document.getElementById("condition");
+     if (condition != ""){
+          setTimeout(() => {
+               condition.style.display = "none";
+          }, 5000);
+     } else if (condition == "Pin Update Successful"){
+          setTimeout(() => {
+               condition.style.display = "none"
+               location.href = "./profile.php"
+          }, 5000);
+     }
      function upload() {
-          let input = document.querySelector("#file");
-          input.click();
+          document.querySelector("#file").click();
      }
 
      function previewImage() {
@@ -176,118 +204,127 @@
                reader.readAsDataURL(file);
           }
      }
-        // Function to adjust the left property dynamically based on screen size
-        function adjustFormPosition(formElement) {
-            if (window.innerWidth <= 767) {
-                formElement.style.left = '0vw';
-            } else {
-                formElement.style.left = '20vw';
-            }
-        }
 
-        // Event listeners for navigation
-        document.querySelector('.next1').addEventListener("click", function() {
-            const form1 = document.querySelector('.form1');
-            const form2 = document.querySelector('.form2');
-            const line2 = document.querySelector('.line2');
-
-            line2.style.display = 'block';
-            form1.style.left = '-120vw';
-
-            adjustFormPosition(form2);
-            form2.style.left = '20vw';
-        });
-
-        document.querySelector('.next2').addEventListener("click", function() {
-            const form2 = document.querySelector('.form2');
-            const form3 = document.querySelector('.form3');
-            const line3 = document.querySelector('.line3');
-
-            line3.style.display = 'block';
-            form2.style.left = '-120vw';
-
-            adjustFormPosition(form3);
-            form3.style.left = '20vw';
-        });
-
-        document.querySelector('.back2').addEventListener("click", function() {
-            const form1 = document.querySelector('.form1');
-            const form2 = document.querySelector('.form2');
-            const line2 = document.querySelector('.line2');
-
-            line2.style.display = 'none';
-
-            adjustFormPosition(form1);
-            form1.style.left = '20vw';
-            form2.style.left = '120vw';
-        });
-
-        document.querySelector('.next3').addEventListener("click", function() {
-            const form3 = document.querySelector('.form3');
-            const form4 = document.querySelector('.form4');
-            const line4 = document.querySelector('.line4');
-
-            line4.style.display = 'block';
-            form3.style.left = '-120vw';
-
-            adjustFormPosition(form4);
-            form4.style.left = '20vw';
-        });
-
-        document.querySelector('.back3').addEventListener("click", function() {
-            const form2 = document.querySelector('.form2');
-            const form3 = document.querySelector('.form3');
-            const line3 = document.querySelector('.line3');
-
-            line3.style.display = 'none';
-
-            adjustFormPosition(form2);
-            form2.style.left = '20vw';
-            form3.style.left = '120vw';
-        });
-
-        document.querySelector('.back4').addEventListener("click", function() {
-            const form3 = document.querySelector('.form3');
-            const form4 = document.querySelector('.form4');
-            const line4 = document.querySelector('.line4');
-
-            line4.style.display = 'none';
-
-            adjustFormPosition(form3);
-            form3.style.left = '20vw';
-            form4.style.left = '120vw';
-        });
-
-        function addLevel() {
-          const list = document.querySelector('.list');
-          const level = document.querySelector('#wLevel');
-          const price = document.querySelector('#amount');
-      
-          if (level.value.trim() === "") {
-              alert("Please enter a level");
-          } else if (price.value.trim() === "" || isNaN(price.value) || Number(price.value) <= 0) {
-              alert("Please enter a valid price");
+     function adjustFormPosition(formElement) {
+          if (window.innerWidth <= 767) {
+               formElement.style.left = '0vw';
           } else {
-              const li = document.createElement('li');
-              li.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'list-group-item');
-              li.innerHTML = `
-                  <input type="text" name="level" id="level" value="${level.value}" disabled>
-                  <input type="number" name="price" id="price" value="${price.value}" disabled>
-                  <button type="button" class="btn remove" onclick="removeLevel()">Remove</button>
-                  `
-              ;
-              list.appendChild(li);
-              
-              // Optionally clear the input fields after adding
-              level.value = "";
-              price.value = "";
+               formElement.style.left = '20vw';
           }
      }
-     
-     function removeLevel() {
+
+     document.querySelector('.next1').addEventListener("click", function() {
+          const form1 = document.querySelector('.form1');
+          const form2 = document.querySelector('.form2');
+          const line2 = document.querySelector('.line2');
+
+          line2.style.display = 'block';
+          form1.style.left = '-120vw';
+          adjustFormPosition(form2);
+     });
+
+     document.querySelector('.back2').addEventListener("click", function() {
+          const form1 = document.querySelector('.form1');
+          const form2 = document.querySelector('.form2');
+          const line2 = document.querySelector('.line2');
+
+          line2.style.display = 'none';
+          form1.style.left = '0vw';
+          form2.style.left = '100vw';
+     });
+
+     document.querySelector('.next2').addEventListener("click", function() {
+          const form2 = document.querySelector('.form2');
+          const form3 = document.querySelector('.form3');
+          const line3 = document.querySelector('.line3');
+
+          line3.style.display = 'block';
+          form2.style.left = '-120vw';
+          adjustFormPosition(form3);
+     });
+
+     document.querySelector('.back3').addEventListener("click", function() {
+          const form2 = document.querySelector('.form2');
+          const form3 = document.querySelector('.form3');
+          const line3 = document.querySelector('.line3');
+
+          line3.style.display = 'none';
+          form2.style.left = '0vw';
+          form3.style.left = '100vw';
+     });
+
+     document.querySelector('.next3').addEventListener("click", function() {
+          const form3 = document.querySelector('.form3');
+          const form4 = document.querySelector('.form4');
+          const line4 = document.querySelector('.line4');
+
+          line4.style.display = 'block';
+          form3.style.left = '-120vw';
+          adjustFormPosition(form4);
+     });
+
+     document.querySelector('.back4').addEventListener("click", function() {
+          const form3 = document.querySelector('.form3');
+          const form4 = document.querySelector('.form4');
+          const line4 = document.querySelector('.line4');
+
+          line4.style.display = 'none';
+          form3.style.left = '0vw';
+          form4.style.left = '100vw';
+     });
+          
+     // Submit the form data to the server
+     document.querySelector('.forms').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent the default form submission
+          
+          const formData = new FormData(this); // Collect form data
+          const ticketTypes = Array.from(document.querySelectorAll('.list input')).map(input => input.value);
+          const emails = Array.from(document.querySelectorAll('input[type="email"]')).map(input => input.value).filter(email => email !== "");
+
+          formData.append('category', JSON.stringify(ticketTypes));
+          formData.append('emails', JSON.stringify(emails));
+
+          console.log(Array.from(formData.entries())); // Log form data entries
+          
+          // Assuming all your input names match
+          fetch('http://localhost/Vibe-Verse/src/organizer/create.php', {
+               method: 'POST',
+               body: formData,
+          }).then(response => response.json()).then(data => {
+               // Handle response
+               console.log(data.message);
+          }).catch(error => {
+               console.error('Error:', error);
+          });
+     });
+
+     function addLevel() {
+          const ticketTypeInput = document.querySelector('#wLevel');
+          const amountInput = document.querySelector('#amount');
           const list = document.querySelector('.list');
-          const li = document.querySelector('.list-group-item');
-          list.removeChild(li);
+
+          const ticketType = ticketTypeInput.value;
+          const amount = amountInput.value;
+
+          if (ticketType && amount) {
+               const listItem = document.createElement('li');
+               listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+               listItem.innerHTML = `
+                    ${ticketType} - ₦${amount}
+                    <button type="button" class="btn remove" onclick="removeLevel(this)">Remove</button>
+                    <input type="hidden" name="ticketTypes[]" value="${ticketType}">
+                    <input type="hidden" name="amount[]" value="${amount}">
+               `;
+               list.appendChild(listItem);
+
+               ticketTypeInput.value = '';
+               amountInput.value = '';
+          }
+     }
+
+     function removeLevel(button) {
+          const listItem = button.closest('.list-group-item');
+          listItem.remove();
      }
     </script>
 </body>
