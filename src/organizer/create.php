@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
      include "connect.php"; // Include the database connection
      include "header.php";
      header("Content-Type: application/json");
@@ -62,22 +66,17 @@
       // Execute the query
      // Create a prepared statement
      if ($stmt = $conn->prepare($query)) {
-          $stmt->bind_param("sssssssss", $organizerEmail, $eventTitle,$eventLocation,$eventDescription,$eventStart,$eventEnd, $perm_file,$json_category,$json_emails);
-     
-          // Example of ensuring that your response is a valid JSON
+          $stmt->bind_param("sssssssss", $organizerEmail, $eventTitle, $eventLocation, $eventDescription, $eventStart, $eventEnd, $flyer, $ticketTypes, $emails);
           if ($stmt->execute()) {
-               $response = ['success' => true, 'message' => 'Event created successfully', 'url' => 'party.html'];
+              echo json_encode(['success' => true, 'message' => 'Event created successfully', 'url' => 'party.html']);
           } else {
-               $response = ['error' => 'Failed to create event'];
+              echo json_encode(['success' => false, 'error' => 'Failed to create event']);
           }
-          
-          // Convert the response to JSON and echo it
-          echo json_encode($response); 
-
           $stmt->close();
-     } else {
-     echo json_encode(['error' => 'Failed to prepare statement: ' . $conn->error]);
-     }
+      } else {
+          echo json_encode(['success' => false, 'error' => 'Failed to prepare statement: ' . $conn->error]);
+      }
+      
 
      $conn->close();
 ?>

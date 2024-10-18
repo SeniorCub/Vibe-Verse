@@ -96,7 +96,7 @@
             <div class="line4"></div>
         </div>
 
-        <form class="forms">
+        <form class="forms" method="POST" enctype="multipart/form-data" onsubmit="return false;">
             <div class="form1">
                 <div class="formm">
                     <div class="label">
@@ -167,7 +167,7 @@
 
                 <div class="movement">
                     <button type="button" class="back back4">Back</button>
-                    <button type="submit" class="next next4 add" id="add">Add Event</button>
+                    <button type="submit" class="next next4 add" id="add" onclick="addEvent()">Add Event</button>
                 </div>
             </div>
         </form>
@@ -175,7 +175,9 @@
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script>
+     let flyer;
      let condition = document.getElementById("condition");
+
      if (condition != ""){
           setTimeout(() => {
                condition.style.display = "none";
@@ -186,6 +188,7 @@
                location.href = "./profile.php"
           }, 5000);
      }
+
      function upload() {
           document.querySelector("#file").click();
      }
@@ -194,17 +197,19 @@
           const input = document.querySelector('#file');
           const file = input.files[0];
           const reader = new FileReader();
+          //console.log(reader)
 
           reader.addEventListener('load', function() {
                const uploadPic = document.querySelector('#flyer1');
                uploadPic.innerHTML = `<img id="upload-pic" src="${reader.result}" alt="">`
+               flyer = reader.result
           });
 
           if (file) {
                reader.readAsDataURL(file);
           }
      }
-
+    
      function adjustFormPosition(formElement) {
           if (window.innerWidth <= 767) {
                formElement.style.left = '0vw';
@@ -237,7 +242,6 @@
           const form2 = document.querySelector('.form2');
           const form3 = document.querySelector('.form3');
           const line3 = document.querySelector('.line3');
-
           line3.style.display = 'block';
           form2.style.left = '-120vw';
           adjustFormPosition(form3);
@@ -274,30 +278,53 @@
      });
           
      // Submit the form data to the server
-     document.querySelector('.forms').addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent the default form submission
-          
-          const formData = new FormData(this); // Collect form data
+     function addEvent() {
+          const organizerEmail = 'farinderif"gmail.com';
+          const eventTitle = document.getElementById('eventTitle').value;
+          const eventLocation = document.getElementById('eventLocation').value;
+          const eventDescription = document.getElementById('eventDescription').value;
+          const eventStart = document.getElementById('eventStart').value;
+          const eventEnd = document.getElementById('eventEnd').value;
           const ticketTypes = Array.from(document.querySelectorAll('.list input')).map(input => input.value);
           const emails = Array.from(document.querySelectorAll('input[type="email"]')).map(input => input.value).filter(email => email !== "");
-
-          formData.append('category', JSON.stringify(ticketTypes));
-          formData.append('emails', JSON.stringify(emails));
-
-          console.log(Array.from(formData.entries())); // Log form data entries
           
-          // Assuming all your input names match
+          const data = { 
+               organizerEmail: organizerEmail,
+               eventTitle: eventTitle,
+               eventLocation: eventLocation,
+               eventDescription: eventDescription,
+               eventStart: eventStart,
+               eventEnd: eventEnd,
+               flyer: flyer,
+               category: ticketTypes,
+               emails: emails
+          };
+      
           fetch('http://localhost/Vibe-Verse/src/organizer/create.php', {
                method: 'POST',
-               body: formData,
-          }).then(response => response.json()).then(data => {
-               // Handle response
-               console.log(data.message);
-          }).catch(error => {
+               headers: {
+                   'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(data),
+               credentials: 'include'
+          })
+          .then(response => {
+               if (response.ok) {
+                   return response.json(); // Parse JSON only if the response is OK
+               } else {
+                   // Handle non-OK responses (like 500 errors)
+                   return response.text().then(text => { throw new Error(text); });
+               }
+           })
+           .then(result => {
+               console.log(result); // Log the JSON result
+           })
+           .catch(error => {
                console.error('Error:', error);
-          });
-     });
-
+               console.log("Error: Failed to create event.");
+           });           
+      }
+      
      function addLevel() {
           const ticketTypeInput = document.querySelector('#wLevel');
           const amountInput = document.querySelector('#amount');
