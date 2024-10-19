@@ -1,16 +1,11 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
      include "connect.php"; // Include the database connection
      include "header.php";
-     header("Content-Type: application/json");
 
      // Decode the incoming JSON data
      $data = json_decode(file_get_contents('php://input'), true);
 
-    $organizerEmail = trim($data['email1']);
+     $organizerEmail = trim($data['organizerEmail']);
      $eventTitle = trim($data['eventTitle']);
      $eventLocation = trim($data['eventLocation']);
      $eventDescription = trim($data['eventDescription']);
