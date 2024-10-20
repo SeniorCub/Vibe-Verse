@@ -1,5 +1,5 @@
 <?php
-     include "connect.php"; // Include the database connection
+     include "connect.php";
      include "header.php";
 
      // Decode the incoming JSON data
@@ -12,56 +12,57 @@
      $eventStart = trim($data['eventStart']);
      $eventEnd = trim($data['eventEnd']);
      $flyer = $data['flyer'];
-     $category = $data['category'];
-     $emails = $data['emails'];
+     $category = json_encode($data['category']);  // Encode arrays as JSON
+     $emails = json_encode($data['emails']);      // Encode arrays as JSON
 
-     // Check if Fields are empty
-     if (!isset($organizerEmail) && 
-          !isset($eventTitle) &&
-          !isset($eventLocation) &&
-          !isset($eventDescription) &&
-          !isset($eventStart) &&
-          !isset($eventEnd) &&
-          !isset($flyer) &&
-          !isset($category) &&
-          !isset($emails)
-     ) {
-          echo json_encode(['message' => "All fields are required!."]);
-      } elseif (!isset($organizerEmail)) {
+     // Check if fields are empty
+     if (empty($organizerEmail)) {
           echo json_encode(['message' => "Organizer Email is required!."]);
-      } elseif (!isset($eventTitle)) {
+          exit;
+     }
+     if (empty($eventTitle)) {
           echo json_encode(['message' => "Event Title is required!."]);
-      } elseif (!isset($eventLocation)) {
+          exit;
+     }
+     if (empty($eventLocation)) {
           echo json_encode(['message' => "Event Location is required!."]);
-     } elseif (!isset($eventDescription)) {
+          exit;
+     }
+     if (empty($eventDescription)) {
           echo json_encode(['message' => "Event Description is required!."]);
-     } elseif (!isset($eventStart)) {
+          exit;
+     }
+     if (empty($eventStart)) {
           echo json_encode(['message' => "Event Start Date is required!."]);
-     } elseif (!isset($eventEnd)) {
+          exit;
+     }
+     if (empty($eventEnd)) {
           echo json_encode(['message' => "Event End Date is required!."]);
-     } elseif (!isset($flyer)) {
+          exit;
+     }
+     if (empty($flyer)) {
           echo json_encode(['message' => "Event Flyer is required!."]);
-     } elseif (!isset($category)) {
-               echo json_encode(['message' => "Event Category is required!."]);
-     } elseif (!isset($emails)) {
+          exit;
+     }
+     if (empty($category)) {
+          echo json_encode(['message' => "Event Category is required!."]);
+          exit;
+     }
+     if (empty($emails)) {
           echo json_encode(['message' => "Emails are required!."]);
-     } 
+          exit;
+     }
 
-          $perm_file = $_FILES["flyer"]["name"];
-          $tmp_file = $_FILES["flyer"]["tmp_name"];
-        
-        
-        // Prepare the SQL query with placeholders
-        $query = "INSERT INTO `party`(`organizerEmail`, `eventTitle`, `eventLocation`, `eventDescription`, `eventStart`, `eventEnd`, `flyer`, `category`, `emails`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        move_uploaded_file($tmp_file, "Uploads/$perm_file");
+     // Store flyer image as a file on the server
+     $flyerPath = "Uploads/flyer_" . uniqid() . ".png";
+     file_put_contents($flyerPath, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $flyer)));
 
-      $json_category = json_encode($category);
-      $json_emails = json_encode($emails);
+     // Prepare the SQL query
+     $query = "INSERT INTO `party`(`organizerEmail`, `eventTitle`, `eventLocation`, `eventDescription`, `eventStart`, `eventEnd`, `flyer`, `category`, `emails`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-      // Execute the query
-     // Create a prepared statement
+     // Execute the query
      if ($stmt = $conn->prepare($query)) {
-          $stmt->bind_param("sssssssss", $organizerEmail, $eventTitle, $eventLocation, $eventDescription, $eventStart, $eventEnd, $flyer, $ticketTypes, $emails);
+          $stmt->bind_param("sssssssss", $organizerEmail, $eventTitle, $eventLocation, $eventDescription, $eventStart, $eventEnd, $flyerPath, $category, $emails);
           if ($stmt->execute()) {
               echo json_encode(['success' => true, 'message' => 'Event created successfully', 'url' => 'party.html']);
           } else {
@@ -71,7 +72,6 @@
       } else {
           echo json_encode(['success' => false, 'error' => 'Failed to prepare statement: ' . $conn->error]);
       }
-      
 
      $conn->close();
 ?>
