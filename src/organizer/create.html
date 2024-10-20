@@ -175,14 +175,14 @@
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script>
-     let flyer;
+     let flyer = null;
      let condition = document.getElementById("condition");
 
-     if (condition != ""){
+     if (condition != "") {
           setTimeout(() => {
                condition.style.display = "none";
           }, 5000);
-     } else if (condition == "Pin Update Successful"){
+     } else if (condition == "Pin Update Successful") {
           setTimeout(() => {
                condition.style.display = "none"
                location.href = "./profile.php"
@@ -197,89 +197,20 @@
           const input = document.querySelector('#file');
           const file = input.files[0];
           const reader = new FileReader();
-          //console.log(reader)
 
           reader.addEventListener('load', function() {
                const uploadPic = document.querySelector('#flyer1');
-               uploadPic.innerHTML = `<img id="upload-pic" src="${reader.result}" alt="">`
-               flyer = reader.result
+               uploadPic.innerHTML = `<img id="upload-pic" src="${reader.result}" alt="">`;
+               flyer = reader.result;  // Store the base64 image data
           });
 
           if (file) {
                reader.readAsDataURL(file);
           }
      }
-    
-     function adjustFormPosition(formElement) {
-          if (window.innerWidth <= 767) {
-               formElement.style.left = '0vw';
-          } else {
-               formElement.style.left = '20vw';
-          }
-     }
 
-     document.querySelector('.next1').addEventListener("click", function() {
-          const form1 = document.querySelector('.form1');
-          const form2 = document.querySelector('.form2');
-          const line2 = document.querySelector('.line2');
-
-          line2.style.display = 'block';
-          form1.style.left = '-120vw';
-          adjustFormPosition(form2);
-     });
-
-     document.querySelector('.back2').addEventListener("click", function() {
-          const form1 = document.querySelector('.form1');
-          const form2 = document.querySelector('.form2');
-          const line2 = document.querySelector('.line2');
-
-          line2.style.display = 'none';
-          form1.style.left = '0vw';
-          form2.style.left = '100vw';
-     });
-
-     document.querySelector('.next2').addEventListener("click", function() {
-          const form2 = document.querySelector('.form2');
-          const form3 = document.querySelector('.form3');
-          const line3 = document.querySelector('.line3');
-          line3.style.display = 'block';
-          form2.style.left = '-120vw';
-          adjustFormPosition(form3);
-     });
-
-     document.querySelector('.back3').addEventListener("click", function() {
-          const form2 = document.querySelector('.form2');
-          const form3 = document.querySelector('.form3');
-          const line3 = document.querySelector('.line3');
-
-          line3.style.display = 'none';
-          form2.style.left = '0vw';
-          form3.style.left = '100vw';
-     });
-
-     document.querySelector('.next3').addEventListener("click", function() {
-          const form3 = document.querySelector('.form3');
-          const form4 = document.querySelector('.form4');
-          const line4 = document.querySelector('.line4');
-
-          line4.style.display = 'block';
-          form3.style.left = '-120vw';
-          adjustFormPosition(form4);
-     });
-
-     document.querySelector('.back4').addEventListener("click", function() {
-          const form3 = document.querySelector('.form3');
-          const form4 = document.querySelector('.form4');
-          const line4 = document.querySelector('.line4');
-
-          line4.style.display = 'none';
-          form3.style.left = '0vw';
-          form4.style.left = '100vw';
-     });
-          
-     // Submit the form data to the server
      function addEvent() {
-          const organizerEmail = 'farinderif"gmail.com';
+          const organizerEmail = 'farinderif@gmail.com'; // Fixed the email typo
           const eventTitle = document.getElementById('eventTitle').value;
           const eventLocation = document.getElementById('eventLocation').value;
           const eventDescription = document.getElementById('eventDescription').value;
@@ -287,72 +218,41 @@
           const eventEnd = document.getElementById('eventEnd').value;
           const ticketTypes = Array.from(document.querySelectorAll('.list input')).map(input => input.value);
           const emails = Array.from(document.querySelectorAll('input[type="email"]')).map(input => input.value).filter(email => email !== "");
-          
-          const data = { 
+
+          const data = {
                organizerEmail: organizerEmail,
                eventTitle: eventTitle,
                eventLocation: eventLocation,
                eventDescription: eventDescription,
                eventStart: eventStart,
                eventEnd: eventEnd,
-               flyer: flyer,
+               flyer: flyer,  // Now sending the base64 encoded flyer
                category: ticketTypes,
                emails: emails
           };
-      
+
           fetch('http://localhost/Vibe-Verse/src/organizer/create.php', {
                method: 'POST',
                headers: {
-                   'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                },
                body: JSON.stringify(data),
                credentials: 'include'
           })
           .then(response => {
                if (response.ok) {
-                   return response.json(); // Parse JSON only if the response is OK
+                    return response.json();
                } else {
-                   // Handle non-OK responses (like 500 errors)
-                   return response.text().then(text => { throw new Error(text); });
+                    return response.text().then(text => { throw new Error(text); });
                }
-           })
-           .then(result => {
-               console.log(result); // Log the JSON result
-           })
-           .catch(error => {
+          })
+          .then(result => {
+               console.log(result);
+          })
+          .catch(error => {
                console.error('Error:', error);
-               console.log("Error: Failed to create event.");
-           });           
-      }
-      
-     function addLevel() {
-          const ticketTypeInput = document.querySelector('#wLevel');
-          const amountInput = document.querySelector('#amount');
-          const list = document.querySelector('.list');
-
-          const ticketType = ticketTypeInput.value;
-          const amount = amountInput.value;
-
-          if (ticketType && amount) {
-               const listItem = document.createElement('li');
-               listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
-               listItem.innerHTML = `
-                    ${ticketType} - ₦${amount}
-                    <button type="button" class="btn remove" onclick="removeLevel(this)">Remove</button>
-                    <input type="hidden" name="ticketTypes[]" value="${ticketType}">
-                    <input type="hidden" name="amount[]" value="${amount}">
-               `;
-               list.appendChild(listItem);
-
-               ticketTypeInput.value = '';
-               amountInput.value = '';
-          }
+          });
      }
-
-     function removeLevel(button) {
-          const listItem = button.closest('.list-group-item');
-          listItem.remove();
-     }
-    </script>
+</script>
 </body>
 </html>
