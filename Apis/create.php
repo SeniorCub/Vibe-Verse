@@ -1,11 +1,20 @@
 <?php
+     session_start(); // Start the session
      include "connect.php";
      include "header.php";
-
+     
+     // Check if the session email is set
+     if (isset($_SESSION['email'])) {
+         $sessionemail = $_SESSION['email'];
+     } else {
+         header("location:login.php");
+         exit();
+     }
+     
      // Decode the incoming JSON data
      $data = json_decode(file_get_contents('php://input'), true);
 
-     $organizerEmail = trim($data['organizerEmail']);
+     $organizerEmail = $sessionemail;
      $eventTitle = trim($data['eventTitle']);
      $eventLocation = trim($data['eventLocation']);
      $eventDescription = trim($data['eventDescription']);
@@ -17,7 +26,8 @@
 
      // Check if fields are empty
      if (empty($organizerEmail)) {
-          echo json_encode(['message' => "Organizer Email is required!."]);
+          echo json_encode(['message' => "Organizer Email is required!.",  'url' => 'login.php']);
+         header("location:login.php");
           exit;
      }
      if (empty($eventTitle)) {
@@ -54,7 +64,7 @@
      }
 
      // Store flyer image as a file on the server
-     $flyerPath = "Uploads/flyer_" . uniqid() . ".png";
+     $flyerPath = "../Uploads/flyer_" . uniqid() . ".png";
      file_put_contents($flyerPath, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $flyer)));
 
      // Prepare the SQL query

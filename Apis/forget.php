@@ -1,8 +1,15 @@
 <?php
-     include "connect.php"; // Include the database connection
+     session_start(); // Start the session
+     include "connect.php";
      include "header.php";
-
-     header("Content-Type: application/json");
+     
+     // Check if the session email is set
+     if (isset($_SESSION['email'])) {
+         $sessionemail = $_SESSION['email'];
+     } else {
+         header("location:login.php");
+         exit();
+     }     
 
      // Decode the incoming JSON data
      $data = json_decode(file_get_contents('php://input'), true);
@@ -14,7 +21,7 @@
      }
 
      // Define the email and the new password
-     $email = trim($data['email']); 
+     $email = $sessionemail; 
      $pwd = trim($data['password']); // Trim the password input
 
      // Hash the password for security purposes
