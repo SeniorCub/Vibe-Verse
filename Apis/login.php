@@ -2,8 +2,6 @@
 include "connect.php"; // Include database connection
 include "header.php";
 
-session_start(); // Start the session
-
 // Function to respond with JSON
 function jsonResponse($success, $data = [], $message = "") {
     echo json_encode(['success' => $success, 'data' => $data, 'message' => $message]);
@@ -43,6 +41,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $userResult = $stmtUser->get_result();
                 $user = $userResult->fetch_assoc();
                 
+                $selectAll = mysqli_query($conn, "SELECT * FROM `organizers`");
+               $totalUsers = mysqli_num_rows($selectAll);
+               $nextUserNumber = $totalUsers + 1;
+               $formattedUserNumber = str_pad($nextUserNumber, 5, "0", STR_PAD_LEFT);
+               $currentYear = date("Y");
+               $matricNoo = $currentYear . $formattedUserNumber;
+
+               $update = "UPDATE `organizers` SET `token` = ? WHERE `email` = ?";
+               $stmtUpdate = $conn->prepare($update);
+               $stmtUpdate->bind_param("ss", $matricNoo, $email);
+               $stmtUpdate->execute();  
+               
                 // Set session email
                 $_SESSION['email'] = $user['email'];
 

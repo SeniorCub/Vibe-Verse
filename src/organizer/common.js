@@ -1,34 +1,18 @@
-// Get User Details
-async function getUserDetails() {
-     try {
-       const response = await fetch("http://localhost/Vibe-Verse/Apis/user.php", {
-         method: "GET",
-         headers: {
-           "Content-Type": "application/json",
-         },
-         credentials: "include", // This ensures cookies (session ID) are sent with the request
-       });
-   
-       const data = await response.json();
-   
-       if (data.success) {
-         const user = data.user;
-         console.log("User details:", user);
-       } else {
-         console.log("Error:", data.message);
-         // Redirect to login page if not logged in
-         if (data.message === "Please log in.") {
-           window.location.href = "login.html";
-         }
-       }
-     } catch (error) {
-       console.error("Error fetching user details:", error);
-     }
-   }
-   
-   // Call the function when the page loads
-   window.onload = getUserDetails;
-   
+const requestOptions = {
+  method: "POST",
+  headers: {
+    Authorization: "Bearer 202400003", // Directly set headers as an object
+  },
+  body: null, // Set to null if you're not sending any body content
+  redirect: "follow",
+};
+
+fetch("http://localhost/Vibe-Verse/Apis/session.php", requestOptions)
+  .then((response) => response.json())
+  .then((result) => {console.log(result)
+     localStorage.setItem('token', result.data.token)
+  })
+  .catch((error) => console.error("Error:", error));
 
 // Logout User
 async function checkUserStatus() {
