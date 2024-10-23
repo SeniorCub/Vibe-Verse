@@ -1,22 +1,35 @@
 <?php
-     session_start(); // Start the session
      include "connect.php";
      include "header.php";
+     // Get all headers
+     $header = getallheaders();
+     error_log(print_r($header, true)); // Log the headers for debugging
      
-     // Check if the session email is set
-     if (isset($_SESSION['email'])) {
-         $sessionemail = $_SESSION['email'];
-     } else {
-         header("location:login.php");
-         exit();
-     }     
+     // Check for the Authorization header
+     $token = isset($header['Authorization']) ? str_replace('Bearer ', '', $header['Authorization']) : null;
+     
+     if (!$token) {
+          echo json_encode(['success' => false, "status" => 'error', "message" => "No token provided"]);
+          exit();
+     }
+     $que = "SELECT * FROM `organizers` WHERE `token` = ?";
+     
+     // Execute the que
+     if ($stmt = $conn->prepare($que)) {
+          $stmt->bind_param("s", $token);
+          if ($stmt->execute()) {
+               $result = $stmt->get_result();
+               $user = $result->fetch_assoc();
+               $sessionemail = $user['email'];
+          }
+     }
 
      // Decode the incoming JSON data
      $data = json_decode(file_get_contents('php://input'), true);
 
      // Check if 'password' field is set in the request
      if (!isset($data['password'])) {
-          echo json_encode(['error' => 'Password is required']);
+          echo json_encode(['success' => false, 'error' => 'Password is required']);
      exit;
      }
 
@@ -35,14 +48,14 @@
      $stmt->bind_param("ss", $hashedPassword, $email);
 
      if ($stmt->execute()) {
-          echo json_encode(['message' => 'Password updated successfully', 'url' => 'login.php']);
+          echo json_encode(['success' => true,'message' => 'Password updated successfully', 'url' => 'login.php', 'email' => $email]);
      } else {
-          echo json_encode(['error' => 'Failed to update password']);
+          echo json_encode(['success' => false,'error' => 'Failed to update password']);
      }
 
      $stmt->close();
      } else {
-     echo json_encode(['error' => 'Failed to prepare statement: ' . $conn->error]);
+     echo json_encode(['success' => false,'error' => 'Failed to prepare statement: ' . $conn->error]);
      }
 
      $conn->close();

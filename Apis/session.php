@@ -10,7 +10,7 @@ error_log(print_r($header, true)); // Log the headers for debugging
 $token = isset($header['Authorization']) ? str_replace('Bearer ', '', $header['Authorization']) : null;
 
 if (!$token) {
-    echo json_encode(["status" => 'error', "message" => "No token provided"]);
+    echo json_encode(["status" => 'error', "message" => "No token provided", "data" => null, "url" => 'login.html']);
     exit();
 }
 $query = "SELECT * FROM `organizers` WHERE `token` = ?";
@@ -22,9 +22,9 @@ if ($stmt = $conn->prepare($query)) {
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
         if ($user) {
-            echo json_encode(["status" => 'success', "message" => "Session active", "data" => $user]);
+            echo json_encode(['success' => true,"status" => 'success', "message" => "Session active", "data" => $user]);
         } else {
-            echo json_encode(["status" => 'error', "message" => "Session not active. Please log in."]);
+            echo json_encode(['success' => false,"status" => 'error', "message" => "Session not active. Please log in."]);
         }
     } else {
         echo json_encode(['success' => false, 'error' => 'Failed to execute statement']);

@@ -58,19 +58,18 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
         const data = await response.json();
 
         if (data.success) {
-            console.log('Login successful:', data);
-            condition.innerText = data.message;
-
-            // Redirect based on role after showing the message for 5 seconds
-            setTimeout(() => {
-                const redirectUrl = data.data.role === 'ADMIN' ? "../admin/" : "/src/organizer/";
-                window.location.href = redirectUrl;
-            }, 5000);
-
-        } else {
-            console.error('Login failed:', data.message);
-            condition.innerText = data.message; // Show error message on the page
-        }
+          console.log('Login successful:', data.data.token); // Correct the way token is accessed
+          condition.innerText = data.message;
+          localStorage.setItem('token', data.data.token); // Store the token in localStorage
+          // You can redirect after some delay if needed, or immediately
+          setTimeout(() => {
+              window.location.href = data.data.url;
+          }, 5000);
+      } else {
+          console.error('Login failed:', data.message);
+          condition.innerText = data.message; // Show error message on the page
+      }
+      
 
     } catch (error) {
         console.error('Error during login:', error);

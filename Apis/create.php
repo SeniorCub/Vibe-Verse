@@ -1,15 +1,28 @@
 <?php
-     session_start(); // Start the session
-     include "connect.php";
-     include "header.php";
-     
-     // Check if the session email is set
-     if (isset($_SESSION['email'])) {
-         $sessionemail = $_SESSION['email'];
-     } else {
-         header("location:login.php");
-         exit();
-     }
+      include "connect.php";
+      include "header.php";
+      // Get all headers
+      $header = getallheaders();
+      error_log(print_r($header, true)); // Log the headers for debugging
+      
+      // Check for the Authorization header
+      $token = isset($header['Authorization']) ? str_replace('Bearer ', '', $header['Authorization']) : null;
+      
+      if (!$token) {
+           echo json_encode(["status" => 'error', "message" => "No token provided"]);
+           exit();
+      }
+      $que = "SELECT * FROM `organizers` WHERE `token` = ?";
+      
+      // Execute the que
+      if ($stmt = $conn->prepare($que)) {
+           $stmt->bind_param("s", $token);
+           if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                $user = $result->fetch_assoc();
+                $sessionemail = $user['email'];
+           }
+      }
      
      // Decode the incoming JSON data
      $data = json_decode(file_get_contents('php://input'), true);

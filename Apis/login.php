@@ -8,6 +8,20 @@ function jsonResponse($success, $data = [], $message = "") {
     exit(); // Ensure no further output is sent
 }
 
+// Function to generate a random token with both letters and numbers
+function generateToken($length = 16) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    
+    for ($i = 0; $i < $length; $i++) {
+        $index = random_int(0, $charactersLength - 1); // Ensure it's getting a valid index within the character set range
+        $randomString .= $characters[$index];
+    }
+    
+    return $randomString;
+}
+
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
@@ -22,6 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Query to select password for the provided email
     $select = "SELECT `password` FROM `organizers` WHERE `email` = ?";
     $stmt = $conn->prepare($select);
+    if (!$stmt) {
+        jsonResponse(false, [], "Database preparation failed: " . $conn->error);
+    }
+
     $stmt->bind_param("s", $email); // Bind email parameter
 
     if ($stmt->execute()) {
@@ -36,35 +54,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Fetch user details
                 $selectUser = "SELECT * FROM `organizers` WHERE `email` = ?";
                 $stmtUser = $conn->prepare($selectUser);
+                if (!$stmtUser) {
+                    jsonResponse(false, [], "Database preparation failed for user query: " . $conn->error);
+                }
+
                 $stmtUser->bind_param("s", $email);
                 $stmtUser->execute();
                 $userResult = $stmtUser->get_result();
                 $user = $userResult->fetch_assoc();
-                
-                $selectAll = mysqli_query($conn, "SELECT * FROM `organizers`");
-               $totalUsers = mysqli_num_rows($selectAll);
-               $nextUserNumber = $totalUsers + 1;
-               $formattedUserNumber = str_pad($nextUserNumber, 5, "0", STR_PAD_LEFT);
-               $currentYear = date("Y");
-               $matricNoo = $currentYear . $formattedUserNumber;
 
-               $update = "UPDATE `organizers` SET `token` = ? WHERE `email` = ?";
-               $stmtUpdate = $conn->prepare($update);
-               $stmtUpdate->bind_param("ss", $matricNoo, $email);
-               $stmtUpdate->execute();  
-               
-                // Set session email
-                $_SESSION['email'] = $user['email'];
+                // Generate a random token for this user
+                $token = generateToken(20); // 20-character token
 
-                // Debugging: Check if session email is set
-                error_log("Session email set: " . $_SESSION['email']); // Log session email
-
-                // Determine user role
-                if ($user['email'] == 'admin@mail.com') {
-                    jsonResponse(true, ['role' => "ADMIN"], "Login successful!");
-                } else {
-                    jsonResponse(true, ['role' => "USER"], "Login successful!");
+                // Update user with the token
+                $update = "UPDATE `organizers` SET `token` = ? WHERE `email` = ?";
+                $stmtUpdate = $conn->prepare($update);
+                if (!$stmtUpdate) {
+                    jsonResponse(false, [], "Database preparation failed for token update: " . $conn->error);
                 }
+
+                $stmtUpdate->bind_param("ss", $token, $email);
+                if (!$stmtUpdate->execute()) {
+                    jsonResponse(false, [], "Token update failed: " . $stmtUpdate->error);
+                } else {
+                    // Add this log to ensure the token update was successful
+                    jsonResponse(true, ['role' => $user['email'] == 'admin@mail.com' ? "ADMIN" : "USER", 'url' => $user['email'] == 'admin@mail.com' ? '../admin/' : '/src/organizer/', 'token' => $token], "Login successful, token updated.");
+                }
+
             } else {
                 jsonResponse(false, [], "Invalid password.");
             }
@@ -72,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             jsonResponse(false, [], "Invalid email.");
         }
     } else {
-        jsonResponse(false, [], "Database query failed.");
+        jsonResponse(false, [], "Database query failed: " . $stmt->error);
     }
 
     $stmt->close();
