@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             // Verify the password
             if (password_verify($pwd, $hashedPassword)) {
-                // Fetch user details
+                // Fetch user details, including `isAdmin` column
                 $selectUser = "SELECT * FROM `organizers` WHERE `email` = ?";
                 $stmtUser = $conn->prepare($selectUser);
                 if (!$stmtUser) {
@@ -77,8 +77,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (!$stmtUpdate->execute()) {
                     jsonResponse(false, [], "Token update failed: " . $stmtUpdate->error);
                 } else {
+                    // Use the `isAdmin` column to determine the user's role
+                    $role = $user['isAdmin'] ? "ADMIN" : "USER";
+                    $redirectUrl = $user['isAdmin'] ? '../admin/' : '/src/organizer/';
+                    
                     // Add this log to ensure the token update was successful
-                    jsonResponse(true, ['role' => $user['email'] == 'admin@mail.com' ? "ADMIN" : "USER", 'url' => $user['email'] == 'admin@mail.com' ? '../admin/' : '/src/organizer/', 'token' => $token], "Login successful, token updated.");
+                    jsonResponse(true, ['role' => $role, 'url' => $redirectUrl, 'token' => $token], "Login successful, token updated.");
                 }
 
             } else {

@@ -1,6 +1,6 @@
 <?php
-include "connect.php"; // Include database connection
-include "header.php";
+include "../connect.php"; // Include database connection
+include "../header.php";
 
 // Get all headers
 $header = getallheaders(); 
@@ -24,7 +24,7 @@ if ($stmt = $conn->prepare($query)) {
         if ($user) {
             echo json_encode(['success' => true,"status" => 'success', "message" => "Session active", "data" => $user]);
         } else {
-            echo json_encode(['success' => false,"status" => 'error', "message" => "Session not active. Please log in."]);
+            echo json_encode(['success' => false,"status" => 'error', "message" => "Session not active. Please log in.", "url" => '/src/organizer/login.html']);
         }
     } else {
         echo json_encode(['success' => false, 'error' => 'Failed to execute statement']);
