@@ -1,6 +1,5 @@
 <?php
-include "../connect.php";
-include "../header.php";
+include "../connect.php"; // Include database connection
 
 // Connection success check
 if (!$conn) {
@@ -9,81 +8,59 @@ if (!$conn) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = mysqli_real_escape_string($conn, $_POST["organizationName"]);
-    $phone = mysqli_real_escape_string($conn, $_POST["contactNumber"]);
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $address = mysqli_real_escape_string($conn, $_POST["address"]);
-    $website = mysqli_real_escape_string($conn, $_POST["website"]);
-    $about = mysqli_real_escape_string($conn, $_POST["description"]);
-    $pwd = mysqli_real_escape_string($conn, $_POST["password"]);
-    $Conpwd = mysqli_real_escape_string($conn, $_POST["confirmPassword"]);
+     $data = json_decode(file_get_contents("php://input"), true);
+
+     $organizerEmail = $data["organizerEmail"] ?? null;
+     $eventId = $data["eventId"] ?? null;
+     $eventTitle = $data["eventTitle"] ?? null;
+     $username = $data["username"] ?? null;
+     $amount = $data["amount"] ?? null;
+     $ticketType = $data["ticketType"] ?? null;
+     $image = $data["image"] ?? null;
+     $ref = $data["ref"] ?? null;
+     $email = $data["email"] ?? null;
+     
 
     // Validation
-    if (empty($name) || empty($phone) || empty($email) || empty($address) || empty($about) || empty($pwd) || empty($Conpwd)) {
+    if (empty($organizerEmail) || empty($eventId) || empty($eventTitle) || empty($username) || empty($amount) || empty($ticketType) || empty($image) || empty($ref) || empty($email)) {
         echo json_encode(['success' => false, 'message' => "All fields are required"]);
         exit();
     }
 
-    // Check password match
-    if ($pwd != $Conpwd) {
-        echo json_encode(['success' => false, 'message' => "Password and Confirm Password do not match"]);
+    // Retrieve the personalized database name
+    $userDbName = "user_events_" . preg_replace('/[^a-zA-Z0-9]/', '_', $organizerEmail);
+
+    $servername = "localhost";
+     $usernamea = "root";
+     $password = ""; // Leave this empty if you have not set a password
+     $port = 3307; 
+    // Connect to the personalized organizer's database
+    $userConn = mysqli_connect($servername, $usernamea, $password, $userDbName, $port);
+
+    if (!$userConn) {
+        echo json_encode(['success' => false, 'message' => "Failed to connect to the organizer's database"]);
         exit();
     }
 
-    // Check for existing email or organization
-    $checkQuery = "SELECT * FROM organizers WHERE email='$email' OR name='$name'";
-    $result = mysqli_query($conn, $checkQuery);
+    // Insert event details into the organizer's `events` table
+    $query = "INSERT INTO events (eventId, eventTitle, username, amount, ticketType, image, email, ref)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    if (mysqli_num_rows($result) > 0) {
-        echo json_encode(['success' => false, 'message' => "Email or Organization Name already exists"]);
-        exit();
-    }
+    if ($stmt = $userConn->prepare($query)) {
+        $stmt->bind_param("ississss", $eventId, $eventTitle, $username, $amount, $ticketType, $image, $email, $ref);
 
-    // Hash the password
-    $hashedPassword = password_hash($pwd, PASSWORD_DEFAULT);
-
-    // Insert organizer details
-    $insertQuery = "INSERT INTO organizers (name, phone, email, address, website, about, password) 
-                    VALUES ('$name', '$phone', '$email', '$address', '$website', '$about', '$hashedPassword')";
-
-    if (mysqli_query($conn, $insertQuery)) {
-        // Create user-specific database and table
-        $userDbName = "user_events_" . preg_replace('/[^a-zA-Z0-9]/', '_', $email);
-        $createDbQuery = "CREATE DATABASE IF NOT EXISTS `$userDbName`";
-        
-        if (mysqli_query($conn, $createDbQuery)) {
-            // Connect to the new database and create the table
-            $userConn = mysqli_connect($servername, $username, $password, $userDbName, $port);
-            
-            if ($userConn) {
-                $createTableQuery = "CREATE TABLE IF NOT EXISTS events (
-                    id INT NOT NULL AUTO_INCREMENT,
-                    eventTitle VARCHAR(255) NOT NULL,
-                    ticketType VARCHAR(255) NOT NULL,
-                    amount INT(11) NOT NULL,
-                    eventId INT(11) NOT NULL,
-                    username VARCHAR(255) NOT NULL,
-                    image VARCHAR(255) NOT NULL,
-                    email VARCHAR(255) NOT NULL,
-                    ref VARCHAR(20) NOT NULL,
-                    PRIMARY KEY (id)
-                )";
-
-                if (mysqli_query($userConn, $createTableQuery)) {
-                    echo json_encode(['success' => true, 'message' => "Registration Successful"]);
-                } else {
-                    echo json_encode(['success' => false, 'message' => "Error creating event table: " . mysqli_error($userConn)]);
-                }
-
-                mysqli_close($userConn);
-            } else {
-                echo json_encode(['success' => false, 'message' => "Error connecting to new user database"]);
-            }
+        if ($stmt->execute()) {
+            echo json_encode(['success' => true, 'message' => "Event registered successfully"]);
         } else {
-            echo json_encode(['success' => false, 'message' => "Error creating database: " . mysqli_error($conn)]);
+            echo json_encode(['success' => false, 'message' => "Error inserting event details: " . $stmt->error]);
         }
+        $stmt->close();
     } else {
-        echo json_encode(['success' => false, 'message' => "Error registering organizer: " . mysqli_error($conn)]);
+        echo json_encode(['success' => false, 'message' => "Failed to prepare statement: " . $userConn->error]);
     }
+
+    mysqli_close($userConn); // Close the personalized database connection
 }
+
+$conn->close(); // Close the main database connection
 ?>
