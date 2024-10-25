@@ -1,5 +1,5 @@
 // Define constants for API endpoints
-const API_BASE_URL = "http://localhost/Vibe-Verse/Apis";
+const API_BASE_URL = "https://api.rhinoguards.co.uk";
 
 // Function to get user information
 async function getInfo() {
@@ -11,7 +11,7 @@ async function getInfo() {
             throw new Error("Token not found in local storage");
         }
 
-        const result = await fetch(`${API_BASE_URL}/session.php`, {
+        const result = await fetch(`https://api.rhinoguards.co.uk/session.php`, {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -21,6 +21,8 @@ async function getInfo() {
         const data = await result.json();
         if (data.status == "error") {
              console.log(data.url);
+             document.getElementById('user-name').innetHTML = data.data.name;
+          document.getElementById('user-email').innetHTML = data.data.email;
              window.location.href = data.url;
         } else {
           console.log(data);
@@ -35,7 +37,7 @@ async function logoutUser() {
      try {
         const token = await getTokenFromLocalStorage();
 
-         const response = await fetch('http://localhost/Vibe-Verse/Apis/logout.php', {
+         const response = await fetch(`${API_BASE_URL}/logout.php`, {
              method: 'POST',
              headers: {
                     "Authorization": `Bearer ${token}`,

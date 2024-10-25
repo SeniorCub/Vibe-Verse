@@ -46,7 +46,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch('http://localhost/Vibe-Verse/Apis/login.php', {
+        const response = await fetch('https://api.rhinoguards.co.uk/login.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
