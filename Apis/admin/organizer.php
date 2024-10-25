@@ -14,37 +14,37 @@ if (!$token) {
     exit();
 }
 
+// Check for the token in the database
 $que = "SELECT * FROM `organizers` WHERE `token` = ?";
-
-// Execute the que
 if ($stmt = $conn->prepare($que)) {
-     $stmt->bind_param("s", $token);
-     if ($stmt->execute()) {
-          $result = $stmt->get_result();
-          $user = $result->fetch_assoc();
-          $sessionemail = $user['email'];
-     }
+    $stmt->bind_param("s", $token);
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+        $sessionemail = $user['email'];
+    }
 }
-$data = json_decode(file_get_contents('php://input'), true);
-$email = $data["email"] ?? '';
 
-// Valemailate inputs
+// Get the 'email' parameter from the URL
+$email = isset($_GET['email']) ? $_GET['email'] : null;
+
+// Validate the 'email' parameter
 if (empty($email)) {
-     echo json_encode(['success' => false, "error" => "Please select an Event"]);
-} else{
+    echo json_encode(['success' => false, "error" => "Please provide an email"]);
+    exit();
+}
 
+// Prepare the SQL query to check if the email is in the database
 $query = "SELECT * FROM `organizers` WHERE `email` = ?";
-
-// Execute the query
 if ($stmt = $conn->prepare($query)) {
     $stmt->bind_param("s", $email);
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
         if ($user) {
-            echo json_encode(['success' => true,"status" => 'success', "message" => "Session active", "data" => $user]);
+            echo json_encode(['success' => true, "status" => 'success', "message" => "Email Found", "data" => $user]);
         } else {
-            echo json_encode(['success' => false,"status" => 'error', "message" => "Session not active. Please log in.", "url" => '/src/organizer/login.html']);
+            echo json_encode(['success' => false, "status" => 'error', "message" => "Email not found", "url" => 'organizers.html']);
         }
     } else {
         echo json_encode(['success' => false, 'error' => 'Failed to execute statement']);
@@ -53,5 +53,6 @@ if ($stmt = $conn->prepare($query)) {
 } else {
     echo json_encode(['success' => false, 'error' => 'Failed to prepare statement: ' . $conn->error]);
 }
-}
+
+$conn->close(); // Close the database connection
 ?>

@@ -25,8 +25,8 @@ if ($stmt = $conn->prepare($que)) {
           $sessionemail = $user['email'];
      }
 }
-$data = json_decode(file_get_contents('php://input'), true);
-$email = $data["email"] ?? '';
+
+$email = isset($_GET['email']) ? $_GET['email'] : null;
 
 // Valemailate inputs
 if (empty($email)) {
@@ -37,7 +37,7 @@ $query = "UPDATE `organizers` SET `active`= ? WHERE `email` = ?";
 
 // Execute the query
 if ($stmt = $conn->prepare($query)) {
-    $stmt->bind_param("ss", $no, $email);
+    $stmt->bind_param("is", $no, $email);
     if ($stmt->execute()) {
         if ($stmt) {
             echo json_encode(['success' => true,"status" => 'success', "message" => "Session active", "data" => $user]);

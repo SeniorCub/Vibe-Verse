@@ -26,8 +26,7 @@ if ($stmt = $conn->prepare($que)) {
      }
 }
 
-$data = json_decode(file_get_contents('php://input'), true);
-$id = $data["id"] ?? '';
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 // Validate inputs
 if (empty($id)) {

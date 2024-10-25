@@ -25,8 +25,7 @@ if ($stmt = $conn->prepare($que)) {
           $sessionemail = $user['email'];
      }
 }
-$data = json_decode(file_get_contents('php://input'), true);
-$email = $data["email"] ?? '';
+$email = isset($_GET['email']) ? $_GET['email'] : null;
 
 // Valemailate inputs
 if (empty($email)) {

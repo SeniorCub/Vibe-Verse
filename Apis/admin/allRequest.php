@@ -26,7 +26,7 @@ if ($stmt = $conn->prepare($que)) {
      }
 }
 // Prepare the SQL query
-$query = "SELECT * FROM `payment` WHERE `isPending` = 0"; // Use prepared statement
+$query = "SELECT * FROM `payment` WHERE `isPending` = 0 AND `declined` = 0"; // Use prepared statement
 
 // Execute the query
 if ($stmt = $conn->prepare($query)) {
