@@ -12,6 +12,7 @@
 <body>
 
      <div class="container">
+      <p id="condition"></p>
           <div class="steps">
                <div class="step1">Step 1</div>
                <div class="step2">Step 2</div>
@@ -24,17 +25,16 @@
                <div class="line4"></div>
           </div>
 
-          <form class="forms">
+          <form class="forms" method="POST"
+          enctype="multipart/form-data"
+          onsubmit="return false;"
+        >
                <div class="form1">
                     <div class="formm">
                          <label for="level">Are you for regular?</label>
-                         <select name="level" id="level" class="p-2" required>
+                         <select name="level" id="level" class="p-2" required> 
                               <option value="" selected disabled>Choose Option</option>
-                              <option value="regular">Regular</option>
-                              <option value="vip">Vip</option>
-                              <option value="table2">Table for 2</option>
-                              <option value="table5">Table for 5</option>
-                         </select>
+                          </select>                          
                     </div>
                     
                     <div class="movement">
@@ -68,7 +68,7 @@
                               </div>
                               <div class="inputs">
                                    <label for="amount" class="form-label">Amount</label>
-                                   <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" value="3000" disabled>
+                                   <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" disabled>
                               </div>
                          </div>
                     </div>
@@ -84,8 +84,7 @@
                     <div class="formm">
                          <div id="qrcode"></div>
                          <div class="ticket" id="ticket">
-                              <h1>Certificate of Registration</h1>
-                              <img src="" id="profile-image" alt="Profile Image">
+                              <h1>Proof of Registration</h1>
                               <p id="username"></p>
                               <p id="email"></p>
                               <p id="amount"></p>
@@ -95,7 +94,8 @@
                     <div class="movement">
                          <button type="button" class="back back4">Back</button>
                          <button type="button" class="next download">Download</button>
-                         <button type="submit" class="next next4">Finish</button>
+                         <button type="submit" class="next next4"onclick="registerNow()"
+                         >Finish</button>
                     </div>
                </div>
           </form>
