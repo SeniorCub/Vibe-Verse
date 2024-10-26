@@ -36,12 +36,8 @@
                               </div>
                               <div class="z-50 hidden my-4 text-base list-none divide-y rounded shadow bg-gray-700 divide-gray-600" id="dropdown-user">
                                    <div class="px-4 py-3" role="none">
-                                        <p class="text-sm  text-white" id="user-name" role="none">
-                                            Name Example
-                                        </p>
-                                        <p class="text-xs font-medium text-gray-400 truncat" id="user-email" role="none">
-                                             example@mail.com
-                                        </p>
+                                        <p class="text-sm  text-white" id="user-name" role="none"></p>
+                                        <p class="text-xs font-medium text-gray-400 truncat" id="user-email" role="none"></p>
                                    </div>
                                    <ul class="py-1" role="none">
                                         <li>
@@ -54,7 +50,7 @@
                                              <a href="./payment.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Earnings</a>
                                         </li>
                                         <li>
-                                             <a href="./login.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Sign out</a>
+                                             <button  onclick=" logoutUser()" type="button" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Sign out</button>
                                         </li>
                                    </ul>
                               </div>
@@ -130,7 +126,7 @@
                     </li>
                </ul>
                <div>
-                    <button onclick=" logoutUser()" class="flex items-center mt-auto p-2 rounded-lg text-white hover:bg-gray-700 group">
+                    <button onclick=" logoutUser()" type="button" class="flex items-center mt-auto p-2 rounded-lg text-white hover:bg-gray-700 group">
                     <svg class="flex-shrink-0 w-5 h-5  transit20ion duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
                     </svg>
@@ -149,7 +145,7 @@
                               <i class="fa-solid fa-wallet"></i>
                          </div>
                          <div class="basis-2/3 flex justify-center flex-col">
-                              <h4 class="text-3xl font-bold">₦ 57.69</h4>
+                              <h4 class="text-3xl font-bold">₦ <span id="availabeBalance"></span></h4>
                               <p class="text-base font-semibold capitalize">Wallet Balance</p>
                          </div>
                     </div>
@@ -182,7 +178,7 @@
                               <i class="fa-solid fa-person-dots-from-line"></i>
                          </div>
                          <div class="basis-2/3 flex justify-center flex-col">
-                              <h4 class="text-3xl font-bold">₦ 0</h4>
+                              <h4 class="text-3xl font-bold">₦ <span id="totalWithdrawals"></span></h4>
                               <p class="text-base font-semibold capitalize">Total Withdraw</p>
                          </div>
                     </div>
@@ -262,5 +258,37 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="common.js"></script>
+    <script>
+          // Function to get user information
+          async function getInfo() {
+               try {
+                    const token = await getTokenFromLocalStorage();
+
+                    // Ensure token is available
+                    if (!token) {
+                         throw new Error("Token not found in local storage");
+                    }
+
+                    const result = await fetch(`${API_BASE_URL}/session.php`, {
+                         method: "POST",
+                         headers: {
+                              "Authorization": `Bearer ${token}`,
+                              "Content-Type": "application/json",
+                         },
+                    });
+                    const data = await result.json();
+                    if (data.status == "error") {
+                         console.log(data.url);
+                         window.location.href = data.url;
+                    } else {
+                         document.getElementById('availabeBalance').innerHTML = data.data.availabeBalance;
+                         document.getElementById('totalWithdrawals').innerHTML = data.data.totalWithdrawals;
+                    }
+               } catch (error) {
+                    console.error("Fetch Error in getInfo:", error);
+               }
+          }
+          getInfo()
+    </script>
 </body>
 </html>
