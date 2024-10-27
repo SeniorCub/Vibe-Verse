@@ -145,7 +145,7 @@
                   </div>
               </div>
               <div class="col-md-6 col-12 h-30 flyer">
-                  <img id="flyer" src="" alt="Party Flyer">
+                  <img id="flyer" src="" alt="Party Flyer" onerror="this.onerror=null; this.src='./src/images/default-image.png';">
               </div>
               <div class="h-30 section">
                   <label>Description:</label>
@@ -186,7 +186,7 @@
       
                       document.getElementById('location').textContent = data.data.eventLocation; // Location
                       document.getElementById('date-time').innerHTML = `Start: ${new Date(data.data.eventStart).toLocaleString()}<br>End: ${new Date(data.data.eventEnd).toLocaleString()}`; // Date & Time
-                      document.getElementById('flyer').src = data.data.flyer ? `../${data.data.flyer}` : 'images/default-image.png'; // Flyer Image
+                      document.getElementById('flyer').src = data.data.flyer ? `../${data.data.flyer}` : './images/default-image.png'; // Flyer Image
                       document.getElementById('description').textContent = data.data.eventDescription; // Description
       
                       // Fill in remaining spaces with additional data
