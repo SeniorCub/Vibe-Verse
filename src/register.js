@@ -397,8 +397,7 @@ function generateQRCode() {
 }
 
 function registerNow() {
-
-     console.log(organizerEmail, selectEventId, selectEventTitle, selectUsername,selectAmount, selectTicketType, selectImage, selectRef, selectEmail);
+     console.log(organizerEmail, selectEventId, selectEventTitle, selectUsername, selectAmount, selectTicketType, selectImage, selectRef, selectEmail);
 
      const data = {
           organizerEmail: organizerEmail,
@@ -420,46 +419,48 @@ function registerNow() {
           body: JSON.stringify(data),
           credentials: "include",
      })
-          .then((response) => {
-               if (response.ok) {
-                    return response.json();
-               } else {
-                    return response.text().then((text) => {
-                         throw new Error(text);
-                    });
-               }
-          })
-          .then((result) => {
-               if (result.success) {
-                    // Show the server message in the condition element
-                    console.log(result)
-                    condition.textContent = result.message;
-                    condition.style.display = "block";
-                    // Hide the message and redirect after 5 seconds
+     .then((response) => {
+          if (response.ok) {
+               return response.json();
+          } else {
+               return response.text().then((text) => {
+                    throw new Error(text);
+               });
+          }
+     })
+     .then((result) => {
+          if (result.success) {
+               condition.textContent = result.message;
+               condition.style.display = "block";
+
+               // Check if 'url' is present in the response data
+               if (result.url) {
+                    // Redirect to the specified URL after a delay (optional)
                     setTimeout(() => {
                          window.location.href = result.url;
                     }, 5000);
                } else {
-                    // Handle failure case by showing error message
-                    condition.textContent = result.error || result.message || 'An error occurred!';
-                    console.log(result)
-                    condition.style.display = "block";
-                    // Hide the message after 5 seconds
-                    setTimeout(() => {
-                         condition.style.display = "none";
-                    }, 5000);
+                    // Optionally handle cases where there is no 'url' in response
+                    console.log('No redirect URL provided.');
                }
-          })
-          .catch((error) => {
-               console.error("Error:", error);
-               // Display error in condition element
-               condition.textContent = 'Failed to create event: ' + error.message;
+          } else {
+               // Handle failure case by showing error message
+               condition.textContent = result.error || result.message || 'An error occurred!';
+               console.log(result);
                condition.style.display = "block";
-               // Hide the message after 5 seconds
                setTimeout(() => {
                     condition.style.display = "none";
                }, 5000);
-          });
+          }
+     })
+     .catch((error) => {
+          console.error("Error:", error);
+          condition.textContent = 'Failed to create event: ' + error.message;
+          condition.style.display = "block";
+          setTimeout(() => {
+               condition.style.display = "none";
+          }, 5000);
+     });
 }
 
 // Event Listeners for form navigation
