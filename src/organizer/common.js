@@ -96,3 +96,10 @@ async function getTokenFromLocalStorage() {
 // Example usage
 // Uncomment the following lines to test the functions
 getInfo();
+
+let condition = document.getElementById("condition");
+if (condition.innerText != "") {
+    setTimeout(() => {
+        condition.style.display = "none";
+    }, 5000);
+}

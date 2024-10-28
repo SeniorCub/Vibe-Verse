@@ -669,7 +669,7 @@
                                ${event.accountNumber}
                            </td>
                            <td class="px-6 py-4">
-                               ${event.eventStart || "N/A"}
+                               ${event.description}
                            </td>
                            <td class="px-6 py-4 text-right">
                                <i class="${statusIconClass}"></i>
@@ -678,12 +678,21 @@
                    `;
         });
       }
-      let selectAmount, selectTicketType;
+      let selectAmount;
            // JavaScript code to fetch event data from the PHP API
            async function getTokenFromLocalStorage() {
                return localStorage.getItem('token');
           }
-
+          
+          const selectElement = document.getElementById("bank_code");
+          let selectTicketType = ""; // Initialize variable
+      
+          if (selectElement) {
+            selectElement.addEventListener("change", (event) => {
+              const selectedIndex = event.target.selectedIndex;
+              selectTicketType = event.target.options[selectedIndex].text;
+            });
+          }
           document.getElementById("update").addEventListener("submit", async (event) => {
                event.preventDefault();
                try {
@@ -692,15 +701,6 @@
                    throw new Error("Token not found in local storage");
                  }
              
-                 const selectElement = document.getElementById("bank_code");
-                 let selectTicketType = ""; // Initialize variable
-             
-                 if (selectElement) {
-                   selectElement.addEventListener("change", (event) => {
-                     const selectedIndex = event.target.selectedIndex;
-                     selectTicketType = event.target.options[selectedIndex].text;
-                   });
-                 }
              
                  const headersList = {
                    "Authorization": `Bearer ${token}`,
