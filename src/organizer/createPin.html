@@ -7,93 +7,163 @@
     <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
-    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
-     <title>Create Pin</title>
-     <style>
-          body {
-               background-color: #f5f5f5;
-          }
-          .container {
-               max-width: 600px;
-               margin: 50px auto;
-               padding: 20px;
-               background-color: #fff;
-               border: 1px solid #ddd;
-               border-radius: 10px;
-          }
-          label span{
-               font-size: 0.7rem;
-               color: #ff7f5f;
-          }
-          .pin{
-               width: 50px;
-               height: 50px;
-               border-radius: var(--radius);
-               border: 1px solid var(--black);
-               padding: auto;
-               font-size: 1.5rem;
-               font-weight: 200;
-               -webkit-text-security: disc; /* Hide input text */
-          }
-@media (min-width: 300px) and (max-width: 750px) {
-     .pin{
-          width: 40px;
-     }
-}
-     </style>
+    <title>Create Pin</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        label span {
+            font-size: 0.7rem;
+            color: #ff7f5f;
+        }
+        .pin {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius);
+            border: 1px solid var(--black);
+            font-size: 1.5rem;
+            font-weight: 200;
+            text-align: center;
+        }
+        @media (max-width: 750px) {
+            .pin {
+                width: 40px;
+            }
+        }
+        #condition {
+            position: fixed;
+            right: 0;
+            top: 10vh;
+            background-color: var(--white);
+            padding: 10px 15px;
+            border-radius: 15px 0 0 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            color: red;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-     <div class="container">
-          <button type="button" class="back-btn position-absolute" style="background-color: var(--gold); color: #ffffff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; position: absolute; top: 50px; left: 50px; border-radius: var(--radius);" onclick="window.location.href='/src/organizer/'"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-          <h2 class="text-center">Create Pin</h2>
-          <form>
-               <div class="form-group">
-                    <label for="pin1">Create Pin:</label>
-                    <div class="d-flex gap-3 justify-content-center align-items-center pins">
-                         <input type="text" name="pin1" id="pin1" class="form-control text-center pin1" maxlength="1"><span>-</span>
-                         <input type="text" name="pin2" id="pin2" class="form-control text-center pin1" maxlength="1"><span>-</span>
-                         <input type="text" name="pin3" id="pin3" class="form-control text-center pin1" maxlength="1"><span>-</span>
-                         <input type="text" name="pin4" id="pin4" class="form-control text-center pin1" maxlength="1">
-                    </div>
-               </div>
-               <div class="form-group">
-                    <label for="pin2">Confirm Pin:</label>
-                    <div class="d-flex gap-3 justify-content-center align-items-center pins">
-                         <input type="text" name="pin21" id="pin11" class="form-control text-center pin2" maxlength="1"><span>-</span>
-                         <input type="text" name="pin22" id="pin12" class="form-control text-center pin2" maxlength="1"><span>-</span>
-                         <input type="text" name="pin23" id="pin13" class="form-control text-center pin2" maxlength="1"><span>-</span>
-                         <input type="text" name="pin24" id="pin14" class="form-control text-center pin2" maxlength="1">
-                    </div>
-               </div>
-               <div class="form-group">
-                    <label for="password">Enter Password:</label>
-                    <input type="password" class="form-control" name="password" required>
-               </div>
-               <button type="submit" class="btn my-2" style="background-color: var(--gold); color: #ffffff; border: none;">Proceed</button>
-          </form>
-     </div>
-     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-     <script src="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css" crossorigin="anonymous"></script>
-     <script>
-          document.addEventListener('DOMContentLoaded', function(){
-               const pinInputs = document.querySelectorAll('.pin');
+    <div class="container">
+        <p id="condition"></p>
+        <button type="button" class="back-btn position-absolute" style="background-color: var(--gold); color: #ffffff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; position: absolute; top: 50px; left: 50px; border-radius: var(--radius);" onclick="window.location.href='/src/organizer/'">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </button>
+        <h2 class="text-center">Create Pin</h2>
+        <form id="pinForm" method="POST">
+            <div class="form-group">
+                <label for="pin1">Create Pin:</label>
+                <div class="d-flex gap-3 justify-content-center align-items-center pins">
+                    <input type="number" id="pin1" class="form-control text-center pin1" maxlength="1" min="0" max="9"><span>-</span>
+                    <input type="number" id="pin2" class="form-control text-center pin1" maxlength="1" min="0" max="9"><span>-</span>
+                    <input type="number" id="pin3" class="form-control text-center pin1" maxlength="1" min="0" max="9"><span>-</span>
+                    <input type="number" id="pin4" class="form-control text-center pin1" maxlength="1" min="0" max="9">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pin2">Confirm Pin:</label>
+                <div class="d-flex gap-3 justify-content-center align-items-center pins">
+                    <input type="number" id="pin11" class="form-control text-center pin2" maxlength="1" min="0" max="9"><span>-</span>
+                    <input type="number" id="pin12" class="form-control text-center pin2" maxlength="1" min="0" max="9"><span>-</span>
+                    <input type="number" id="pin13" class="form-control text-center pin2" maxlength="1" min="0" max="9"><span>-</span>
+                    <input type="number" id="pin14" class="form-control text-center pin2" maxlength="1" min="0" max="9">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Enter Password:</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+            <button type="submit" class="btn my-2" style="background-color: var(--gold); color: #ffffff; border: none;">Proceed</button>
+        </form>
+    </div>
 
-               // AUTOMATICALLY MOVE TO THE NEXT INPUT WHEN THE CURRENT INPUT IS FILLED
-            pinInputs.forEach((input, index) => {
-               input.addEventListener('input', function () {
-                   if (input.value.length === 1 && index < pinInputs.length - 1) {
-                       pinInputs[index + 1].focus();
-                   }
-               });
+    <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let conditionElement = document.getElementById('condition');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const pinInputs1 = document.querySelectorAll('.pin1');
+            pinInputs1.forEach((input, index) => {
+                input.addEventListener('input', function () {
+                    if (input.value.length === 1 && index < pinInputs1.length - 1) {
+                        pinInputs1[index + 1].focus();
+                    }
+                });
+                input.addEventListener('keydown', function (event) {
+                    if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                        pinInputs1[index - 1].focus();
+                    }
+                });
+            });
+            const pinInputs2 = document.querySelectorAll('.pin2');
+            pinInputs2.forEach((input, index) => {
+                input.addEventListener('input', function () {
+                    if (input.value.length === 1 && index < pinInputs2.length - 1) {
+                        pinInputs2[index + 1].focus();
+                    }
+                });
+                input.addEventListener('keydown', function (event) {
+                    if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                        pinInputs2[index - 1].focus();
+                    }
+                });
+            });
+        });
 
-               input.addEventListener('keydown', function (event) {
-                   if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
-                       pinInputs[index - 1].focus();
-                   }
-               });
-           });
+        async function validatePins() {
+            const createPin = Array.from({ length: 4 }, (_, i) => document.getElementById(`pin${i + 1}`).value).join('');
+            const confirmPin = Array.from({ length: 4 }, (_, i) => document.getElementById(`pin1${i + 1}`).value).join('');
+            if (createPin !== confirmPin) {
+                conditionElement.innerText = "Pins do not match. Please try again.";
+                return false;
+            }
+            return true;
+        }
 
-          })
-     </script>
+        document.getElementById("pinForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const isValid = await validatePins();
+            if (!isValid) return;
+
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) throw new Error("Token not found in local storage");
+
+                const headersList = {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                };
+
+                const bodyContent = JSON.stringify({
+                    pin: Array.from({ length: 4 }, (_, i) => document.getElementById(`pin${i + 1}`).value).join(''),
+                    password: document.getElementById("password").value,
+                });
+
+                const response = await fetch("https://api.rhinoguards.co.uk/Organizer/createPin.php", {
+                    method: "POST",
+                    headers: headersList,
+                    body: bodyContent,
+                });
+
+                if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+                const data = await response.json();
+
+                conditionElement.innerText = data.message;
+                conditionElement.style.color = data.success ? "green" : "red";
+                conditionElement.style.display = "block";
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        });
+    </script>
 </body>
 </html>

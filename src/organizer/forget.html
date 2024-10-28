@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <button type="button" class="back-btn" onclick="window.location.href='/src/organizer/login.php'">
+    <button type="button" class="back-btn" onclick="window.location.href='/src/organizer/login.html'">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
     </button>
 
@@ -68,6 +68,7 @@
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
 <script type="text/javascript">
+     let condition = document.getElementById('condition');
    (function(){
       emailjs.init({
         publicKey: "WKfbgkl0QydcEpJNC",
@@ -96,7 +97,7 @@
         // Function to generate and send a 6-digit code (simulated)
         function requestCode() {
             code = generateCode();
-            let userEmail = document.getElementById('email')
+            let userEmail = document.getElementById('email').value;
             sendCode(code, userEmail);
         }
         
@@ -108,7 +109,7 @@
                   code: code
               };
 
-          emailjs.send('service_m41wayq', 'template_xvx47qs', templateParams)
+          emailjs.send('service_iugg8mi', 'template_xvx47qs', templateParams)
           .then(function(response) {
               console.log('Email sent successfully!', response.status, response.text);
           }, function(error) {
@@ -147,7 +148,7 @@
             const data = { email: email, password: password };
 
             // Make the API request using fetch
-            fetch('http://localhost/Vibe-Verse/src/organizer/forget.php', {
+            fetch('https://api.rhinoguards.co.uk/Organizer/forget.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
