@@ -1,245 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
-    <link href="../output.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link href="../output.css" rel="stylesheet" />
     <title>Event Planner Dashboard</title>
-</head>
-<body>
+    <style>
      
-     <nav class="fixed top-0 z-50 w-full border-b bg-primary border-white">
-          <div class="px-3 py-3 lg:px-5 lg:pl-3">
-               <div class="flex items-center justify-between">
-                    <div class="flex items-center justify-start rtl:justify-end">
-                         <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm  rounded-lg sm:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
-                              <span class="sr-only">Open sidebar</span>
-                              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                              <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-                              </svg>
-                         </button>
-                         <a href="/" class="flex ms-2 md:me-24">
-                              <img src="../images/logo.png" class="h-8 me-3" alt="FlowBite Logo" />
-                              <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">Tune Tribe</span>
-                         </a>
-                    </div>
-                    <div class="flex items-center">
-                         <div class="flex items-center ms-3">
-                              <div>
-                                   <button type="button" class="flex text-sm bg-primary rounded-full focus:ring-4 focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                                        <span class="sr-only">Open user menu</span>
-                                        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
-                                   </button>
-                              </div>
-                              <div class="z-50 hidden my-4 text-base list-none divide-y rounded shadow bg-gray-700 divide-gray-600" id="dropdown-user">
-                                   <div class="px-4 py-3" role="none">
-                                        <p class="text-sm  text-white" id="user-name" role="none"></p>
-                                        <p class="text-xs font-medium text-gray-400 truncat" id="user-email" role="none"></p>
-                                   </div>
-                                   <ul class="py-1" role="none">
-                                        <li>
-                                             <a href="./" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Dashboard</a>
-                                        </li>
-                                        <li>
-                                             <a href="./profile.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Settings</a>
-                                        </li>
-                                        <li>
-                                             <a href="./payment.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Earnings</a>
-                                        </li>
-                                        <li>
-                                             <button  onclick=" logoutUser()" type="button" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Sign out</button>
-                                        </li>
-                                   </ul>
-                              </div>
-                         </div>
-                    </div>
-               </div>
+ #condition {
+     position: fixed;
+     right: 0;
+     top: 10vh;
+     background-color: var(--white);
+     padding: 10px 15px;
+     border-radius: 15px 0 0 15px;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+     color: red;
+     text-align: center;
+   }
+    </style>
+  </head>
+  <body>
+    <nav class="fixed top-0 z-50 w-full border-b bg-primary border-white">
+      <div class="px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center justify-start rtl:justify-end">
+            <button
+              data-drawer-target="logo-sidebar"
+              data-drawer-toggle="logo-sidebar"
+              aria-controls="logo-sidebar"
+              type="button"
+              class="inline-flex items-center p-2 text-sm rounded-lg sm:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600"
+            >
+              <span class="sr-only">Open sidebar</span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                ></path>
+              </svg>
+            </button>
+            <a href="/" class="flex ms-2 md:me-24">
+              <img
+                src="../images/logo.png"
+                class="h-8 me-3"
+                alt="FlowBite Logo"
+              />
+              <span
+                class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white"
+                >Tune Tribe</span
+              >
+            </a>
           </div>
-     </nav>
-   
-     <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r sm:translate-x-0 bg-primary border-gray-700" aria-label="Sidebar">
-          <div class="h-full px-3 pb-4 overflow-y-auto bg-primary flex flex-col justify-between">
-               <ul class="space-y-2 font-medium">
-                    <!-- Dashboard -->
-                    <li>
-                         <a href="./" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
-                              <svg class="w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                   <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-                                   <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
-                              </svg>
-                              <span class="ms-3">Dashboard</span>
-                         </a>
-                    </li>
-                    <!-- Events -->
-                    <li>
-                         <a href="./party.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
-                              <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                   <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
-                              </svg>
-                              <span class="flex-1 ms-3 whitespace-nowrap">Events</span>
-                         </a>
-                    </li>
-                    <!-- Create Events -->
-                    <li>
-                         <a href="./create.html" class="flex items-center p-2 rounded-lg text-white bg-gray-700 group">
-                         <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z"/>
-                              <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z"/>
-                              <path d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z"/>
-                         </svg>
-                         <span class="flex-1 ms-3 whitespace-nowrap">Create Event</span>
-                         </a>
-                    </li>
-                    <!-- Transaction History -->
-                    <li>
-                         <a href="./payment.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group onnn">
-                              <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-                                 </svg>
-                                 
-                              <span class="flex-1 ms-3 whitespace-nowrap">Transactions</span>
-                              <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium rounded-full bg-blue-900 text-blue-300">3</span>
-                         </a>
-                    </li>
-                    <!-- Profile -->
-                    <li>
-                         <a href="./profile.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
-                              <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                                   <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
-                              </svg>
-                         <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
-                         </a>
-                    </li>
-                    <!-- Scan to Login -->
-                    <li>
-                         <a href="./scanLogin.html" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group">
-                         <svg class="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
-                            </svg>
-                            
-                         <span class="flex-1 ms-3 whitespace-nowrap">Scan</span>
-                         </a>
-                    </li>
-               </ul>
-               <div>
-                    <button onclick=" logoutUser()" type="button" class="flex items-center mt-auto p-2 rounded-lg text-white hover:bg-gray-700 group">
-                         <svg class="flex-shrink-0 w-5 h-5  transit20ion duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
-                         </svg>
-                         <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
-                         </button>
-               </div>
+          <div class="flex items-center">
+            <div class="flex items-center ms-3">
+              <div>
+                <button
+                  type="button"
+                  class="flex text-sm bg-primary rounded-full focus:ring-4 focus:ring-gray-600"
+                  aria-expanded="false"
+                  data-dropdown-toggle="dropdown-user"
+                >
+                  <span class="sr-only">Open user menu</span>
+                  <img
+                    class="w-8 h-8 rounded-full"
+                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                    alt="user photo"
+                  />
+                </button>
+              </div>
+              <div
+                class="z-50 hidden my-4 text-base list-none divide-y rounded shadow bg-gray-700 divide-gray-600"
+                id="dropdown-user"
+              >
+                <div class="px-4 py-3" role="none">
+                  <p class="text-sm text-white" id="user-name" role="none"></p>
+                  <p
+                    class="text-xs font-medium text-gray-400 truncat"
+                    id="user-email"
+                    role="none"
+                  ></p>
+                </div>
+                <ul class="py-1" role="none">
+                  <li>
+                    <a
+                      href="./"
+                      class="block px-4 py-2 text-sm hover:bg-dark text-white"
+                      role="menuitem"
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./profile.html"
+                      class="block px-4 py-2 text-sm hover:bg-dark text-white"
+                      role="menuitem"
+                      >Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./payment.html"
+                      class="block px-4 py-2 text-sm hover:bg-dark text-white"
+                      role="menuitem"
+                      >Earnings</a
+                    >
+                  </li>
+                  <li>
+                    <button
+                      onclick=" logoutUser()"
+                      type="button"
+                      class="block px-4 py-2 text-sm hover:bg-dark text-white"
+                      role="menuitem"
+                    >
+                      Sign out
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-     </aside>
+        </div>
+      </div>
+    </nav>
 
-     <div class="p-4 sm:ml-64 mt-14 space-y-2 bg-white">
-          <!-- Payment Details Section -->
-          <form class="mb-4">
-               <div class="flex justify-between items-center">
-                    <h4 class="text-3xl font-bold">Payment Details</h4>
-                    <button class="bg-gold hover:bg-gold p-3 rounded-lg text-white" type="submit">Add/Update Payment Method</button>
-               </div>
-               <!--  Update/Add Payment Details Section -->
-               <div class="grid md:grid-cols-3 grid-cols-1 mx-auto gap-5 p-5">
-                    <div>
-                         <label class="text-capitalize font-semibold" for="bank_code">Bank Name</label>
-                         <select class="py-3 px-3 w-full bg-transparent rounded-lg" name="bank_code rounded20" placeholder="Bank Name" id="bank_code">
-                              <option value="">select bank</option><option value="120001">9mobile 9Payment Service Bank</option><option value="404">Abbey Mortgage Bank</option><option value="51204">Above Only MFB</option><option value="51312">Abulesoro MFB</option><option value="044">Access Bank</option><option value="063">Access Bank (Diamond)</option><option value="602">Accion Microfinance Bank</option><option value="50315">Aella MFB</option><option value="90077">AG Mortgage Bank</option><option value="50036">Ahmadu Bello University Microfinance Bank</option><option value="120004">Airtel Smartcash PSB</option><option value="51336">AKU Microfinance Bank</option><option value="090561">Akuchukwu Microfinance Bank Limited</option><option value="035A">ALAT by WEMA</option><option value="090629">Amegy Microfinance Bank</option><option value="50926">Amju Unique MFB</option><option value="51341">AMPERSAND MICROFINANCE BANK</option><option value="645">Amucha MFB</option><option value="50083">Aramoko MFB</option><option value="401">ASO Savings and Loans</option><option value="50092">Assets Microfinance Bank</option><option value="MFB50094">Astrapolaris MFB LTD</option><option value="090478">AVUENEGBE MICROFINANCE BANK</option><option value="51351">AWACASH MICROFINANCE BANK</option><option value="51337">AZTEC MICROFINANCE BANK LIMITED</option><option value="51229">Bainescredit MFB</option><option value="50117">Banc Corp Microfinance Bank</option><option value="MFB50992">Baobab Microfinance Bank</option><option value="51100">BellBank Microfinance Bank</option><option value="51267">Benysta Microfinance Bank Limited</option><option value="50123">Beststar Microfinance Bank</option><option value="50931">Bowen Microfinance Bank</option><option value="FC40163">Branch International Financial Services Limited</option><option value="565">Carbon</option><option value="51353">Cashbridge Microfinance Bank Limited</option><option value="865">CASHCONNECT MFB</option><option value="50823">CEMCS Microfinance Bank</option><option value="50171">Chanelle Microfinance Bank Limited</option><option value="312">Chikum Microfinance bank</option><option value="023">Citibank Nigeria</option><option value="070027">CITYCODE MORTAGE BANK</option><option value="50910">Consumer Microfinance Bank</option><option value="50204">Corestep MFB</option><option value="559">Coronation Merchant Bank</option><option value="FC40128">County Finance Limited</option><option value="51297">Crescent MFB</option><option value="090560">Crust Microfinance Bank</option><option value="51334">Davenport MICROFINANCE BANK</option><option value="50162">Dot Microfinance Bank</option><option value="050">Ecobank Nigeria</option><option value="50263">Ekimogun MFB</option><option value="098">Ekondo Microfinance Bank</option><option value="090678">EXCEL FINANCE BANK</option><option value="50126">Eyowo</option><option value="51318">Fairmoney Microfinance Bank</option><option value="50298">Fedeth MFB</option><option value="070">Fidelity Bank</option><option value="51314">Firmus MFB</option><option value="011">First Bank of Nigeria</option><option value="214">First City Monument Bank</option><option value="090164">FIRST ROYAL MICROFINANCE BANK</option><option value="413">FirstTrust Mortgage Bank Nigeria</option><option value="501">FSDH Merchant Bank Limited</option><option value="832">FUTMINNA MICROFINANCE BANK</option><option value="MFB51093">Garun Mallam MFB</option><option value="812">Gateway Mortgage Bank LTD</option><option value="00103">Globus Bank</option><option value="090574">Goldman MFB</option><option value="100022">GoMoney</option><option value="090664">GOOD SHEPHERD MICROFINANCE BANK</option><option value="50739">Goodnews Microfinance Bank</option><option value="562">Greenwich Merchant Bank</option><option value="51276">GROOMING MICROFINANCE BANK</option><option value="058">Guaranty Trust Bank</option><option value="51251">Hackman Microfinance Bank</option><option value="50383">Hasal Microfinance Bank</option><option value="120002">HopePSB</option><option value="51211">IBANK Microfinance Bank</option><option value="51244">Ibile Microfinance Bank</option><option value="50439">Ikoyi Osun MFB</option><option value="50442">Ilaro Poly Microfinance Bank</option><option value="50453">Imowo MFB</option><option value="415">IMPERIAL HOMES MORTAGE BANK</option><option value="50457">Infinity MFB</option><option value="090701">ISUA MFB</option><option value="301">Jaiz Bank</option><option value="50502">Kadpoly MFB</option><option value="51308">KANOPOLY MFB</option><option value="082">Keystone Bank</option><option value="100025">KONGAPAY (Kongapay Technologies Limited)(formerly Zinternet)</option><option value="50200">Kredi Money MFB LTD</option><option value="50211">Kuda Bank</option><option value="90052">Lagos Building Investment Company Plc.</option><option value="50549">Links MFB</option><option value="031">Living Trust Mortgage Bank</option><option value="50491">LOMA MFB</option><option value="303">Lotus Bank</option><option value="090171">MAINSTREET MICROFINANCE BANK</option><option value="50563">Mayfair MFB</option><option value="50304">Mint MFB</option><option value="946">Money Master PSB</option><option value="50515">Moniepoint MFB</option><option value="120003">MTN Momo PSB</option><option value="090190">MUTUAL BENEFITS MICROFINANCE BANK</option><option value="090679">NDCC MICROFINANCE BANK</option><option value="51361">NET MICROFINANCE BANK</option><option value="51142">Nigerian Navy Microfinance Bank Limited</option><option value="50629">NPF MICROFINANCE BANK</option><option value="999992">OPay Digital Services Limited (OPay)</option><option value="107">Optimus Bank Limited</option><option value="100002">Paga</option><option value="999991">PalmPay</option><option value="104">Parallex Bank</option><option value="311">Parkway - ReadyCash</option><option value="090680">PATHFINDER MICROFINANCE BANK LIMITED</option><option value="100039">Paystack-Titan</option><option value="50743">Peace Microfinance Bank</option><option value="51226">PECANTRUST MICROFINANCE BANK LIMITED</option><option value="51146">Personal Trust MFB</option><option value="50746">Petra Mircofinance Bank Plc</option><option value="050021">PFI FINANCE COMPANY LIMITED</option><option value="268">Platinum Mortgage Bank</option><option value="00716">Pocket App</option><option value="076">Polaris Bank</option><option value="50864">Polyunwana MFB</option><option value="105">PremiumTrust Bank</option><option value="50739">Prospa Capital Microfinance Bank</option><option value="050023">PROSPERIS FINANCE LIMITED</option><option value="101">Providus Bank</option><option value="51293">QuickFund MFB</option><option value="502">Rand Merchant Bank</option><option value="090496">RANDALPHA MICROFINANCE BANK</option><option value="90067">Refuge Mortgage Bank</option><option value="50761">REHOBOTH MICROFINANCE BANK</option><option value="50994">Rephidim Microfinance Bank</option><option value="51286">Rigo Microfinance Bank Limited</option><option value="50767">ROCKSHIELD MICROFINANCE BANK</option><option value="125">Rubies MFB</option><option value="51113">Safe Haven MFB</option><option value="951113">Safe Haven Microfinance Bank Limited</option><option value="40165">SAGE GREY FINANCE LIMITED</option><option value="50582">Shield MFB</option><option value="106">Signature Bank Ltd</option><option value="51062">Solid Allianze MFB</option><option value="50800">Solid Rock MFB</option><option value="51310">Sparkle Microfinance Bank</option><option value="221">Stanbic IBTC Bank</option><option value="068">Standard Chartered Bank</option><option value="090162">STANFORD MICROFINANCE BANK</option><option value="50809">STATESIDE MICROFINANCE BANK</option><option value="51253">Stellas MFB</option><option value="232">Sterling Bank</option><option value="100">Suntrust Bank</option><option value="50968">Supreme MFB</option><option value="302">TAJ Bank</option><option value="51269">Tangerine Money</option><option value="000304">The Alternative bank</option><option value="102">Titan Bank</option><option value="090708">TransPay MFB</option><option value="50840">U&amp;C Microfinance Bank Ltd (U AND C MFB)</option><option value="090706">UCEE MFB</option><option value="51322">Uhuru MFB</option><option value="50870">Unaab Microfinance Bank Limited</option><option value="50871">Unical MFB</option><option value="51316">Unilag Microfinance Bank</option><option value="032">Union Bank of Nigeria</option><option value="033">United Bank For Africa</option><option value="215">Unity Bank</option><option value="50894">Uzondu Microfinance Bank Awka Anambra State</option><option value="050020">Vale Finance Limited</option><option value="566">VFD Microfinance Bank Limited</option><option value="51355">Waya Microfinance Bank</option><option value="035">Wema Bank</option><option value="057">Zenith Bank</option>
-                         </select>
-                    </div>
-                    <div>
-                         <label class="text-capitalize font-semibold" for="Account Number">Account Number</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="number" placeholder="1234567890" maxlength="11">
-                    </div>
-                    <div>
-                         <label class="text-capitalize font-semibold">Account name</label>
-                         <input class="py-3 w-full bg-transparent rounded-lg" type="text" placeholder="REUBEN IFEOLUWA FARINDE" readonly="">
-                    </div>
-               </div>
-          </form>
+    <aside
+      id="logo-sidebar"
+      class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r sm:translate-x-0 bg-primary border-gray-700"
+      aria-label="Sidebar"
+    >
+      <div
+        class="h-full px-3 pb-4 overflow-y-auto bg-primary flex flex-col justify-between"
+      >
+        <ul class="space-y-2 font-medium">
+          <!-- Dashboard -->
+          <li>
+            <a
+              href="./"
+              class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
+            >
+              <svg
+                class="w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 21"
+              >
+                <path
+                  d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"
+                />
+                <path
+                  d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"
+                />
+              </svg>
+              <span class="ms-3">Dashboard</span>
+            </a>
+          </li>
+          <!-- Events -->
+          <li>
+            <a
+              href="./party.html"
+              class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
+            >
+              <svg
+                class="flex-shrink-0 w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"
+                />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Events</span>
+            </a>
+          </li>
+          <!-- Create Events -->
+          <li>
+            <a
+              href="./create.html"
+              class="flex items-center p-2 rounded-lg text-white bg-gray-700 group"
+            >
+              <svg
+                class="flex-shrink-0 w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z"
+                />
+                <path
+                  d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z"
+                />
+                <path
+                  d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z"
+                />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Create Event</span>
+            </a>
+          </li>
+          <!-- Transaction History -->
+          <li>
+            <a
+              href="./payment.html"
+              class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group onnn"
+            >
+              <svg
+                class="flex-shrink-0 w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
+                />
+              </svg>
 
-          <!-- Transactions History -->
-          <div class="card mb-4">
-               <div class="card-header">
-                    <h4 class="text-3xl font-bold my-3">Transaction History</h4>
-               </div>
-               <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-400">
-                         <thead class="text-xs uppercase bg-primary text-gold">
-                              <tr>
-                                   <th scope="col" class="px-6 py-3">Party name</th>
-                                   <th scope="col" class="px-6 py-3">Available Balance</th>
-                                   <th scope="col" class="px-6 py-3">Amount</th>
-                                   <th scope="col" class="px-6 py-3">Description</th>
-                                   <th scope="col" class="px-6 py-3"><span class="sr-only">Action</span></th>
-                              </tr>
-                         </thead>
-                         <tbody>
-                             
-                         </tbody>
-                    </table>
-               </div>
+              <span class="flex-1 ms-3 whitespace-nowrap">Transactions</span>
+              <span
+                class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium rounded-full bg-blue-900 text-blue-300"
+                >3</span
+              >
+            </a>
+          </li>
+          <!-- Profile -->
+          <li>
+            <a
+              href="./profile.html"
+              class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
+            >
+              <svg
+                class="flex-shrink-0 w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 18"
+              >
+                <path
+                  d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"
+                />
+              </svg>
+              <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
+            </a>
+          </li>
+          <!-- Scan to Login -->
+          <li>
+            <a
+              href="./scanLogin.html"
+              class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
+            >
+              <svg
+                class="flex-shrink-0 w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z"
+                />
+              </svg>
+
+              <span class="flex-1 ms-3 whitespace-nowrap">Scan</span>
+            </a>
+          </li>
+        </ul>
+        <div>
+          <button
+            onclick=" logoutUser()"
+            type="button"
+            class="flex items-center mt-auto p-2 rounded-lg text-white hover:bg-gray-700 group"
+          >
+            <svg
+              class="flex-shrink-0 w-5 h-5 transit20ion duration-75 text-gray-400 group-hover:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 16"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
+              />
+            </svg>
+            <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="p-4 sm:ml-64 mt-14 space-y-2 bg-white">
+      <p id="condition"></p>
+      <!-- Payment Details Section -->
+      <form class="mb-4" id="update" method="POST"
+          onsubmit="return false;">
+        <div class="flex justify-between items-center">
+          <h4 class="text-3xl font-bold">Payment Details</h4>
+          <button
+            class="bg-gold hover:bg-gold p-3 rounded-lg text-white"
+            type="submit"
+          >
+            Add/Update Payment Method
+          </button>
+        </div>
+        <!--  Update/Add Payment Details Section -->
+        <div class="grid md:grid-cols-3 grid-cols-1 mx-auto gap-5 p-5">
+          <div>
+            <label class="text-capitalize font-semibold" for="bank_code"
+              >Bank Name</label
+            >
+            <select
+              class="py-3 px-3 w-full bg-transparent rounded-lg"
+              name="bank_code rounded20"
+              placeholder="Bank Name"
+              id="bank_code"
+            >
+              <option value="">select bank</option>
+              <option value="120001">9mobile 9Payment Service Bank</option>
+              <option value="404">Abbey Mortgage Bank</option>
+              <option value="51204">Above Only MFB</option>
+              <option value="51312">Abulesoro MFB</option>
+              <option value="044">Access Bank</option>
+              <option value="063">Access Bank (Diamond)</option>
+              <option value="602">Accion Microfinance Bank</option>
+              <option value="50315">Aella MFB</option>
+              <option value="90077">AG Mortgage Bank</option>
+              <option value="50036">
+                Ahmadu Bello University Microfinance Bank
+              </option>
+              <option value="120004">Airtel Smartcash PSB</option>
+              <option value="51336">AKU Microfinance Bank</option>
+              <option value="090561">
+                Akuchukwu Microfinance Bank Limited
+              </option>
+              <option value="035A">ALAT by WEMA</option>
+              <option value="090629">Amegy Microfinance Bank</option>
+              <option value="50926">Amju Unique MFB</option>
+              <option value="51341">AMPERSAND MICROFINANCE BANK</option>
+              <option value="645">Amucha MFB</option>
+              <option value="50083">Aramoko MFB</option>
+              <option value="401">ASO Savings and Loans</option>
+              <option value="50092">Assets Microfinance Bank</option>
+              <option value="MFB50094">Astrapolaris MFB LTD</option>
+              <option value="090478">AVUENEGBE MICROFINANCE BANK</option>
+              <option value="51351">AWACASH MICROFINANCE BANK</option>
+              <option value="51337">AZTEC MICROFINANCE BANK LIMITED</option>
+              <option value="51229">Bainescredit MFB</option>
+              <option value="50117">Banc Corp Microfinance Bank</option>
+              <option value="MFB50992">Baobab Microfinance Bank</option>
+              <option value="51100">BellBank Microfinance Bank</option>
+              <option value="51267">Benysta Microfinance Bank Limited</option>
+              <option value="50123">Beststar Microfinance Bank</option>
+              <option value="50931">Bowen Microfinance Bank</option>
+              <option value="FC40163">
+                Branch International Financial Services Limited
+              </option>
+              <option value="565">Carbon</option>
+              <option value="51353">
+                Cashbridge Microfinance Bank Limited
+              </option>
+              <option value="865">CASHCONNECT MFB</option>
+              <option value="50823">CEMCS Microfinance Bank</option>
+              <option value="50171">Chanelle Microfinance Bank Limited</option>
+              <option value="312">Chikum Microfinance bank</option>
+              <option value="023">Citibank Nigeria</option>
+              <option value="070027">CITYCODE MORTAGE BANK</option>
+              <option value="50910">Consumer Microfinance Bank</option>
+              <option value="50204">Corestep MFB</option>
+              <option value="559">Coronation Merchant Bank</option>
+              <option value="FC40128">County Finance Limited</option>
+              <option value="51297">Crescent MFB</option>
+              <option value="090560">Crust Microfinance Bank</option>
+              <option value="51334">Davenport MICROFINANCE BANK</option>
+              <option value="50162">Dot Microfinance Bank</option>
+              <option value="050">Ecobank Nigeria</option>
+              <option value="50263">Ekimogun MFB</option>
+              <option value="098">Ekondo Microfinance Bank</option>
+              <option value="090678">EXCEL FINANCE BANK</option>
+              <option value="50126">Eyowo</option>
+              <option value="51318">Fairmoney Microfinance Bank</option>
+              <option value="50298">Fedeth MFB</option>
+              <option value="070">Fidelity Bank</option>
+              <option value="51314">Firmus MFB</option>
+              <option value="011">First Bank of Nigeria</option>
+              <option value="214">First City Monument Bank</option>
+              <option value="090164">FIRST ROYAL MICROFINANCE BANK</option>
+              <option value="413">FirstTrust Mortgage Bank Nigeria</option>
+              <option value="501">FSDH Merchant Bank Limited</option>
+              <option value="832">FUTMINNA MICROFINANCE BANK</option>
+              <option value="MFB51093">Garun Mallam MFB</option>
+              <option value="812">Gateway Mortgage Bank LTD</option>
+              <option value="00103">Globus Bank</option>
+              <option value="090574">Goldman MFB</option>
+              <option value="100022">GoMoney</option>
+              <option value="090664">GOOD SHEPHERD MICROFINANCE BANK</option>
+              <option value="50739">Goodnews Microfinance Bank</option>
+              <option value="562">Greenwich Merchant Bank</option>
+              <option value="51276">GROOMING MICROFINANCE BANK</option>
+              <option value="058">Guaranty Trust Bank</option>
+              <option value="51251">Hackman Microfinance Bank</option>
+              <option value="50383">Hasal Microfinance Bank</option>
+              <option value="120002">HopePSB</option>
+              <option value="51211">IBANK Microfinance Bank</option>
+              <option value="51244">Ibile Microfinance Bank</option>
+              <option value="50439">Ikoyi Osun MFB</option>
+              <option value="50442">Ilaro Poly Microfinance Bank</option>
+              <option value="50453">Imowo MFB</option>
+              <option value="415">IMPERIAL HOMES MORTAGE BANK</option>
+              <option value="50457">Infinity MFB</option>
+              <option value="090701">ISUA MFB</option>
+              <option value="301">Jaiz Bank</option>
+              <option value="50502">Kadpoly MFB</option>
+              <option value="51308">KANOPOLY MFB</option>
+              <option value="082">Keystone Bank</option>
+              <option value="100025">
+                KONGAPAY (Kongapay Technologies Limited)(formerly Zinternet)
+              </option>
+              <option value="50200">Kredi Money MFB LTD</option>
+              <option value="50211">Kuda Bank</option>
+              <option value="90052">
+                Lagos Building Investment Company Plc.
+              </option>
+              <option value="50549">Links MFB</option>
+              <option value="031">Living Trust Mortgage Bank</option>
+              <option value="50491">LOMA MFB</option>
+              <option value="303">Lotus Bank</option>
+              <option value="090171">MAINSTREET MICROFINANCE BANK</option>
+              <option value="50563">Mayfair MFB</option>
+              <option value="50304">Mint MFB</option>
+              <option value="946">Money Master PSB</option>
+              <option value="50515">Moniepoint MFB</option>
+              <option value="120003">MTN Momo PSB</option>
+              <option value="090190">MUTUAL BENEFITS MICROFINANCE BANK</option>
+              <option value="090679">NDCC MICROFINANCE BANK</option>
+              <option value="51361">NET MICROFINANCE BANK</option>
+              <option value="51142">
+                Nigerian Navy Microfinance Bank Limited
+              </option>
+              <option value="50629">NPF MICROFINANCE BANK</option>
+              <option value="999992">
+                OPay Digital Services Limited (OPay)
+              </option>
+              <option value="107">Optimus Bank Limited</option>
+              <option value="100002">Paga</option>
+              <option value="999991">PalmPay</option>
+              <option value="104">Parallex Bank</option>
+              <option value="311">Parkway - ReadyCash</option>
+              <option value="090680">
+                PATHFINDER MICROFINANCE BANK LIMITED
+              </option>
+              <option value="100039">Paystack-Titan</option>
+              <option value="50743">Peace Microfinance Bank</option>
+              <option value="51226">
+                PECANTRUST MICROFINANCE BANK LIMITED
+              </option>
+              <option value="51146">Personal Trust MFB</option>
+              <option value="50746">Petra Mircofinance Bank Plc</option>
+              <option value="050021">PFI FINANCE COMPANY LIMITED</option>
+              <option value="268">Platinum Mortgage Bank</option>
+              <option value="00716">Pocket App</option>
+              <option value="076">Polaris Bank</option>
+              <option value="50864">Polyunwana MFB</option>
+              <option value="105">PremiumTrust Bank</option>
+              <option value="50739">Prospa Capital Microfinance Bank</option>
+              <option value="050023">PROSPERIS FINANCE LIMITED</option>
+              <option value="101">Providus Bank</option>
+              <option value="51293">QuickFund MFB</option>
+              <option value="502">Rand Merchant Bank</option>
+              <option value="090496">RANDALPHA MICROFINANCE BANK</option>
+              <option value="90067">Refuge Mortgage Bank</option>
+              <option value="50761">REHOBOTH MICROFINANCE BANK</option>
+              <option value="50994">Rephidim Microfinance Bank</option>
+              <option value="51286">Rigo Microfinance Bank Limited</option>
+              <option value="50767">ROCKSHIELD MICROFINANCE BANK</option>
+              <option value="125">Rubies MFB</option>
+              <option value="51113">Safe Haven MFB</option>
+              <option value="951113">
+                Safe Haven Microfinance Bank Limited
+              </option>
+              <option value="40165">SAGE GREY FINANCE LIMITED</option>
+              <option value="50582">Shield MFB</option>
+              <option value="106">Signature Bank Ltd</option>
+              <option value="51062">Solid Allianze MFB</option>
+              <option value="50800">Solid Rock MFB</option>
+              <option value="51310">Sparkle Microfinance Bank</option>
+              <option value="221">Stanbic IBTC Bank</option>
+              <option value="068">Standard Chartered Bank</option>
+              <option value="090162">STANFORD MICROFINANCE BANK</option>
+              <option value="50809">STATESIDE MICROFINANCE BANK</option>
+              <option value="51253">Stellas MFB</option>
+              <option value="232">Sterling Bank</option>
+              <option value="100">Suntrust Bank</option>
+              <option value="50968">Supreme MFB</option>
+              <option value="302">TAJ Bank</option>
+              <option value="51269">Tangerine Money</option>
+              <option value="000304">The Alternative bank</option>
+              <option value="102">Titan Bank</option>
+              <option value="090708">TransPay MFB</option>
+              <option value="50840">
+                U&amp;C Microfinance Bank Ltd (U AND C MFB)
+              </option>
+              <option value="090706">UCEE MFB</option>
+              <option value="51322">Uhuru MFB</option>
+              <option value="50870">Unaab Microfinance Bank Limited</option>
+              <option value="50871">Unical MFB</option>
+              <option value="51316">Unilag Microfinance Bank</option>
+              <option value="032">Union Bank of Nigeria</option>
+              <option value="033">United Bank For Africa</option>
+              <option value="215">Unity Bank</option>
+              <option value="50894">
+                Uzondu Microfinance Bank Awka Anambra State
+              </option>
+              <option value="050020">Vale Finance Limited</option>
+              <option value="566">VFD Microfinance Bank Limited</option>
+              <option value="51355">Waya Microfinance Bank</option>
+              <option value="035">Wema Bank</option>
+              <option value="057">Zenith Bank</option>
+            </select>
           </div>
-     </div>
-     
-     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-     <script>
-          document.addEventListener('DOMContentLoaded', async () => {
-               async function getTokenFromLocalStorage() {
-                   return localStorage.getItem('token');
-               }
-           
-               try {
-                   const token = await getTokenFromLocalStorage();
-           
-                   if (!token) {
-                       throw new Error("Token not found in local storage");
-                   }
-           
-                   const response = await fetch(`https://api.rhinoguards.co.uk/Organizer/payments/allRequest.php`, { 
-                       method: "GET",
-                       headers: {
-                           "Authorization": `Bearer ${token}`,
-                           "Content-Type": "application/json",
-                       },
-                   });
-           
-                   const data = await response.json();
-           
-                   if (data.success) {
-                       console.log("Events fetched successfully:", data.data);
-                       displayEvents(data.data);
-                   } else {
-                       console.error("Error fetching event data:", data.error);
-                   }
-               } catch (error) {
-                   console.error("Error fetching event data:", error);
-               }
-           });
-           
-           function displayEvents(events) {
-               const eventsContainer = document.querySelector("tbody");
-           
-               events.forEach((event) => {
-                   // Convert `isPending` and `declined` to numbers to avoid type issues
-                   const isPending = Number(event.isPending);
-                   const isDeclined = Number(event.declined);
-           
-                   // Determine icon class based on `isPending` and `declined` status
-                   let statusIconClass;
-                   if (isPending === 0) {
-                       statusIconClass = "fa fa-clock text-yellow-500"; // Pending icon
-                   } else if (isDeclined != 0) {
-                       statusIconClass = "fa fa-times-circle text-red-500"; // Declined icon
-                   } else {
-                       statusIconClass = "fa fa-check-circle text-green-500"; // Success icon
-                   }
-           
-                   eventsContainer.innerHTML += `
+          <div>
+            <label class="text-capitalize font-semibold" for="Account Number"
+              >Account Number</label
+            >
+            <input
+              class="py-3 w-full bg-transparent rounded-lg"
+              type="text"
+              placeholder="1234567890"
+              maxlength="11"
+              id="accountNumber"
+            />
+          </div>
+          <div>
+            <label class="text-capitalize font-semibold">Account name</label>
+            <input
+              class="py-3 w-full bg-transparent rounded-lg"
+              type="text"
+              placeholder="Full Name"
+              id="accountName"
+            />
+          </div>
+        </div>
+      </form>
+
+      <!-- Transactions History -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4 class="text-3xl font-bold my-3">Transaction History</h4>
+        </div>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+            <thead class="text-xs uppercase bg-primary text-gold">
+              <tr>
+                <th scope="col" class="px-6 py-3">Party name</th>
+                <th scope="col" class="px-6 py-3">Available Balance</th>
+                <th scope="col" class="px-6 py-3">Amount</th>
+                <th scope="col" class="px-6 py-3">Description</th>
+                <th scope="col" class="px-6 py-3">
+                  <span class="sr-only">Action</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script src="common.js"></script>
+    <script>
+      async function getTokenFromLocalStorage() {
+        return localStorage.getItem("token");
+      }
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const token = await getTokenFromLocalStorage();
+
+          if (!token) {
+            throw new Error("Token not found in local storage");
+          }
+
+          const response = await fetch(
+            `https://api.rhinoguards.co.uk/Organizer/payments/allRequest.php`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          const data = await response.json();
+
+          if (data.success) {
+            console.log("Events fetched successfully:", data.data);
+            displayEvents(data.data);
+          } else {
+            console.error("Error fetching event data:", data.error);
+          }
+        } catch (error) {
+          console.error("Error fetching event data:", error);
+        }
+      });
+
+      function displayEvents(events) {
+        const eventsContainer = document.querySelector("tbody");
+
+        events.forEach((event) => {
+          // Convert `isPending` and `declined` to numbers to avoid type issues
+          const isPending = Number(event.isPending);
+          const isDeclined = Number(event.declined);
+
+          // Determine icon class based on `isPending` and `declined` status
+          let statusIconClass;
+          if (isPending === 0) {
+            statusIconClass = "fa fa-clock text-yellow-500"; // Pending icon
+          } else if (isDeclined != 0) {
+            statusIconClass = "fa fa-times-circle text-red-500"; // Declined icon
+          } else {
+            statusIconClass = "fa fa-check-circle text-green-500"; // Success icon
+          }
+
+          eventsContainer.innerHTML += `
                        <tr class="border-b bg-white border-gray-700">
                            <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
                                ${event.eventTitle}
@@ -251,16 +669,77 @@
                                ${event.accountNumber}
                            </td>
                            <td class="px-6 py-4">
-                               ${event.eventStart || 'N/A'}
+                               ${event.eventStart || "N/A"}
                            </td>
                            <td class="px-6 py-4 text-right">
                                <i class="${statusIconClass}"></i>
                            </td>
                        </tr>
                    `;
-               });
-           }
-           
-      </script>
-</body>
+        });
+      }
+      let selectAmount, selectTicketType;
+           // JavaScript code to fetch event data from the PHP API
+           async function getTokenFromLocalStorage() {
+               return localStorage.getItem('token');
+          }
+
+          document.getElementById("update").addEventListener("submit", async (event) => {
+               event.preventDefault();
+               try {
+                 const token = await getTokenFromLocalStorage();
+                 if (!token) {
+                   throw new Error("Token not found in local storage");
+                 }
+             
+                 const selectElement = document.getElementById("bank_code");
+                 let selectTicketType = ""; // Initialize variable
+             
+                 if (selectElement) {
+                   selectElement.addEventListener("change", (event) => {
+                     const selectedIndex = event.target.selectedIndex;
+                     selectTicketType = event.target.options[selectedIndex].text;
+                   });
+                 }
+             
+                 const headersList = {
+                   "Authorization": `Bearer ${token}`,
+                   "Content-Type": "application/json",
+                 };
+             
+                 const bodyContent = JSON.stringify({
+                   "accountNumber": document.getElementById("accountNumber").value,
+                   "bankName": selectTicketType,
+                   "accountName": document.getElementById("accountName").value,
+                 });
+             
+                 const response = await fetch("https://api.rhinoguards.co.uk/Organizer/payments/payMethod.php", {
+                   method: "POST",
+                   headers: headersList,
+                   body: bodyContent,
+                 });
+             
+                 if (!response.ok) {
+                   throw new Error(`Server error: ${response.status}`);
+                 }
+             
+                 const data = await response.json(); // Corrected to .json()
+                 console.log(data);
+             
+                 const conditionElement = document.getElementById("condition");
+             
+                 if (data.success) {
+                   conditionElement.innerText = data.message;
+                   conditionElement.style.color = "green";
+                 } else {
+                   conditionElement.innerText = data.message;
+                   conditionElement.style.color = "red";
+                 }
+               } catch (error) {
+                 console.error("Error:", error);
+               }
+             });
+             
+    </script>
+  </body>
 </html>
