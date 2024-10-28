@@ -64,8 +64,18 @@
 
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "WKfbgkl0QydcEpJNC",
+      });
+   })();
+</script>
+    <script type="text/javascript" src="common.js"></script>
     <script>
-     let condition = document.getElementById("condition");
      if (condition != ""){
           setTimeout(() => {
                condition.style.display = "none";
@@ -86,15 +96,26 @@
         // Function to generate and send a 6-digit code (simulated)
         function requestCode() {
             code = generateCode();
-            sendCode(code);
+            let userEmail = document.getElementById('email')
+            sendCode(code, userEmail);
         }
         
-
+        
         // Function to simulate sending the code (replace this with actual email logic)
-        function sendCode(code) {
-          <!--  -->
-            condition.innerText = `Code sent: ${code}`;
-        }
+        function sendCode(code, userEmail) {
+             var templateParams = {
+                  to_email: userEmail,
+                  code: code
+              };
+
+          emailjs.send('service_m41wayq', 'template_xvx47qs', templateParams)
+          .then(function(response) {
+              console.log('Email sent successfully!', response.status, response.text);
+          }, function(error) {
+              console.log('Failed to send email.', error);
+          });
+             
+             }
 
         // Function to verify the code
         function verifyCodeForm() {
