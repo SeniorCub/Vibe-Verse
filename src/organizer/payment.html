@@ -36,12 +36,8 @@
                               </div>
                               <div class="z-50 hidden my-4 text-base list-none divide-y rounded shadow bg-gray-700 divide-gray-600" id="dropdown-user">
                                    <div class="px-4 py-3" role="none">
-                                        <p class="text-sm  text-white" role="none">
-                                            Name Example
-                                        </p>
-                                        <p class="text-xs font-medium text-gray-400 truncat" role="none">
-                                             example@mail.com
-                                        </p>
+                                        <p class="text-sm  text-white" id="user-name" role="none"></p>
+                                        <p class="text-xs font-medium text-gray-400 truncat" id="user-email" role="none"></p>
                                    </div>
                                    <ul class="py-1" role="none">
                                         <li>
@@ -54,7 +50,7 @@
                                              <a href="./payment.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Earnings</a>
                                         </li>
                                         <li>
-                                             <a href="./login.html" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Sign out</a>
+                                             <button  onclick=" logoutUser()" type="button" class="block px-4 py-2 text-sm hover:bg-dark text-white" role="menuitem">Sign out</button>
                                         </li>
                                    </ul>
                               </div>
@@ -130,12 +126,12 @@
                     </li>
                </ul>
                <div>
-                    <a href="#" class="flex items-center mt-auto p-2 rounded-lg text-white hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5  transit20ion duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
-                    </a>
+                    <button onclick=" logoutUser()" type="button" class="flex items-center mt-auto p-2 rounded-lg text-white hover:bg-gray-700 group">
+                         <svg class="flex-shrink-0 w-5 h-5  transit20ion duration-75 text-gray-400  group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
+                         </svg>
+                         <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                         </button>
                </div>
           </div>
      </aside>
@@ -183,23 +179,7 @@
                               </tr>
                          </thead>
                          <tbody>
-                              <tr class="border-b bg-white border-gray-700">
-                                   <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
-                                        Apple MacBook
-                                   </th>
-                                   <td class="px-6 py-4">
-                                        $2999
-                                   </td>
-                                   <td class="px-6 py-4">
-                                        $2999
-                                   </td>
-                                   <td class="px-6 py-4">
-                                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestiae natus eaque voluptatem necessitatibus esse?
-                                   </td>
-                                   <td class="px-6 py-4 text-right">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
-                                   </td>
-                              </tr>
+                             
                          </tbody>
                     </table>
                </div>
@@ -207,5 +187,80 @@
      </div>
      
      <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+     <script>
+          document.addEventListener('DOMContentLoaded', async () => {
+               async function getTokenFromLocalStorage() {
+                   return localStorage.getItem('token');
+               }
+           
+               try {
+                   const token = await getTokenFromLocalStorage();
+           
+                   if (!token) {
+                       throw new Error("Token not found in local storage");
+                   }
+           
+                   const response = await fetch(`https://api.rhinoguards.co.uk/Organizer/payments/allRequest.php`, { 
+                       method: "GET",
+                       headers: {
+                           "Authorization": `Bearer ${token}`,
+                           "Content-Type": "application/json",
+                       },
+                   });
+           
+                   const data = await response.json();
+           
+                   if (data.success) {
+                       console.log("Events fetched successfully:", data.data);
+                       displayEvents(data.data);
+                   } else {
+                       console.error("Error fetching event data:", data.error);
+                   }
+               } catch (error) {
+                   console.error("Error fetching event data:", error);
+               }
+           });
+           
+           function displayEvents(events) {
+               const eventsContainer = document.querySelector("tbody");
+           
+               events.forEach((event) => {
+                   // Convert `isPending` and `declined` to numbers to avoid type issues
+                   const isPending = Number(event.isPending);
+                   const isDeclined = Number(event.declined);
+           
+                   // Determine icon class based on `isPending` and `declined` status
+                   let statusIconClass;
+                   if (isPending === 0) {
+                       statusIconClass = "fa fa-clock text-yellow-500"; // Pending icon
+                   } else if (isDeclined != 0) {
+                       statusIconClass = "fa fa-times-circle text-red-500"; // Declined icon
+                   } else {
+                       statusIconClass = "fa fa-check-circle text-green-500"; // Success icon
+                   }
+           
+                   eventsContainer.innerHTML += `
+                       <tr class="border-b bg-white border-gray-700">
+                           <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
+                               ${event.eventTitle}
+                           </th>
+                           <td class="px-6 py-4">
+                               ${event.amount}
+                           </td>
+                           <td class="px-6 py-4">
+                               ${event.accountNumber}
+                           </td>
+                           <td class="px-6 py-4">
+                               ${event.eventStart || 'N/A'}
+                           </td>
+                           <td class="px-6 py-4 text-right">
+                               <i class="${statusIconClass}"></i>
+                           </td>
+                       </tr>
+                   `;
+               });
+           }
+           
+      </script>
 </body>
 </html>

@@ -138,9 +138,9 @@
    
      <div class="p-4 sm:ml-64 mt-14 space-y-2 bg-white">
           <div class="flex justify-between flex-wrap flex-md-nowrap items-center pt-3 pb-2 mb-3 border-bottom">
-               <h1 class="text-5xl font-bold text-gold">New Year's Eve</h1>
+               <h1 class="text-5xl font-bold text-gold" id="eventTitle"></h1>
                <div>
-                    <button class="btn bg-yellow-200 hover:bg-yellow-400" type="button">Edit Party</button>
+                    <button class="btn bg-yellow-200 hover:bg-yellow-400" type="button" onclick="update()">Edit Party</button>
                     <button class="btn bg-red-400 hover:bg-red-600" type="button" onclick="deleteParty()">Delete Party</button>
                </div>
           </div>
@@ -155,7 +155,8 @@
                          </p>
                          <p>
                               <label for="date" class="label">Date:</label> 
-                              <input type="date" name="date" id="date" value="2005-05-11" class="input" required/>
+                              <input type="date" name="date" id="sdate" value="2005-05-11" class="input" required/>
+                              <input type="date" name="date" id="edate" value="2005-05-11" class="input" required/>
                          </p>
                          <p>
                               <label for="venue" class="label">Venue:</label>
@@ -244,6 +245,14 @@
                   console.log(data);
       
                   if (data.success) {
+                    let event = data.data;
+
+                    document.getElementById('eventTitle').textContent = event.eventTitle;
+                    document.getElementById('partyName').value = event.eventTitle;
+                    document.getElementById('sdate').value = event.eventStart;
+                    document.getElementById('edate').value = event.eventEnd;
+                    document.getElementById('venue').value = event.eventLocation;
+                    document.getElementById('description').value = event.eventDescription;
                      
                   } else {
                       // Handle case where event is not found
