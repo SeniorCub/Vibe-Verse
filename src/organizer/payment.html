@@ -331,12 +331,18 @@
           onsubmit="return false;">
         <div class="flex justify-between items-center">
           <h4 class="text-3xl font-bold">Payment Details</h4>
+         <div class="flex gap-2 text-sm ">
+          <button class="basis-1/3 border border-gold hover:bg-gold p-1 rounded-lg text-gold hover:text-white"
+          type="button" onclick="window.location.href='/src/organizer/request.html'"
+        >
+        Request Funds
           <button
-            class="bg-gold hover:bg-gold p-3 rounded-lg text-white"
-            type="submit"
-          >
-            Add/Update Payment Method
-          </button>
+          class="basis-2/3 bg-gold hover:bg-gold p-1 rounded-lg text-white"
+          type="submit"
+        >
+          Add/Update Payment Method
+        </button>     
+     </div>
         </div>
         <!--  Update/Add Payment Details Section -->
         <div class="grid md:grid-cols-3 grid-cols-1 mx-auto gap-5 p-5">
