@@ -1,451 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Code Scanner</title>
-    <link rel="stylesheet" href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css">
-    <link rel="stylesheet" href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../style.css">
-    <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../OfflineResources/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <script
+      src="https://kit.fontawesome.com/2a49fbdbb8.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
-          body {
-               overflow: hidden;
-               height: 100dvh;
-               margin: 0;
-               width: 100vw;
-               position: relative;
-          }
-          #video {
-               width: 100%;
-               height: 100%;
-               background-color: black;
-               cursor: pointer; /* Indicate that the video can be clicked/tapped */
-          }
-          #canvas {
-               display: none;
-          }
-          #output {
-               margin-top: 20px;
-               font-size: 1.2em;
-               color: var(--primary-color);
-          }
-          .qrcode {
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               justify-content: center;
-               width: 100%;
-               height: 100%;
-               position: relative;
-               border-radius: var(--radius);
-               background-color: var(--gold);
-               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          }
-          .qrcode .scanner {
-               width: 100%;
-               height: 100%;
-               position: relative;
-          }
-          .qrcode .header {
-               position: absolute;
-               top: 0;
-               width: 100%;
-               text-align: center;
-               padding: 20px;
-               background-color: #2F364533;
-               z-index: 10;
-               backdrop-filter: blur(10px);
-               color: var(--gold);
-          }
-          .qrcode form, #manualInput {
-               position: absolute;
-               bottom: 0;
-               width: 100%;
-               padding: 20px;
-               color: var(--white);
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               gap: 10px;
-               background-color: var(--primary-color);
-               label{
-                    font-size: 1.2em;
-                    color: #EEEDEB;
-               }
-          }
-          #scanForm{
-               background-color: #2F364533;
-               z-index: 10;
-               backdrop-filter: blur(10px);
-          }
-          #manualInput{
-               height: 100vh;
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               z-index: 20;
-               justify-content: center;
-          }
-          .qrcode input[type="text"], .qrcode input[type="text"]:disabled, .qrcode input[type="email"], .formGroup input {
-               width: 70%;
-               padding: 10px;
-               border: 1px solid var(--dark-color);
-               outline: none;
-               border-radius: var(--radius);
-               background-color: #EEEDEB;
-               margin: 0 auto;
-               color: black;
-               margin-bottom: 10px;
-               font-size: 1em;
-          }
-          .qrcode button {
-               padding: 10px 20px;
-               border: none;
-               border-radius: var(--radius);
-               background-color: var(--dark-color);
-               color: var(--white);
-               font-size: 1em;
-               cursor: pointer;
-               transition: background-color 0.3s ease;
-          }
-          .qrcode button:hover {
-               background-color: var(--primary-color);
-          }
-          .qrcode .option-container {
-               position: absolute;
-               top: 10px;
-               right: 10px;
-               z-index: 30;
-               border: 1px solid var(--gold);
-               border-radius: var(--radius);
-               padding: 10px;
-               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-               display: flex;
-               gap: 10px;
-               background-color: #2F364533;
-               backdrop-filter: blur(10px);
-          }
-          .qrcode .option-container button {
-               background-color: transparent;
-               color: var(--white);
-               border: 1px solid var(--gold);
-          }
-          .qrcode .option-container button.active {
-               background-color: var(--dark-color);
-               border: none;
-          }
-          .modal{
-               background-color: #E6B9A633;
-               backdrop-filter: blur(10px);
-          }
-          .modal-content{
-               background-color: var(--white);
-          }
-          .modal-body form{
-               display: flex;
-               flex-direction: column;
-               text-align: center;
-               justify-content: center;
-               align-items: center;
-               gap: 1rem;
-          }
-          .formGroup img{
-               width: 90%;
-               height: 40vh;
-               border-radius: var(--radius);
-          }
-          .formGroup{
-               margin: 0 auto;
-          }
-          .formGroup input {
-               background-color: transparent;
-               color: var(--primary-color);
-               font-weight: 700;
-               text-align: center;
-          }
-          .close{
-               background-color: rgba(255, 0, 0, 0.4);
-               border-radius: var(--radius);
-               color: var(--white);
-          }
-          .close:hover{
-               background-color: #ff0000;
-               border-radius: var(--radius);
-               color: var(--white);
-          }
-          .checkIn{
-               padding: 0.5rem 1rem;
-               border: none;
-               border-radius: var(--radius);
-               background-color: var(--primary-color);
-               color: var(--white);
-               cursor: pointer;
-               transition: background-color 0.3s ease;
-          }
-          #flashlightToggle{
-               position: absolute;
-               right: 0;
-               top: 40%;
-               z-index: 5;
-               i{
-                    font-size: 2rem;
-               }
-          }
-          /* From Uiverse.io by LeonKohli */ 
-.toggle {
-     background-color: #fff;
-     width: 56px;
-     height: 56px;
-     border-radius: 50%;
-     display: grid;
-     place-items: center;
-     cursor: pointer;
-     box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
-     line-height: 1;
-   }
-   
-   .input {
-     display: none;
-   }
-   
-   .icon {
-     grid-column: 1 / 1;
-     grid-row: 1 / 1;
-     transition: transform 500ms;
-   }
-   
-   .icon--moon {
-     transition-delay: 200ms;
-   }
-   
-   .icon--sun {
-     transform: scale(0);
-   }
-   
-   #switch:checked + .icon--moon {
-     transform: rotate(360deg) scale(0);
-   }
-   
-   #switch:checked ~ .icon--sun {
-     transition-delay: 200ms;
-     transform: scale(1) rotate(360deg);
-   }
-   
-   .w-8 {
-     width: 2rem /* 32px */;
-   }
-   input:disabled{
-          border: none;
-          border-bottom: 1px solid var(--gold);
-   }
-   
-          @media (min-width: 300px) and (max-width: 750px) {
-               .qrcode .option-container {
-                    top: 10vh;
-               }
-               #scanForm{
-                    padding: 0;
-               }
-               .qrcode input[type="text"], .qrcode input[type="text"]:disabled, .qrcode input[type="email"]{
-                    padding: 5px;
-                    width: 100%;
-                    margin: 0 auto;
-               }
-          }
+     .back-btn {
+          background-color: var(--gold)!important;
+          color: #ffffff!important;
+          border: none!important;
+          padding: 10px 20px!important;
+          font-size: 16px!important;
+          cursor: pointer!important;
+          position: absolute!important;
+          top: 50px!important;
+          left: 50px!important;
+          border-radius: var(--radius)!important;
+          z-index: 90;
+     }
+      
+      .back-btn:hover {
+          background-color: var(--dark-color)!important;
+      }
+      body {
+        overflow: hidden;
+        height: 100dvh;
+        margin: 0;
+        width: 100vw;
+        position: relative;
+      }
+      #video {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        cursor: pointer; /* Indicate that the video can be clicked/tapped */
+      }
+      #canvas {
+        display: none;
+      }
+      #output {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: var(--primary-color);
+      }
+      .qrcode {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border-radius: var(--radius);
+        background-color: var(--gold);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .qrcode .scanner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .qrcode .header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        background-color: #2f364533;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        color: var(--gold);
+      }
+      .qrcode form,
+      #manualInput {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 20px;
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--primary-color);
+        label {
+          font-size: 1.2em;
+          color: #eeedeb;
+        }
+      }
+      #scanForm {
+        background-color: #2f364533;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+      }
+      #manualInput {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 20;
+        justify-content: center;
+      }
+      .qrcode input[type="text"],
+      .qrcode input[type="text"]:disabled,
+      .qrcode input[type="email"],
+      .formGroup input {
+        width: 70%;
+        padding: 10px;
+        border: 1px solid var(--dark-color);
+        outline: none;
+        border-radius: var(--radius);
+        background-color: #eeedeb;
+        margin: 0 auto;
+        color: black;
+        margin-bottom: 10px;
+        font-size: 1em;
+      }
+      .qrcode button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: var(--radius);
+        background-color: var(--dark-color);
+        color: var(--white);
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .qrcode button:hover {
+        background-color: var(--primary-color);
+      }
+      .qrcode .option-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 30;
+        border: 1px solid var(--gold);
+        border-radius: var(--radius);
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 10px;
+        background-color: #2f364533;
+        backdrop-filter: blur(10px);
+      }
+      .qrcode .option-container button {
+        background-color: transparent;
+        color: var(--white);
+        border: 1px solid var(--gold);
+      }
+      .qrcode .option-container button.active {
+        background-color: var(--dark-color);
+        border: none;
+      }
+      .modal {
+        background-color: #e6b9a633;
+        backdrop-filter: blur(10px);
+      }
+      .modal-content {
+        background-color: var(--white);
+      }
+      .modal-body form {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      .formGroup img {
+        width: 90%;
+        height: 40vh;
+        border-radius: var(--radius);
+      }
+      .formGroup {
+        margin: 0 auto;
+      }
+      .formGroup input {
+        background-color: transparent;
+        color: var(--primary-color);
+        font-weight: 700;
+        text-align: center;
+      }
+      .close {
+        background-color: rgba(255, 0, 0, 0.4);
+        border-radius: var(--radius);
+        color: var(--white);
+      }
+      .close:hover {
+        background-color: #ff0000;
+        border-radius: var(--radius);
+        color: var(--white);
+      }
+      .checkIn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: var(--radius);
+        background-color: var(--primary-color);
+        color: var(--white);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      #flashlightToggle {
+        position: absolute;
+        right: 0;
+        top: 40%;
+        z-index: 5;
+        i {
+          font-size: 2rem;
+        }
+      }
+      /* From Uiverse.io by LeonKohli */
+      .toggle {
+        background-color: #fff;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
+        line-height: 1;
+      }
+
+      .input {
+        display: none;
+      }
+
+      .icon {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+        transition: transform 500ms;
+      }
+
+      .icon--moon {
+        transition-delay: 200ms;
+      }
+
+      .icon--sun {
+        transform: scale(0);
+      }
+
+      #switch:checked + .icon--moon {
+        transform: rotate(360deg) scale(0);
+      }
+
+      #switch:checked ~ .icon--sun {
+        transition-delay: 200ms;
+        transform: scale(1) rotate(360deg);
+      }
+
+      .w-8 {
+        width: 2rem /* 32px */;
+      }
+      input:disabled {
+        border: none;
+        border-bottom: 1px solid var(--gold);
+      }
+
+      @media (min-width: 300px) and (max-width: 750px) {
+        .qrcode .option-container {
+          top: 10vh;
+        }
+        #scanForm {
+          padding: 0;
+        }
+        .qrcode input[type="text"],
+        .qrcode input[type="text"]:disabled,
+        .qrcode input[type="email"] {
+          padding: 5px;
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+      #condition {
+        position: fixed;
+        right: 0;
+        top: 10vh;
+        background-color: var(--white);
+        padding: 10px 15px;
+        border-radius: 15px 0 0 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        color: red;
+        text-align: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
 
     <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog">
-          <div class="modal-content">
-               <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Check In</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                    <form action="">
-                         <div class="formGroup">
-                              <img src="../images/man-suit-sunglasses.avif" alt="....">
-                         </div>
-                         <div class="formGroup">
-                              <input type="text" name="uname" id="uname" disabled>
-                              <input type="text" name="email" id="email" disabled>
-                         </div>
-                    </form>
-               </div>
-               <div class="modal-footer">
-                    <button type="submit" name="btn checkIn" class="checkIn">Check In</button>
-                    <button type="reset" class="btn close" data-bs-dismiss="modal" onclick="closee()">Close</button>
-               </div>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Check In</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-     </div>
-</div>
+          <div class="modal-body">
+            <form action="">
+               <h4 id="eventTitle"></h4>
+              <div class="formGroup">
+                <img src="" alt="...." id="profileDp" />
+              </div>
+              <div class="formGroup">
+                <input type="text" name="uname" id="uname" disabled />
+                <input type="text" name="email" id="email" disabled />
+              </div>
+              <div class="formGroup">
+               <span id="ref"></span>
+               <span id="ticketType"></span>
+               <span id="attended"></span>
+               <span id="amount"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" name="btn checkIn" class="checkIn">
+              Check In
+            </button>
+            <button
+              type="reset"
+              class="btn close"
+              data-bs-dismiss="modal"
+              onclick="closee()"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="qrcode">
-     <div class="option-container">
-          <button id="scanOption" class="active" onclick="showScan()">Scan QR Code</button>
-          <button id="manualOption" onclick="showManual()">Enter Email</button>
-     </div>
-     <button id="flashlightToggle" onclick="toggleFlashlight()">
-         <!-- <i  class="fa fa-moon-o"></i> Default to moon icon -->
-          <i id="flashlightIcon" class="fa fa-moon"></i>
-          
-     </button>
-     <h1 class="header">QR Code Scanner</h1>
-     <div id="scanner" class="scanner">
-          <video id="video" autoplay></video>
-          <canvas id="canvas"></canvas>
-     </div>
-     <div id="manualInput" class="form-group d-none">
-          <input type="text" name="email" id="manualEmail" placeholder="Enter your email">
-          <button type="button" class="btn btn-primary" onclick="manualVerify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Email</button>
-     </div>
-     <form id="scanForm" class="form-group">
-          <label for="data" id="output">Scanning...</label>
-          <input type="text" name="data" id="data" readonly>
-          <button type="button" class="btn btn-primary" id="verify" onclick="getVerify()" data-bs-toggle="modal" data-bs-target="#exampleModal">Verify Now</button>
-     </form>
-</div>
+    <div class="qrcode">
+     <button type="button" class="back-btn" onclick="window.location.href='/src/organizer/scanLogin.html'">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <p id="condition"></p>
+      <div class="option-container">
+        <button id="scanOption" class="active" onclick="showScan()">
+          Scan QR Code
+        </button>
+        <button id="manualOption" onclick="showManual()">Enter Email</button>
+      </div>
+      <button id="flashlightToggle" onclick="toggleFlashlight()">
+        <!-- <i  class="fa fa-moon-o"></i> Default to moon icon -->
+        <i id="flashlightIcon" class="fa fa-moon"></i>
+      </button>
+      <h1 class="header">QR Code Scanner</h1>
+      <div id="scanner" class="scanner">
+        <video id="video" autoplay></video>
+        <canvas id="canvas"></canvas>
+      </div>
+      <div id="manualInput" class="form-group d-none">
+        <input
+          type="text"
+          name="email"
+          id="manualEmail"
+          placeholder="Enter your email"
+        />
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="manualVerify()"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Submit Email
+        </button>
+      </div>
+      <div id="scanForm" class="form-group">
+        <label for="data" id="output">Scanning...</label>
+        <input type="text" name="data" id="data" readonly disabled />
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="verify"
+          onclick="getVerify()"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Verify Now
+        </button>
+      </div>
+    </div>
 
-     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-     <script src="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
-     <script>
-          const video = document.getElementById('video');
-          const canvas = document.getElementById('canvas');
-          const context = canvas.getContext('2d');
-          const output = document.getElementById('output');
-          const data = document.getElementById('data');
-          const email = document.getElementById('email');
-          const manualEmail = document.getElementById('manualEmail');
-          const scanForm = document.getElementById('scanForm');
-          const manualInput = document.getElementById('manualInput');
-          const scanOption = document.getElementById('scanOption');
-          const manualOption = document.getElementById('manualOption');
-          const flashlightIcon = document.getElementById('flashlightIcon');
-          console.info(flashlightIcon)
-          let track = null; // To store the video track
-  
-          function closee() {
-               window.location.reload();
+    <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="../OfflineResources/fontawesome-free-6.4.2-web/css/all.css"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <script>
+      const video = document.getElementById("video");
+      const canvas = document.getElementById("canvas");
+      const context = canvas.getContext("2d");
+      const output = document.getElementById("output");
+      const data = document.getElementById("data");
+      const email = document.getElementById("email");
+      const manualEmail = document.getElementById("manualEmail");
+      const scanForm = document.getElementById("scanForm");
+      const manualInput = document.getElementById("manualInput");
+      const scanOption = document.getElementById("scanOption");
+      const manualOption = document.getElementById("manualOption");
+      const flashlightIcon = document.getElementById("flashlightIcon");
+      console.info(flashlightIcon);
+      let track = null; // To store the video track
+
+      function closee() {
+        window.location.reload();
+      }
+
+      function showScan() {
+        scanForm.classList.remove("d-none");
+        manualInput.classList.add("d-none");
+        scanOption.classList.add("active");
+        manualOption.classList.remove("active");
+      }
+
+      function showManual() {
+        scanForm.classList.add("d-none");
+        manualInput.classList.remove("d-none");
+        manualOption.classList.add("active");
+        scanOption.classList.remove("active");
+      }
+
+      let isFlashlightOn = false; // Track the state of the flashlight
+
+      function toggleFlashlight() {
+        if (track && track.getCapabilities().torch) {
+          isFlashlightOn = !isFlashlightOn;
+          track
+            .applyConstraints({
+              advanced: [{ torch: isFlashlightOn }],
+            })
+            .then(() => {
+              flashlightIcon.className = isFlashlightOn
+                ? "fa fa-sun-o"
+                : "fa fa-moon-o";
+              console.info(flashlightIcon);
+            })
+            .catch((error) => {
+              console.info(flashlightIcon);
+              console.error("Failed to toggle flashlight:", error);
+              flashlightIcon.className = "fa fa-moon-o";
+            });
+        } else {
+          console.info(flashlightIcon);
+          flashlightIcon.className = "fa fa-moon-o";
+          console.error("Flashlight is not available on this device.");
+        }
+      }
+
+      // Access the camera (modify the existing getUserMedia function to get the track)
+      navigator.mediaDevices
+        .getUserMedia({ video: { facingMode: "environment" } })
+        .then((stream) => {
+          video.srcObject = stream;
+          track = stream.getVideoTracks()[0]; // Get the video track for toggling flashlight
+          video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+          video.play();
+          requestAnimationFrame(tick);
+        });
+
+      function tick() {
+        if (video.readyState === video.HAVE_ENOUGH_DATA) {
+          canvas.height = video.videoHeight;
+          canvas.width = video.videoWidth;
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          const imageData = context.getImageData(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          );
+          const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+          if (code) {
+            output.textContent = `QR Code Data: ${code.data}`;
+            data.value = code.data;
+          } else {
+            output.textContent = "Scanning...";
           }
-  
-          function getVerify() {
-               email.value = data.value; // Correct assignment
-               console.log(`lets verify, email: ${email.value}`);
-               data.value = ''; // Clear the data input if needed
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // Tap to focus
+      video.addEventListener("click", () => {
+        if (track && track.getCapabilities().focusMode) {
+          const capabilities = track.getCapabilities();
+          const settings = track.getSettings();
+
+          if (capabilities.focusMode.includes("continuous")) {
+            track
+              .applyConstraints({
+                advanced: [{ focusMode: "continuous" }],
+              })
+              .catch((error) => {
+                console.error("Failed to set focus mode:", error);
+              });
+          } else if (capabilities.focusMode.includes("single-shot")) {
+            track
+              .applyConstraints({
+                advanced: [{ focusMode: "single-shot" }],
+              })
+              .catch((error) => {
+                console.error("Failed to set focus mode:", error);
+              });
           }
+        }
+      });
+
+      // Improve scanning by adjusting resolution
+      function optimizeVideoResolution() {
+        if (track) {
+          track
+            .applyConstraints({
+              video: {
+                width: { ideal: 640 },
+                height: { ideal: 480 },
+                aspectRatio: { ideal: 1.7777777778 },
+              },
+            })
+            .catch((error) => {
+              console.error("Failed to optimize video resolution:", error);
+            });
+        }
+      }
+
+      tick(); // Start the scanning loop
+
+      const conditionElement = document.getElementById("condition");
+      let eventId, organizer;
+      document.addEventListener("DOMContentLoaded", () => {
+        // Check if 'organizer' and 'eventId' are in localStorage
+        if (
+          !localStorage.getItem("organizer") ||
+          !localStorage.getItem("eventId")
+        ) {
+          // Redirect if either 'organizer' or 'eventId' is not set in localStorage
+          window.location.href = "scanLogin.html"; // Replace with your target URL
+        } else {
+          organizer = localStorage.getItem("organizer");
+          eventId = localStorage.getItem("eventId");
+          console.log( eventId, organizer)
+        }
+      });
+
+      function getVerify() {
+          email.value = data.value; // Correct assignment
+          console.log(`lets verify, email: ${email.value}`);
+          data.value = ""; // Clear the data input if needed
+        }
   
-          function manualVerify() {
-               email.value = manualEmail.value;
-               console.log(`Manual verification, email: ${email.value}`);
-               manualEmail.value = ''; // Clear the manual email input
-          }
-  
-          function showScan() {
-               scanForm.classList.remove('d-none');
-               manualInput.classList.add('d-none');
-               scanOption.classList.add('active');
-               manualOption.classList.remove('active');
-          }
-  
-          function showManual() {
-               scanForm.classList.add('d-none');
-               manualInput.classList.remove('d-none');
-               manualOption.classList.add('active');
-               scanOption.classList.remove('active');
-          }
-  
-          let isFlashlightOn = false; // Track the state of the flashlight
-  
-          function toggleFlashlight() {
-              if (track && track.getCapabilities().torch) {
-                  isFlashlightOn = !isFlashlightOn;
-                  track.applyConstraints({
-                      advanced: [{ torch: isFlashlightOn }]
-                  }).then(() => {
-                      flashlightIcon.className = isFlashlightOn ? 'fa fa-sun-o' : 'fa fa-moon-o';
-                      console.info(flashlightIcon)
-                  }).catch(error => {
-                    console.info(flashlightIcon)
-                      console.error('Failed to toggle flashlight:', error);
-                      flashlightIcon.className = 'fa fa-moon-o';
-                  });
-              } else {
-               console.info(flashlightIcon)
-               flashlightIcon.className = 'fa fa-moon-o';
-                  console.error('Flashlight is not available on this device.');
+        async function manualVerify() {
+          email.value = manualEmail.value;
+          console.log(`Manual verification, email: ${email.value}`);
+          manualEmail.value = ""; // Clear the manual email input
+        
+          try {
+            let headersList = {
+              "Content-Type": "application/json",
+            };
+        
+            let bodyContent = JSON.stringify({
+              "organizerEmail": organizer,
+              "email": email.value, // Send the actual email for verification
+              "eventId": eventId,
+            });
+        
+            const response = await fetch(
+              "https://api.rhinoguards.co.uk/Organizer/event/scan.php",
+              {
+                method: "POST",
+                headers: headersList,
+                body: bodyContent,
               }
+            );
+        
+            if (!response.ok) {
+              throw new Error(`Server error: ${response.statusText}`);
+            }
+        
+            const data = await response.json();
+            if (data.success) {
+              alert("Verification successful!");
+              console.log(data);
+        
+              // Display response message
+              conditionElement.innerText = data.message;
+        
+              // Populate specific elements with data from the response
+              document.getElementById('uname').value = data.data.username;
+              document.getElementById('email').value = data.data.email;
+              document.getElementById('profileDp').src = `https://api.rhinoguards.co.uk/${data.data.image}`;
+              document.getElementById('eventTitle').innerText = data.data.eventTitle;
+              document.getElementById('ref').innerText = data.data.ref;
+              document.getElementById('ticketType').innerText = data.data.ticketType;
+              document.getElementById('attended').innerText = data.data.attended === 1 ? "Attended" : "Not Attended";
+              document.getElementById('amount').innerText = data.data.amount;
+        
+              // Any additional logic for successful verification can go here
+            } else {
+              alert("Verification failed. Please try again.");
+            }
+          } catch (error) {
+            console.error("Error during manual verification:", error);
+            alert("An error occurred during verification. Please check your internet connection and try again.");
           }
-  
-          // Access the camera (modify the existing getUserMedia function to get the track)
-          navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then((stream) => {
-              video.srcObject = stream;
-              track = stream.getVideoTracks()[0]; // Get the video track for toggling flashlight
-              video.setAttribute('playsinline', true); // required to tell iOS safari we don't want fullscreen
-              video.play();
-              requestAnimationFrame(tick);
-          });
-  
-          function tick() {
-              if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                  canvas.height = video.videoHeight;
-                  canvas.width = video.videoWidth;
-                  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                  const code = jsQR(imageData.data, imageData.width, imageData.height);
-  
-                  if (code) {
-                      output.textContent = `QR Code Data: ${code.data}`;
-                      data.value = code.data;
-                  } else {
-                      output.textContent = "Scanning...";
-                  }
-              }
-              requestAnimationFrame(tick);
-          }
-  
-          // Tap to focus
-          video.addEventListener('click', () => {
-              if (track && track.getCapabilities().focusMode) {
-                  const capabilities = track.getCapabilities();
-                  const settings = track.getSettings();
-  
-                  if (capabilities.focusMode.includes('continuous')) {
-                      track.applyConstraints({
-                          advanced: [{ focusMode: 'continuous' }]
-                      }).catch(error => {
-                          console.error('Failed to set focus mode:', error);
-                      });
-                  } else if (capabilities.focusMode.includes('single-shot')) {
-                      track.applyConstraints({
-                          advanced: [{ focusMode: 'single-shot' }]
-                      }).catch(error => {
-                          console.error('Failed to set focus mode:', error);
-                      });
-                  }
-              }
-          });
-  
-          // Improve scanning by adjusting resolution
-          function optimizeVideoResolution() {
-              if (track) {
-                  track.applyConstraints({
-                      video: {
-                          width: { ideal: 640 },
-                          height: { ideal: 480 },
-                          aspectRatio: { ideal: 1.7777777778 }
-                      }
-                  }).catch(error => {
-                      console.error('Failed to optimize video resolution:', error);
-                  });
-              }
-          }
-          
-          tick(); // Start the scanning loop
-     </script>
-</body>
+        }
+        
+        
+    </script>
+  </body>
 </html>

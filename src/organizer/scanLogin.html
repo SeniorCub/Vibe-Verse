@@ -82,18 +82,28 @@
           font-size: 3.5rem;
      }
 }
+#condition {
+     position: fixed;
+     right: 0;
+     top: 10vh;
+     background-color: var(--white);
+     padding: 10px 15px;
+     border-radius: 15px 0 0 15px;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+     color: red;
+     text-align: center;
+ }
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center">
     <main>
+     <p id="condition"></p>
         <h1>Login to Scan QR Code</h1>
-        <form action="">
+        <form id="scanLogin" method="POST" onsubmit="return false;">
             <div class="form-group">
-                <label for="partyOrganizer" class="form-label">Party Organizers</label>
-                <select id="partyOrganizer" required>
-                    <option selected disabled>Choose your Group...</option>
-                    <option value="nowSounds">Now Sounds</option>
-                    <option value="theBoys">The Boys</option>
+                <label for="party-name" class="form-label">Party Organizers</label>
+                <select id="party-name" required>
+                    <option selected disabled>Choose your Party...</option>
                 </select>
             </div>
             <div class="form-group">
@@ -107,7 +117,100 @@
     <script src="../OfflineResources/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2a49fbdbb8.js" crossorigin="anonymous"></script>
     <script>
-       
+     const conditionElement = document.getElementById("condition");
+     const selectElement = document.getElementById("party-name");
+     let  selectAmount, selectTicketType; // Initialize variable
+     document.addEventListener('DOMContentLoaded', () => {
+          fetch('https://api.rhinoguards.co.uk/User/allEvents.php') // Replace with your actual API URL
+              .then(response => response.json())
+              .then(data => {
+               conditionElement.innerText = "Loading Events...";
+                  if (data.success) {
+                    console.log("Events fetched successfully:", data.data);
+                    
+                    let events = data.data;
+        
+                    // Populate dropdown with event titles
+                    events.forEach((event) => {
+                      const option = document.createElement("option");
+                      option.value = event.id;
+                      option.textContent = event.eventTitle;
+                      selectElement.appendChild(option);
+                    });
+                  } else {
+                    conditionElement.innerText = data.error;
+                    console.error("Error fetching events:", data.error);
+                  }
+              })
+              .catch(error => {
+               conditionElement.innerText = error;
+                  console.error("Error fetching events:", error);
+              });
+      });
+        
+       // Add event listener to handle selection changes
+       if (selectElement) {
+          selectElement.addEventListener("change", (event) => {
+            const selectedIndex = event.target.selectedIndex; // Get the index of the selected option
+            selectAmount = event.target.value; // Get the selected value (amount)
+            selectTicketType = event.target.options[selectedIndex].text; // Get the selected text (ticket type)
+  
+            console.log(
+              `Selected Amount: ${selectAmount}, Selected Ticket Type: ${selectTicketType}`
+            );
+          });
+        }
+        document
+        .getElementById("scanLogin")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          try {
+            const headersList = {
+              "Content-Type": "application/json",
+            };
+
+            const bodyContent = JSON.stringify({
+               'eventTitle': selectTicketType,
+               'eventId': selectAmount,
+              'email': document.getElementById('email').value
+            });
+
+            function fetchWithTimeout(url, options, timeout = 5000) {
+               return Promise.race([
+                 fetch(url, options),
+                 new Promise((_, reject) => setTimeout(() => reject(new Error("Request timed out")), timeout))
+               ]);
+             }
+             
+            const response = await fetchWithTimeout("https://api.rhinoguards.co.uk/Organizer/event/scanLogin.php", {
+               method: "POST",
+               headers: headersList,
+               body: bodyContent
+             });
+             
+
+            if (!response.ok) {
+              throw new Error(`Server error: ${response.status}`);
+            }
+
+            const data = await response.json(); // Corrected to .json()
+            console.log(data);
+
+            if (data.success) {
+              conditionElement.innerText = data.message;
+              localStorage.setItem('organizer', data.organizer);
+              localStorage.setItem('eventId', selectAmount);
+              conditionElement.style.color = "green";
+               window.location.href= data.url;
+            } else {
+              conditionElement.innerText = data.message;
+              conditionElement.style.color = "red";
+            }
+          } catch (error) {
+               conditionElement.innerText = error;
+            console.error("Error:", error);
+          }
+        });
     </script>
 </body>
 </html>
