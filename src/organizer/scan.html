@@ -613,16 +613,6 @@
               // Display response message
               conditionElement.innerText = data.message;
         
-              // Populate specific elements with data from the response
-              document.getElementById('uname').value = data.data.username;
-              document.getElementById('email').value = data.data.email;
-              document.getElementById('profileDp').src = `https://api.rhinoguards.co.uk/${data.data.image}`;
-              document.getElementById('eventTitle').innerText = data.data.eventTitle;
-              document.getElementById('ref').innerText = data.data.ref;
-              document.getElementById('ticketType').innerText = data.data.ticketType;
-              document.getElementById('attended').innerText = data.data.attended === 1 ? "Attended" : "Not Attended";
-              document.getElementById('amount').innerText = data.data.amount;
-        
               // Any additional logic for successful verification can go here
             } else {
               alert("Verification failed. Please try again.");
