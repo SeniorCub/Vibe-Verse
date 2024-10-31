@@ -1,0 +1,35 @@
+[26-Oct-2024 02:29:11 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'rhinogua_RhinoAdmin'@'localhost' to database 'user_events_farinderif_gmail_com' in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php:38
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php(38): mysqli_connect('localhost', 'rhinogua_RhinoA...', 'H2SO4.H2O', 'user_events_far...')
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 38
+[26-Oct-2024 03:27:58 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'fave002'@'localhost' (using password: YES) in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php:35
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php(35): mysqli_connect('localhost', 'fave002', 'H2SO4.H2O', 'rhinogua_user_e...')
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 35
+[26-Oct-2024 03:33:33 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'selectUsername'@'localhost' (using password: YES) in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php:35
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php(35): mysqli_connect('localhost', 'selectUsername', 'H2SO4.H2O', 'rhinogua_user_e...')
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 35
+[26-Oct-2024 03:34:37 UTC] PHP Warning:  Undefined variable $username_ in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 44
+[26-Oct-2024 03:34:37 UTC] PHP Warning:  file_put_contents(../Uploads/671c634dd05dd.png): Failed to open stream: No such file or directory in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 45
+[26-Oct-2024 03:34:58 UTC] PHP Warning:  Undefined variable $usernamee_ in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 44
+[26-Oct-2024 03:34:58 UTC] PHP Warning:  file_put_contents(../Uploads/671c6362ce4e1.png): Failed to open stream: No such file or directory in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 45
+[26-Oct-2024 03:35:16 UTC] PHP Warning:  Undefined variable $usernamee_ in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 44
+[26-Oct-2024 03:35:16 UTC] PHP Warning:  file_put_contents(../Uploads/671c63744eddf.png): Failed to open stream: No such file or directory in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 45
+[26-Oct-2024 03:35:45 UTC] PHP Warning:  file_put_contents(../Uploads/selectUsername_671c63911a4cb.png): Failed to open stream: No such file or directory in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 45
+[26-Oct-2024 03:37:46 UTC] PHP Warning:  file_put_contents(../Uploads/fave002_671c640ae28e4.png): Failed to open stream: No such file or directory in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 45
+[26-Oct-2024 03:38:47 UTC] PHP Warning:  file_put_contents(../Uploads/fave002_671c64473f529.png): Failed to open stream: No such file or directory in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 45
+[27-Oct-2024 13:47:02 UTC] PHP Warning:  Undefined variable $userTableName in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 41
+[27-Oct-2024 13:47:02 UTC] PHP Fatal error:  Uncaught Error: mysqli_stmt object is already closed in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php:100
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php(100): mysqli_stmt->close()
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 100
+[29-Oct-2024 12:54:41 UTC] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php:91
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php(91): mysqli_stmt->bind_param('diss', 5002, 5002, 4, 'farinderif@gmai...', 16)
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/User/register.php on line 91

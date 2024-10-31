@@ -1,0 +1,2133 @@
+[28-Oct-2024 00:14:30 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:35:49 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:38:46 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:40:54 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:42:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:42:57 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:44:51 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:45:27 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:48:21 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:50:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:50:19 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:51:14 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:51:47 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:53:23 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:53:48 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:55:30 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:55:57 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:56:23 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:57:05 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 00:57:22 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 01:07:55 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 01:23:27 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 01:43:14 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 01:47:11 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 37
+    [sec-ch-ua-platform] => "Windows"
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 01:47:48 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 11:37:32 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Android"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.36
+    [sec-ch-ua] => "Chromium";v="119", "Google Chrome";v="119"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?1
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 11:46:31 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:02:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:12:55 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 37
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:12:55 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php:34
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php(34): trim(Array)
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:12:55 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 37
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:12:55 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php:34
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php(34): trim(Array)
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:12:55 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 37
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:12:55 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php:34
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php(34): trim(Array)
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:12:55 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 37
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:12:55 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php:34
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php(34): trim(Array)
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:17:35 UTC] Array
+(
+    [Content-Length] => 0
+    [Accept-Encoding] => gzip, deflate, br
+    [Accept] => */*
+    [User-Agent] => Thunder Client (https://www.thunderclient.com)
+    [Content-Type] => application/json
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => close
+)
+
+[28-Oct-2024 12:17:35 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:17:35 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:17:35 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 35
+[28-Oct-2024 12:17:35 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 35
+[28-Oct-2024 12:17:35 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 36
+[28-Oct-2024 12:17:35 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 36
+[28-Oct-2024 12:17:42 UTC] Array
+(
+    [Content-Length] => 103
+    [Accept-Encoding] => gzip, deflate, br
+    [Accept] => */*
+    [User-Agent] => Thunder Client (https://www.thunderclient.com)
+    [Content-Type] => application/json
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => close
+)
+
+[28-Oct-2024 12:19:04 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:19:09 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 37
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:19:09 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php:34
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php(34): trim(Array)
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:20:07 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:22:24 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 37
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:22:24 UTC] PHP Fatal error:  Uncaught TypeError: trim(): Argument #1 ($string) must be of type string, array given in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php:34
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php(34): trim(Array)
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 34
+[28-Oct-2024 12:27:32 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:27:54 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 53
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:27:54 UTC] PHP Warning:  Undefined array key "bankName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 35
+[28-Oct-2024 12:27:54 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 35
+[28-Oct-2024 12:34:22 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:36:43 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:37:40 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:38:50 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:39:44 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:39:54 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 53
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:39:54 UTC] PHP Warning:  Undefined array key "bankName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:39:54 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:41:04 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 53
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:41:04 UTC] PHP Warning:  Undefined array key "bankName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:41:04 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:41:14 UTC] Array
+(
+    [Content-Length] => 103
+    [Accept-Encoding] => gzip, deflate, br
+    [Accept] => */*
+    [User-Agent] => Thunder Client (https://www.thunderclient.com)
+    [Content-Type] => application/json
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => close
+)
+
+[28-Oct-2024 12:43:58 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:45:25 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 90
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:48:02 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:48:03 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 90
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:52:46 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:53:21 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 53
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:53:21 UTC] PHP Warning:  Undefined array key "bankName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:53:21 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:54:46 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:54:54 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 53
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:54:54 UTC] PHP Warning:  Undefined array key "bankName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:57:56 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:58:12 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 53
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:58:12 UTC] PHP Warning:  Undefined array key "bankName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 12:58:46 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 12:59:04 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 53
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 12:59:04 UTC] PHP Warning:  Undefined array key "bankName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 37
+[28-Oct-2024 13:04:41 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:04:55 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 67
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:05:07 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 67
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:07:33 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:10:08 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 67
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:10:15 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 67
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:23:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:23:14 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 67
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:25:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:25:03 UTC] PHP Parse error:  syntax error, unexpected token "if" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/payments/payMethod.php on line 46
+[28-Oct-2024 13:27:19 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:27:26 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 67
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:27:50 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 67
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:28:41 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:29:03 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:43:04 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:45:14 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 13:45:23 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 86
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 13:47:53 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 14:21:39 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 22:51:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 22:52:59 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 22:54:18 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 22:55:17 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 22:57:52 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 22:58:19 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 22:59:10 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:07:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:07:58 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:08:00 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:08:27 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:08:52 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:09:19 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:09:36 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:10:45 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:10:58 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[28-Oct-2024 23:11:25 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+    [Content-Length] => 0
+)
+
+[29-Oct-2024 00:50:47 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 86
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[29-Oct-2024 00:54:10 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 86
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[29-Oct-2024 01:32:05 UTC] Array
+(
+    [Range] => bytes: 0-22
+    [traceparent] => 00-0cddd540446572c6f4286e024c63d0d4-8941078d9ab73ec4-01
+    [baggage] => sentry-environment=production,sentry-public_key=e6210d6b5d3246c29d5667b356d11c63,sentry-release=ha_github_commits_consumer@418930,sentry-trace_id=0b6d96149e9d44c1b706c9d24da9bd94
+    [Host] => api.rhinoguards.co.uk
+    [Accept] => */*
+    [User-Agent] => Mozilla/5.0 (compatible)
+    [Content-Length] => 0
+)
+
+[29-Oct-2024 13:20:11 UTC] Array
+(
+    [Range] => bytes: 0-22
+    [traceparent] => 00-430ed63b9ac5a2186449359ec5454844-2886000542696650-00
+    [baggage] => sentry-environment=production,sentry-public_key=e6210d6b5d3246c29d5667b356d11c63,sentry-release=ha_github_commits_consumer@418930,sentry-trace_id=6331e0d1e03345a395bed16d75a2d1b8
+    [Host] => api.rhinoguards.co.uk
+    [Accept] => */*
+    [User-Agent] => Mozilla/5.0 (compatible)
+    [Content-Length] => 0
+)
+
+[30-Oct-2024 01:30:26 UTC] Array
+(
+    [Range] => bytes: 0-22
+    [traceparent] => 00-392a808afff82087d98e08b0da497e22-cfb43edfd7f4401a-00
+    [baggage] => sentry-environment=production,sentry-public_key=e6210d6b5d3246c29d5667b356d11c63,sentry-release=ha_github_commits_consumer@418930,sentry-trace_id=9cb7a9aec25e4383a07b1f5fd1603ab9
+    [Host] => api.rhinoguards.co.uk
+    [Accept] => */*
+    [User-Agent] => Mozilla/5.0 (compatible)
+    [Content-Length] => 0
+)
+
+[30-Oct-2024 01:30:26 UTC] Array
+(
+    [Range] => bytes: 0-22
+    [traceparent] => 00-518d549914705f2a7b842cb46dae6947-593cca4864b9bd6d-00
+    [baggage] => sentry-environment=production,sentry-public_key=e6210d6b5d3246c29d5667b356d11c63,sentry-release=ha_github_commits_consumer@418930,sentry-trace_id=9cb7a9aec25e4383a07b1f5fd1603ab9
+    [Host] => api.rhinoguards.co.uk
+    [Accept] => */*
+    [User-Agent] => Mozilla/5.0 (compatible)
+    [Content-Length] => 0
+)
+
+[30-Oct-2024 01:30:26 UTC] Array
+(
+    [Range] => bytes: 0-22
+    [traceparent] => 00-e1d360f3192c14ca290a34a41920d515-f045b9c7b7569092-00
+    [baggage] => sentry-environment=production,sentry-public_key=e6210d6b5d3246c29d5667b356d11c63,sentry-release=ha_github_commits_consumer@418930,sentry-trace_id=9cb7a9aec25e4383a07b1f5fd1603ab9
+    [Host] => api.rhinoguards.co.uk
+    [Accept] => */*
+    [User-Agent] => Mozilla/5.0 (compatible)
+    [Content-Length] => 0
+)
+

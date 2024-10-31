@@ -1,0 +1,287 @@
+[26-Oct-2024 02:35:58 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'rhinogua_RhinoAdmin'@'localhost' to database 'user_events_farinderif_gmail_com' in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php:54
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php(54): mysqli_query(Object(mysqli), 'CREATE DATABASE...')
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 54
+[26-Oct-2024 02:40:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'rhinogua_RhinoAdmin'@'localhost' to database 'user_events_adelekeoluwamayokun27_gmail_com' in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php:54
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php(54): mysqli_query(Object(mysqli), 'CREATE DATABASE...')
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 54
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "organizationName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "contactNumber" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "email" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "address" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "website" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "description" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "password" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:46:38 UTC] PHP Warning:  Undefined array key "confirmPassword" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:46:38 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "organizationName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "contactNumber" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "email" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "address" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "website" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "description" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "password" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:47:34 UTC] PHP Warning:  Undefined array key "confirmPassword" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:47:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "organizationName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "contactNumber" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "email" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "address" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "website" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "description" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "password" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:48:08 UTC] PHP Warning:  Undefined array key "confirmPassword" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:48:08 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "organizationName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "contactNumber" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "email" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "address" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "website" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "description" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "password" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:49:23 UTC] PHP Warning:  Undefined array key "confirmPassword" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:49:23 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "organizationName" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 12
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "contactNumber" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 13
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "email" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 14
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "address" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 15
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "website" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 16
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "description" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 17
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "password" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 18
+[26-Oct-2024 02:50:34 UTC] PHP Warning:  Undefined array key "confirmPassword" in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:50:34 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 19
+[26-Oct-2024 02:53:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'rhinogua_RhinoAdmin'@'localhost' to database 'user_events_faride_gmail_com' in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php:65
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php(65): mysqli_query(Object(mysqli), 'CREATE DATABASE...')
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 65
+[26-Oct-2024 02:57:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'rhinogua_RhinoAdmin'@'localhost' to database 'user_events_faridae_gmail_com' in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php:65
+Stack trace:
+#0 /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php(65): mysqli_query(Object(mysqli), 'CREATE DATABASE...')
+#1 {main}
+  thrown in /home/rhinogua/public_html/api.rhinoguards.co.uk/Organizer/register.php on line 65
+[28-Oct-2024 15:09:17 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 280
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 15:11:07 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 165
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 15:11:30 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 257
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 15:13:22 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 258
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer btTpE1ty9GT0SGl6GM6K
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 21:50:43 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 52
+    [sec-ch-ua-platform] => "Windows"
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 22:16:26 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 52
+    [sec-ch-ua-platform] => "Windows"
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 22:16:30 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 52
+    [sec-ch-ua-platform] => "Windows"
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[28-Oct-2024 22:41:25 UTC] Array
+(
+    [Host] => api.rhinoguards.co.uk
+    [Connection] => keep-alive
+    [Content-Length] => 34
+    [sec-ch-ua-platform] => "Windows"
+    [Authorization] => Bearer AtAnM5zj3wzEPWVfACgX
+    [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0
+    [sec-ch-ua] => "Chromium";v="130", "Microsoft Edge";v="130", "Not?A_Brand";v="99"
+    [Content-Type] => application/json
+    [sec-ch-ua-mobile] => ?0
+    [Accept] => */*
+    [Origin] => http://127.0.0.1:5501
+    [Sec-Fetch-Site] => cross-site
+    [Sec-Fetch-Mode] => cors
+    [Sec-Fetch-Dest] => empty
+    [Referer] => http://127.0.0.1:5501/
+    [Accept-Encoding] => gzip, deflate, br, zstd
+    [Accept-Language] => en-US,en;q=0.9
+)
+
+[30-Oct-2024 10:53:11 UTC] Array
+(
+    [Range] => bytes: 0-22
+    [traceparent] => 00-75a066389f2887e91af9c78240b86d10-e3ac4de36d7b962a-00
+    [baggage] => sentry-environment=production,sentry-public_key=e6210d6b5d3246c29d5667b356d11c63,sentry-release=ha_github_commits_consumer@418930,sentry-trace_id=9cb7a9aec25e4383a07b1f5fd1603ab9
+    [Host] => api.rhinoguards.co.uk
+    [Accept] => */*
+    [User-Agent] => Mozilla/5.0 (compatible)
+    [Content-Length] => 0
+)
+
+[30-Oct-2024 10:53:12 UTC] Array
+(
+    [Range] => bytes: 0-22
+    [traceparent] => 00-0e781b6947c373da2fa98363c1d8a2a0-476deef23b68e985-00
+    [baggage] => sentry-environment=production,sentry-public_key=e6210d6b5d3246c29d5667b356d11c63,sentry-release=ha_github_commits_consumer@418930,sentry-trace_id=9cb7a9aec25e4383a07b1f5fd1603ab9
+    [Host] => api.rhinoguards.co.uk
+    [Accept] => */*
+    [User-Agent] => Mozilla/5.0 (compatible)
+    [Content-Length] => 0
+)
+
