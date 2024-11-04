@@ -28,10 +28,6 @@ async function getInfo() {
                     logoutUser()
                }, 5000)
             } else {
-                // Populate user details and show content
-                const displayName = data.data.name.length > 20 ? data.data.name.slice(0, 15) + "..." : data.data.name;
-                document.getElementById('user-name').textContent = displayName;
-                document.getElementById('user-email').textContent = data.data.email;
                 document.getElementById('loading').style.display = "none"; // Hide loading screen
                 document.getElementById('content').style.display = "block"; // Show content
             }

@@ -45,6 +45,9 @@ if (condition.innerText != "") {
 document.getElementById("loginForm").addEventListener("submit", async function(event) {
     event.preventDefault(); // Prevent form submission
 
+    // disable submit button
+    document.querySelector('.submit-btn').disabled = true;
+
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
