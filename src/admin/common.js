@@ -3,8 +3,7 @@ const API_BASE_URL = "https://api.rhinoguards.co.uk";
 async function getInfo() {
     try {
         const token = await getTokenFromLocalStorage();
-        if (!token) throw new Error("Token not found in local storage");
-
+       
         const result = await fetch(`${API_BASE_URL}/session.php`, {
             method: "POST",
             headers: {
@@ -15,7 +14,6 @@ async function getInfo() {
 
         const data = await result.json();
         if (data.status === "error") {
-            console.log(data.url);
             window.location.href = data.url;
         } else {
             console.log(data);
