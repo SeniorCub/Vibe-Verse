@@ -106,23 +106,7 @@
                               </tr>
                          </thead>
                          <tbody>
-                              <tr class="border-b bg-white border-gray-700">
-                                   <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
-                                        Apple MacBook
-                                   </th>
-                                   <td class="px-6 py-4">
-                                        $2999
-                                   </td>
-                                   <td class="px-6 py-4">
-                                        $2999
-                                   </td>
-                                   <td class="px-6 py-4">
-                                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit molestiae natus eaque voluptatem necessitatibus esse?
-                                   </td>
-                                   <td class="px-6 py-4 text-right">
-                                        <a href="./order.html" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
-                                   </td>
-                              </tr>
+                              
                          </tbody>
                     </table>
                </div>
@@ -154,38 +138,38 @@
           } catch (error) {
               console.error("Fetch Error in showRequest:", error);
           }
-      }
+     }
       
-      // Function to dynamically populate recent requests
-    function populateRecentRequests(requests) {
-        const eventsContainer = document.querySelector("tbody");
+     // Function to dynamically populate recent requests
+     function populateRecentRequests(requests) {
+          const eventsContainer = document.querySelector("tbody");
 
-        requests.forEach((event) => {
-     const displayName = event.name.length > 15 ? event.name.slice(0, 10) + "..." : event.name;
-     const displayEmail = event.email.length > 15 ? event.email.slice(0, 10) + "..." : event.email;
-          eventsContainer.innerHTML += `
-                       <tr class="border-b bg-white border-gray-700">
-                           <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
-                               ${displayName}
-                           </th>
-                           <td class="px-6 py-4">
-                               ${displayEmail}
-                           </td>
-                           <td class="px-6 py-4">
-                               ${event.phone}
-                           </td>
-                           <td class="px-6 py-4">
-                               $${event.totalBalance}
-                           </td>
-                         <td class="px-6 py-4 text-right">
-                              <a href="./organize.html?id=${event.id}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
-                         </td>
-                       </tr>
-                   `;
-        });
-    }
+          requests.forEach((event) => {
+          const displayName = event.eventTitle.length > 15 ? event.eventTitle.slice(0, 10) + "..." : event.eventTitle;
+          const displayEmail = event.organizerEmail.length > 15 ? event.organizerEmail.slice(0, 10) + "..." : event.organizerEmail;
+               eventsContainer.innerHTML += `
+                         <tr class="border-b bg-white border-gray-700">
+                              <th scope="row" class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
+                                   ${displayName}
+                              </th>
+                              <td class="px-6 py-4">
+                                   ${displayEmail}
+                              </td>
+                              <td class="px-6 py-4">
+                                   $${event.amount}
+                              </td>
+                              <td class="px-6 py-4">
+                                   ${event.description.length > 50 ? event.description.slice(0, 50) + "..." : event.description}
+                              </td>
+                              <td class="px-6 py-4 text-right">
+                                   <a href="./order.html?id=${event.id}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
+                              </td>
+                         </tr>
+                    `;
+          });
+     }
       
- document.addEventListener("DOMContentLoaded", showRequest);
+     document.addEventListener("DOMContentLoaded", showRequest);
 
     </script>
 </body>
