@@ -172,8 +172,8 @@
                          <input type="text" class="py-3 w-full bg-transparent rounded-lg">
                     </div>
                     <div class=" text-right flex">
-                         <a href="#" class="text-decoration-none text-green-500 p-2 rounded"> <i class="fa fa-check" aria-hidden="true"></i> </a>
-                         <a href="#"  class="text-decoration-none text-red-500 p-2 rounded"> <i class="fa fa-x" aria-hidden="true"></i> </a>
+                         <button onclick="act" class="text-decoration-none text-green-500 p-2 rounded"> <i class="fa fa-check" aria-hidden="true"></i> </button>
+                         <button onclick="deleted()"  class="text-decoration-none text-red-500 p-2 rounded"> <i class="fa fa-x" aria-hidden="true"></i> </button>
                     </div>
                </div>     
           </div> 
@@ -182,6 +182,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="./common.js"></script>
      <script>
+          let email;
           document.addEventListener('DOMContentLoaded', async () => {
 
               const urlParams = new URLSearchParams(window.location.search);
@@ -205,6 +206,7 @@
                   console.log(data.data);
                   if (data.success) {
                     let event = data.data;
+                    email = event.email;
                   } else {
                       // Handle case where event is not found
                   console.error("Error fetching event data:", data.error);
@@ -223,7 +225,7 @@
                try {
                  const token = await getTokenFromLocalStorage();
                  
-                 const response = await fetch(`${API_BASE_URL}/Admin/activate.php?id=${eventId}`, {
+                 const response = await fetch(`${API_BASE_URL}/Admin/acceptOrder.php?id=${eventId}&email=${email}`, {
                       method: "GET",
                       headers: {
                            "Authorization": `Bearer ${token}`,
@@ -251,7 +253,7 @@
                try {
                  const token = await getTokenFromLocalStorage();
                  
-                 const response = await fetch(`${API_BASE_URL}/Admin/delete.php?id=${eventId}`, {
+                 const response = await fetch(`${API_BASE_URL}/Admin/acceptOrder.php?id=${eventId}&email=${email}`, {
                       method: "GET",
                       headers: {
                            "Authorization": `Bearer ${token}`,
