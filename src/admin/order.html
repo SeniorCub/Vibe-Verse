@@ -182,6 +182,12 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="./common.js"></script>
      <script>
+          function hawk(msg) {
+               console.log(`hawk=> ${msg}`)
+          }
+          function tuah(msg) {
+               console.error(`tuah=> ${msg}`)
+          }
           let email;
           document.addEventListener('DOMContentLoaded', async () => {
 
@@ -201,19 +207,18 @@
       
                   const data = await response.json();
       
-                  // Log the received data for debugging
-                  
-                  console.log(data.data);
+                  // Log the received data for debugging 
+                 hawk(data.data);
                   if (data.success) {
                     let event = data.data;
                     email = event.email;
                   } else {
                       // Handle case where event is not found
-                  console.error("Error fetching event data:", data.error);
+                 tuah("Error fetching event data:", data.error);
                   }
               } catch (error) {
                window.location.href = "./transactions.html";
-                  console.error("Error fetching event data:", error);
+                  tuah("Error fetching event data:", error);
               }
               
           });
@@ -237,12 +242,12 @@
        
                  // Check if the API call was successful
                  if (data.success) {
-                    console.log(data.message);
+                    hawk(data.message);
                  } else {
-                   console.error("Error fetching events:", data.error);
+                   tuah("Error fetching events:", data.error);
                  }
                } catch (error) {
-                 console.error("Fetch error:", error);
+                 tuah("Fetch error:", error);
                }
           }
           async function deleted() {
@@ -265,13 +270,13 @@
        
                  // Check if the API call was successful
                  if (data.success) {
-                    console.log(data.message);
+                    hawk(data.message);
                window.location.href = "./organizers.html";
                  } else {
-                   console.error("Error fetching events:", data.error);
+                   tuah("Error fetching events:", data.error);
                  }
                } catch (error) {
-                 console.error("Fetch error:", error);
+                 tuah("Fetch error:", error);
                }
           }
       </script>
