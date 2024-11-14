@@ -129,12 +129,12 @@
               });
               const data = await result.json();
       
-              <!-- if (data.success) { -->
+              if (data.success) {
                    console.log(data);
                    populateRecentRequests(data.data); // Call function to populate requests
                } else {
               console.error("Fetch Error in showRequest:", error);
-              <!-- } -->
+              }zz
           } catch (error) {
               console.error("Fetch Error in showRequest:", error);
           }
